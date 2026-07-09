@@ -1,0 +1,69 @@
+{
+  "items": [
+    {
+      "id": "dzvinok",
+      "name_uk": "Дзвінок",
+      "name_en": "Dzvinok",
+      "category": "facades",
+      "categoryLabel_uk": "Фасади та вивіски",
+      "categoryLabel_en": "Facades & Signs",
+      "location_uk": "м. Горохів",
+      "location_en": "Горохів",
+      "description_uk": "Виготовлення та монтаж фризу з композитного матеріалу та світлової вивіски для мережі магазинів «Дзвінок» у м. Горохів.",
+      "imageUrl": "/data/projects/dzvinok.jpg",
+      "description_en": "Manufacturing and installation of composite material frieze and illuminated sign for the Dzvinok retail chain in Horokhiv."
+    },
+    {
+      "id": "diesel-boss",
+      "name_uk": "Дизель-Босс",
+      "name_en": "Diesel Boss",
+      "category": "facades",
+      "categoryLabel_uk": "Фасади та вивіски",
+      "categoryLabel_en": "Facades & Signs",
+      "location_uk": "смт. Луків",
+      "location_en": "Луків",
+      "description_uk": "Оздоблення АЗС «Дизель-Босс» у селищі Луків. Алюмінієві композитні панелі, світлові літери та LED-підсвітка фризу.",
+      "imageUrl": "/data/projects/diesel-boss.jpg",
+      "description_en": "Decoration of the Diesel Boss gas station in Lukiv. Aluminum composite panels, illuminated letters, and LED frieze lighting."
+    },
+    {
+      "id": "dakhprofil",
+      "name_uk": "Дах-профіль",
+      "name_en": "Dakhprofil",
+      "category": "facades",
+      "categoryLabel_uk": "Фасади та вивіски",
+      "categoryLabel_en": "Facades & Signs",
+      "location_uk": "м. Луцьк",
+      "location_en": "Луцьк",
+      "description_uk": "Оформлення фасаду офісного приміщення заводу «Дах-профіль» у м. Луцьку. Обрамлення вікон та вхідної групи алюмінієвим композитним матеріалом. Світлова вивіска — об'ємні світлові літери.",
+      "imageUrl": "/data/projects/dakhprofil.jpg",
+      "description_en": "Facade decoration of the Dakh-profil factory office in Lutsk. Window and entrance group framing with aluminum composite material. Illuminated sign with volumetric letters."
+    },
+    {
+      "id": "parfumer",
+      "name_uk": "Парфумер",
+      "name_en": "Parfumer",
+      "category": "facades",
+      "categoryLabel_uk": "Фасади та вивіски",
+      "categoryLabel_en": "Facades & Signs",
+      "location_uk": "м. Нововолинськ",
+      "location_en": "Нововолинськ",
+      "description_uk": "Комплексне оздоблення фасаду магазину «Парфумер» у м. Нововолинську. Монтаж вентильованого фасаду з керамограніту. Влаштування дашка та фризу з композиту. Світлові вивіски. Виготовлення та монтаж перил.",
+      "imageUrl": "/data/projects/parfumer.jpg",
+      "description_en": "Comprehensive facade decoration of the Parfumer store in Novovolynsk. Installation of a ventilated porcelain stoneware facade. Construction of a composite canopy and frieze. Illuminated signs. Manufacturing and installation of railings."
+    },
+    {
+      "id": "valeriy-holub-dentistry",
+      "name_uk": "Valeriy Holub Dentistry",
+      "name_en": "Valeriy Holub Dentistry",
+      "category": "interior",
+      "categoryLabel_uk": "Інтер'єрне оформлення",
+      "categoryLabel_en": "Interior Design",
+      "location_uk": "м. Луцьк",
+      "location_en": "Луцьк",
+      "description_uk": "Оформлення зони рецепції стоматологічного кабінету Валерія Голуба у м. Луцьку. Виготовлення та монтаж акрилових літер.",
+      "imageUrl": "/data/projects/valeriy-holub-dentistry.jpg",
+      "description_en": "Decoration of the reception area at Valeriy Holub dentistry in Lutsk. Manufacturing and installation of acrylic letters."
+    }
+  ]
+}

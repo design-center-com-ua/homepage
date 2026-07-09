@@ -1,0 +1,54 @@
+{
+  "items": [
+    {
+      "id": "autodrive",
+      "name": "AutoDrive",
+      "imageUrl": "/clients/AutoDrive.png"
+    },
+    {
+      "id": "cappuccino",
+      "name": "Cappuccino",
+      "imageUrl": "/clients/Cappuccino.png"
+    },
+    {
+      "id": "classic",
+      "name": "Classic",
+      "imageUrl": "/clients/Classic.png"
+    },
+    {
+      "id": "dahprofil",
+      "name": "Dahprofil",
+      "imageUrl": "/clients/Dahprofil.png"
+    },
+    {
+      "id": "dnipro-m",
+      "name": "Dnipro-M",
+      "imageUrl": "/clients/Dnipro-M.png"
+    },
+    {
+      "id": "dzvinok",
+      "name": "Dzvinok",
+      "imageUrl": "/clients/Dzvinok.png"
+    },
+    {
+      "id": "nova-poshta",
+      "name": "Nova Poshta",
+      "imageUrl": "/clients/Nova Poshta.png"
+    },
+    {
+      "id": "protezyst",
+      "name": "Protezyst",
+      "imageUrl": "/clients/Protezyst.png"
+    },
+    {
+      "id": "ukr-petrol",
+      "name": "Ukr-Petrol",
+      "imageUrl": "/clients/Ukr-Petrol.png"
+    },
+    {
+      "id": "volynpharm",
+      "name": "Volynpharm",
+      "imageUrl": "/clients/Volynpharm.png"
+    }
+  ]
+}
