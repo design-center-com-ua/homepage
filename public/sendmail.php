@@ -1,8 +1,6 @@
 <?php
 // sendmail.php
 
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json; charset=UTF-8");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -12,11 +10,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize input
     $name = htmlspecialchars(strip_tags(trim($data["name"] ?? '')));
     $email = filter_var(trim($data["email"] ?? ''), FILTER_SANITIZE_EMAIL);
-    $subject = htmlspecialchars(strip_tags(trim($data["subject"] ?? '')));
+    $subject = str_replace(["\r", "\n"], ' ', htmlspecialchars(strip_tags(trim($data["subject"] ?? ''))));
     $message = htmlspecialchars(strip_tags(trim($data["message"] ?? '')));
+    $website = trim($data["website"] ?? '');
+
+    if (!empty($website)) {
+        http_response_code(200);
+        echo json_encode(["status" => "success", "message" => "Message sent."]);
+        exit;
+    }
     
     // Basic validation
-    if (empty($name) || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if (strlen($name) < 2 || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($subject) < 3) {
         http_response_code(400);
         echo json_encode(["status" => "error", "message" => "Invalid input data."]);
         exit;
@@ -33,9 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email_body .= "Повідомлення:\n$message\n";
     
     // Headers
-    $headers = "From: no-reply@design-center.com.ua\n";
-    $headers .= "Reply-To: $email\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\n";
+    $headers = "From: no-reply@design-center.com.ua\r\n";
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
     
     // Send email
     if (mail($to, $email_subject, $email_body, $headers)) {

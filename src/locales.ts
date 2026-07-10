@@ -3,368 +3,270 @@ export const translations = {
     meta: {
       title_home: "Дизайн Центр — Виробництво вивісок, фасадів та поліграфії у Луцьку",
       desc_home: "Дизайн Центр пропонує повний спектр послуг з виготовлення та монтажу вивісок, вентильованих фасадів, металоконструкцій та поліграфії. 20 років досвіду у Луцьку.",
-      title_portfolio: "Портфоліо — Дизайн Центр",
-      desc_portfolio: "Наші реалізовані проєкти та портфоліо робіт Дизайн Центру у Луцьку.",
-      title_about: "Про компанію — Дизайн Центр",
-      desc_about: "Дізнайтеся більше про Дизайн Центр: понад 20 років досвіду у виробництві вивісок, навісів та друкованої реклами у Луцьку."
-    },
-    
-    services_page: {
-      title: "НАШІ ПОСЛУГИ",
-      desc: "Ми пропонуємо нашим клієнтам повний спектр послуг з виготовлення вивісок, фасадів та металоконструкцій, а також розробку та друк поліграфічної продукції.",
-      items: {
-        light_signs: "СВІТЛОВІ ВИВІСКИ",
-        neon_signs: "НЕОНОВІ ВИВІСКИ",
-        composite: "КОМПОЗИТ",
-        ceramic: "КЕРАМОГРАНІТ",
-        welding: "ЗВАРЮВАЛЬНІ РОБОТИ",
-        interiors: "ІНТЕР'ЄРИ ТА ФАСАДИ",
-        brand_style: "ФІРМОВИЙ СТИЛЬ",
-        cards: "ВІЗИТКИ",
-        flyers: "ФЛАЄРИ",
-        posters: "ПЛАКАТИ"
-      },
-      price_list_title: "ПРАЙС-ЛИСТ",
-      price_list_desc: "У 'Дизайн-центрі' ми прагнемо забезпечити нашим клієнтам найвищу якість продукції та послуг за адекватними цінами. Ми розуміємо важливість балансу між ціною та якістю і завжди працюємо, щоб забезпечити оптимальне співвідношення між ними. Наша команда готова відповісти на ваші потреби, забезпечуючи високу якість за конкурентоспроможними цінами.",
-      price_list_cta: "ЗАТЕЛЕФОНУЙТЕ НАМ ВЖЕ ЗАРАЗ І ДІЗНАЙТЕСЬ СКІЛЬКИ КОШТУВАТИМЕ ВАШ ПРОЄКТ"
-    },
-    neon_page: {
-      title: "НЕОНОВІ ВИВІСКИ",
-      subtitle: "Наша компанія спеціалізується на створенні неповторних неонових вивісок, які привертають увагу та роблять ваш бізнес видимим у нічному часі.",
-      p1: "завдяки високоякісним матеріалам та передовим технологіям ми створюємо яскраві та ефектні вивіски, які не лише привертають погляди, але й надають вашому бренду неповторного стилю та характеру.",
-      p2: "Неонові вивіски - це не лише засіб реклами, а й справжнє мистецтво, яке може стати візитною карткою вашого бізнесу. Наші дизайнери та майстри мають великий досвід у розробці та виготовленні неонових вивісок для різноманітних галузей, від ресторанів та магазинів до офісних комплексів та бізнес-центрів. Ми працюємо над кожним проєктом з індивідуальним підходом, забезпечуючи високу якість та креативність кожної вивіски.",
-      p3: "Зверніться до нас, щоб отримати унікальну неонову вивіску, яка відобразить ваш бренд у найкращому світлі та приверне увагу вашої цільової аудиторії. Довіртеся професіоналам у Дизайн-центрі, і ми зробимо ваші ідеї видимими!",
-      btn: "Всі послуги"
-    },
-    contact_page: {
-      title: "ЗВ'ЯЗАТИСЬ З НАМИ",
-      desc: "Якщо ви маєте будь-які запитання, пропозиції або бажаєте замовити наші послуги, будь ласка, зв'яжіться з нами.",
-      contacts_title: "Контакти",
-      email: "DC@EMAIL.UA"
+      title_products: "Послуги — Дизайн Центр",
+      desc_products: "Повний спектр послуг: вивіски, рекламні конструкції, вентильовані фасади, поліграфія, брендування та інше."
     },
     nav: {
-      home: "Головна",
-      services: "Послуги",
-      portfolio: "Портфоліо",
-      about: "Про нас",
-      contact: "Написати нам",
-      mobile_contact: "Написати нам"
-    },
-    header: {
-      logo_design: "ДИЗАЙН",
-      logo_center: "ЦЕНТР",
-      contact_btn: "Написати нам",
-      callUs: "ЗАТЕЛЕФОНУЙТЕ НАМ ВЖЕ ЗАРАЗ І ДІЗНАЙТЕСЬ ВАРТІСТЬ:"
+      home: "Main",
+      products: "Products"
     },
     home: {
-      hero_title: "ДИЗАЙН ЦЕНТР",
-      hero_subtitle: "ВИГОТОВЛЕННЯ ТА МОНТАЖ РЕКЛАМИ",
-      hero_desc: "Ми створюємо сучасні рішення для вашого бізнесу: від вивісок і брендування авто до комплексного оформлення фасадів. Якість, надійність та індивідуальний підхід до кожного клієнта.",
-      hero_cta_projects: "Усі роботи",
-      hero_cta_contact: "Зв'язатися з нами",
-      partners_title: "НАШІ ПАРТНЕРИ",
+      hero_subtitle: "ВИРОБНИЦТВО",
+      hero_accent: "ТА ДИЗАЙН.",
+      hero_desc: "Наша компанія пропонує повний спектр послуг з виготовлення та монтажу вивісок, фасадів та металоконструкцій, а також розробку та друк поліграфічної продукції.",
       services_title: "НАШІ ПОСЛУГИ",
-      services_subtitle: "Що ми робимо",
       services_desc: "Ми пропонуємо повний цикл виробництва реклами: від проєктування, дизайну та виготовлення до монтажу та сервісного обслуговування конструкцій.",
-      service1_title: "ВИВІСКИ",
-      service1_desc: "Сучасна зовнішня реклама, яка привертає увагу до вашого бізнесу.",
-      service2_title: "ФАСАДИ",
-      service2_desc: "Ефективна, естетична теплоізоляція та вентильоване оздоблення будівель.",
-      service3_title: "МЕТАЛОКОНСТРУКЦІЇ",
-      service3_desc: "Міцна та довговічна основа для каркасних рекламних та будівельних споруд.",
-      service4_title: "ПОЛІГРАФІЯ",
-      service4_desc: "Якісні друковані матеріали для впізнаваності та презентації вашого бренду.",
-      gallery_cta: "Переглянути всі роботи",
-      your_success_subtitle: "Ваш успіх",
-      your_success_title1: "НАШ ДОСВІД —",
+      tile_signs: "Вивіски",
+      tile_facades: "Вентильовані фасади",
+      tile_structures: "Рекламні конструкції",
+      tile_printing: "Поліграфія",
+      gallery_cta: "Всі роботи",
+      your_success_title1: "НАШ ДОСВІД -",
       your_success_title2: "ЦЕ ВАШ",
       your_success_title3: "УСПІХ",
-      your_success_desc: "Кожен проєкт створюється під потреби конкретного бізнесу. Ми поєднуємо понад 20-річний інженерний досвід із передовими дизайнерськими ідеями. Зробіть перший крок до втілення вашого ідеального фасаду чи вивіски вже сьогодні!",
-      your_success_btn: "Зв'язатися з нами",
-      testimonials_subtitle: "Відгуки",
-      testimonials_title: "ЩО КАЖУТЬ КЛІЄНТИ",
+      your_success_desc: "Зробіть перший крок до вашого втілення!",
+      your_success_btn: "Зв'язатись з нами",
+      partners_title: "НАШІ ПАРТНЕРИ",
       t1_text: "\"Замовляли вивіску для магазину — все виконано якісно та швидко! Дуже задоволені результатом, дякуємо Дизайн Центру!\"",
+      t1_author: "Modul+",
       t2_text: "\"Потрібна була вхідна група для офісу, і Дизайн Центр зробив все ідеально. Дуже професійний підхід до клієнта!\"",
-      t3_text: "\"Замовили рекламну конструкцію й отримали відмінний сервіс та чудовий результат. Рекомендуємо!\"",
-      t4_text: "\"Робили монтаж вивіски для нашого кафе — все було зроблено на відмінно! Дуже приємні люди й професіонали своєї справи.\""
-    },
-    portfolio: {
-      subtitle: "Портфоліо",
-      projects_subtitle: "Наші проєкти",
-      title: "ПОРТФОЛІО РОБІТ",
-      desc: "Ознайомтеся з нашими останніми реалізованими проєктами: від комплексного оформлення фасадів до інтер'єрних рішень та брендування.",
-      gallery_title: "ГАЛЕРЕЯ РОБІТ",
-      gallery_desc: "Ми пропонуємо повний цикл виробництва реклами: від проєктування, дизайну та виготовлення до монтажу й сервісного обслуговування конструкцій.",
-      projects_desc_short: "Ознайомтеся з нашими останніми реалізованими проєктами.",
-      error: "Не вдалося завантажити проєкти. Будь ласка, спробуйте пізніше.",
-      loading: "Завантаження проєктів..."
+      t2_author: "Mafia Clubs",
+      t3_text: "\"Замовили рекламну конструкцію — отримали відмінний сервіс та чудовий результат. Рекомендуємо всім!\"",
+      t3_author: "Довженко",
+      t4_text: "\"Поліграфія вищого рівня! Швидко, якісно і за розумні гроші. Дуже вдячна за роботу!\"",
+      t4_author: "Назва Компанії",
+      t5_text: "\"Робили монтаж вивіски для нашого кафе — все було зроблено на відмінно! Дуже приємні люди й професіонали своєї справи.\"",
+      t5_author: "Сoffe Caffee",
+      t6_text: "\"Замовляли виготовлення металоконструкцій, і результат перевершив наші очікування. Надійно, якісно, вчасно!\"",
+      t6_author: "Metal Board",
+      t7_text: "\"Вивіска для салону вийшла просто ідеальною! Якість матеріалів та виконання на висоті. Рекомендуємо!\"",
+      t7_author: "Перукарня",
+      t8_text: "\"Співпрацювали з компанією вже не раз — кожного разу все на високому рівні. Дякуємо за поліграфію і конструкції!\"",
+      t8_author: "Металобааз"
     },
     services: {
       signs: {
         title: "ВИВІСКИ",
-        desc: "Сучасна зовнішня реклама, яка привертає увагу до вашого бізнесу."
+        desc: "Засіб привернення уваги через зовнішній рекламний обʼєкт"
       },
       facades: {
         title: "ФАСАДИ",
-        desc: "Ефективне, естетичне утеплення та вентильоване оздоблення будівель."
+        desc: "Ефективна та естетична теплоізоляція будівель"
       },
       metal: {
         title: "МЕТАЛОКОНСТРУКЦІЇ",
-        desc: "Міцна та довговічна основа для рекламних і будівельних конструкцій."
+        desc: "Міцна основа для будівельних споруд"
       },
       poly: {
         title: "ПОЛІГРАФІЯ",
-        desc: "Якісні друковані матеріали для впізнаваності та презентації вашого бренду."
+        desc: "Візуальне представлення інформації через друковані матеріали"
       }
     },
-    gallery: {
-      signs: {
-        title: "Вивіски",
-        desc: "Світлові та об'ємні літери, короби й вхідні вивіски для залучення клієнтів."
-      },
-      facades: {
-        title: "Вентильовані фасади",
-        desc: "Композитні панелі, утеплення та комплексне брендування вхідних груп будівель."
-      },
-      structures: {
-        title: "Рекламні конструкції",
-        desc: "Стели, пілони, металеві каркаси, банери та брандмауери будь-яких розмірів."
-      },
-      poly: {
-        title: "Поліграфія",
-        desc: "Друк візиток, буклетів, меню для ресторанів та брендованої продукції."
-      }
+    portfolio: {
+      gallery_title: "ГАЛЕРЕЯ РОБІТ"
     },
-    clients: {
-      title: "НАШІ КЛІЄНТИ",
-      subtitle: "Наші партнери",
-      desc: "Ми пишаємося співпрацею з провідними компаніями та брендами. Дякуємо за довіру!",
-      dovzhenko: "Довженко"
-    },
-    about: {
-      hero_subtitle: "Про компанію",
-      hero_title: "ХТО МИ",
-      hero_desc1: "Успіх клієнта — наш успіх. Ми прагнемо не лише задовольнити потреби, а й перевершити очікування, крокуючи разом із нашими партнерами до успіху.",
-      hero_desc2: "Протягом понад 20 років ми з великою гордістю пропонуємо нашим клієнтам повний спектр послуг з виготовлення вивісок, фасадів та металоконструкцій, а також розробку та друк поліграфічної продукції. Наші професійні дизайнери та майстри з великим досвідом завжди готові втілити ваші ідеї в реальність з високою якістю та вчасною доставкою.",
-      hero_desc3: "Ми пишаємося своєю репутацією та довірою клієнтів у Луцьку та всій Україні, і завжди прагнемо до найвищих стандартів усіх наших робіт.",
-      contacts_title: "Контактна інформація",
-      contacts_office: "Офіс у Луцьку",
-      contacts_address: "вулиця Ковельська, 1, м. Луцьк, Україна",
-      contacts_phone_label: "Телефон для замовлень",
-      contacts_btn: "Залишити запит",
-      stats_years_label: "Років досвіду на ринку",
-      stats_projects_label: "Виконаних проєктів",
-      stats_clients_label: "Задоволених клієнтів",
-      founders_subtitle: "Керівництво",
-      founders_title: "ЗАСНОВНИКИ КОМПАНІЇ",
-      founders_desc: "Засновниками компанії \"Дизайн-центр\" є творчі та віддані професіонали, які об'єднали свої зусилля та енергію для створення інноваційних та вражаючих дизайнерських рішень.",
-      founder1_role: "Співзасновник / Директор",
-      founder2_role: "Співзасновник / Арт-директор"
+    products_page: {
+      title: "НАШІ ПОСЛУГИ",
+      desc: "Ми пропонуємо нашим клієнтам повний спектр послуг з виготовлення вивісок, фасадів та металоконструкцій, а також розробку та друк поліграфічної продукції",
+      cat1: "Вивіски",
+      cat1_i1: "Світлові літери",
+      cat1_i2: "Лайт-бокси",
+      cat1_i3: "Світло-динамічні конструкції",
+      cat1_i4: "Банери",
+      cat2: "Рекламні конструкції",
+      cat2_i1: "Стели",
+      cat2_i2: "МАФи",
+      cat2_i3: "Вказівники",
+      cat2_i4: "Штендери",
+      cat3: "Вентильовані фасади",
+      cat3_i1: "Алюмінієві композитні панелі (АКП)",
+      cat3_i2: "Керамограніт",
+      cat3_i3: "HPL-панелі",
+      cat4: "Поліграфія",
+      cat4_i1: "Візитки",
+      cat4_i2: "Флаєри",
+      cat4_i3: "Меню",
+      cat4_i4: "Різне",
+      cat5: "Вхідні групи",
+      cat5_i1: "Дашки",
+      cat5_i2: "Портали",
+      cat6: "Зварювальні роботи",
+      cat6_i1: "Конструкції",
+      cat6_i2: "Дашки, навіси",
+      cat6_i3: "Сходи, перила",
+      cat7: "Брендування",
+      cat7_i1: "Внутрішнє оформлення",
+      cat7_i2: "Брендування авто",
+      cat7_i3: "Оформлення вітрин",
+      cat8: "Стенди, таблички POS-продукція",
+      cat8_i1: "Куточки споживача",
+      cat8_i2: "Графіки роботи",
+      cat8_i3: "Інформаційні вивіски",
+      cat8_i4: "Прапори",
+      cat9: "Меблі",
+      cat9_i1: "Виготовлення та доставка",
+      cat10: "Предмети інтер'єру",
+      cat10_i1: "Годинники",
+      cat10_i2: "Декор",
+      price_list_title: "ПРАЙС-ЛИСТ",
+      price_list_desc: "У “Дизайн-центрі” ми прагнемо забезпечити нашим клієнтам найвищу якість продукції та послуг за адекватними цінами. Ми розуміємо важливість балансу між ціною та якістю і завжди працюємо, щоб забезпечити оптимальне співвідношення між ними. Наша команда готова відповісти на ваші потреби, забезпечуючи високу якість за конкурентоспроможними цінами.",
+      price_list_cta: "ЗАТЕЛЕФОНУЙТЕ НАМ ВЖЕ ЗАРАЗ І ДІЗНАЙТЕСЬ СКІЛЬКИ КОШТУВАТИМЕ ВАШ ПРОЄКТ"
     },
     footer: {
-      desc: "Повний спектр послуг з дизайну, виготовлення і монтажу рекламних об'єктів.",
-      company: "КОМПАНІЯ",
-      contacts: "КОНТАКТИ",
-      feedback: "ЗВОРОТНИЙ ЗВ\'ЯЗОК",
-      copyright: "© 2026 Дизайн Центр. Усі права захищено.",
-      admin: "Вхід для адміністратора",
-      rights: "© 2026 Дизайн Центр. Усі права захищено.",
-      privacy: "Політика конфіденційності",
-      terms: "Правила використання"
+      desc: "Повний спектр послуг з дизайну, виготовлення і монтажу.",
+      link_home: "ГОЛОВНА",
+      link_services: "ПОСЛУГИ",
+      write_us: "Написати нам",
+      address_city: "луцьк,",
+      address_street: "КОВЕЛЬСЬКА ВУЛИЦЯ, 1",
+      copyright: "© 2026 Дизайн Центр. Всі права захищено.",
+      admin: "Вхід для адміністратора"
     },
     modal: {
-      title: "Напишіть нам",
       name: "Ваше ім'я",
       email: "Електронна адреса",
       subject: "Тема звернення",
       message: "Повідомлення (необов'язково)",
-      submit: "Надіслати повідомлення",
+      submit: "Надіслати",
       success_title: "Успішно надіслано!",
-      success_desc: "Дякуємо! Ми зв'яжемося з вами найближчим часом."
+      success_desc: "Дякуємо! Ми зв'яжемося з вами найближчим часом.",
+      sending: "Надсилання…",
+      error: "Не вдалося надіслати повідомлення. Спробуйте пізніше або зателефонуйте нам."
     }
   },
   en: {
     meta: {
       title_home: "Design Center — Production of signs, facades and printing in Lutsk",
       desc_home: "Design Center offers a full range of services for the production and installation of signs, ventilated facades, metal structures and printing. 20 years of experience in Lutsk.",
-      title_portfolio: "Portfolio — Design Center",
-      desc_portfolio: "Our completed projects and portfolio of works by Design Center in Lutsk.",
-      title_about: "About the Company — Design Center",
-      desc_about: "Learn more about Design Center: over 20 years of experience in the production of signs, canopies and printed advertising in Lutsk."
-    },
-    
-    services_page: {
-      title: "OUR SERVICES",
-      desc: "We offer our clients a full range of services for the production of signs, facades, and metal structures, as well as the development and printing of printed products.",
-      items: {
-        light_signs: "ILLUMINATED SIGNS",
-        neon_signs: "NEON SIGNS",
-        composite: "COMPOSITE",
-        ceramic: "PORCELAIN STONEWARE",
-        welding: "WELDING WORKS",
-        interiors: "INTERIORS AND FACADES",
-        brand_style: "BRAND IDENTITY",
-        cards: "BUSINESS CARDS",
-        flyers: "FLYERS",
-        posters: "POSTERS"
-      },
-      price_list_title: "PRICE LIST",
-      price_list_desc: "At Design Center, we strive to provide our clients with the highest quality products and services at reasonable prices. We understand the importance of the balance between price and quality and always work to ensure the optimal ratio between them. Our team is ready to meet your needs, providing high quality at competitive prices.",
-      price_list_cta: "CALL US NOW AND FIND OUT HOW MUCH YOUR PROJECT WILL COST"
-    },
-    neon_page: {
-      title: "NEON SIGNS",
-      subtitle: "Our company specializes in creating unique neon signs that attract attention and make your business visible at night.",
-      p1: "Thanks to high-quality materials and advanced technologies, we create bright and effective signs that not only attract glances but also give your brand a unique style and character.",
-      p2: "Neon signs are not only a means of advertising, but also true art that can become the calling card of your business. Our designers and craftsmen have extensive experience in designing and manufacturing neon signs for various industries, from restaurants and shops to office complexes and business centers. We approach each project individually, ensuring high quality and creativity of each sign.",
-      p3: "Contact us to get a unique neon sign that will reflect your brand in the best light and attract the attention of your target audience. Trust the professionals at Design Center, and we will make your ideas visible!",
-      btn: "All services"
-    },
-    contact_page: {
-      title: "CONTACT US",
-      desc: "If you have any questions, suggestions, or would like to order our services, please contact us.",
-      contacts_title: "Contacts",
-      email: "DC@EMAIL.UA"
+      title_products: "Services — Design Center",
+      desc_products: "A full range of services: signs, advertising structures, ventilated facades, printing, branding and more."
     },
     nav: {
-      home: "Home",
-      services: "Services",
-      portfolio: "Portfolio",
-      about: "About Us",
-      contact: "Contact Us",
-      mobile_contact: "Contact Us"
-    },
-    header: {
-      logo_design: "DESIGN",
-      logo_center: "CENTER",
-      contact_btn: "Write to us",
-      callUs: "CALL US NOW TO GET A QUOTE:"
+      home: "Main",
+      products: "Products"
     },
     home: {
-      hero_title: "DESIGN CENTER",
-      hero_subtitle: "MANUFACTURING & INSTALLATION",
-      hero_desc: "We create modern solutions for your business: from signage and vehicle branding to complete facade design. Quality, reliability, and a tailored approach for every client.",
-      hero_cta_projects: "View all work",
-      hero_cta_contact: "Contact us",
-      partners_title: "OUR PARTNERS",
+      hero_subtitle: "MANUFACTURING",
+      hero_accent: "AND DESIGN.",
+      hero_desc: "Our company offers a full range of services for the manufacturing and installation of signs, facades and metal structures, as well as the design and printing of promotional products.",
       services_title: "OUR SERVICES",
-      services_subtitle: "What we do",
       services_desc: "We offer a full cycle of advertising production: from planning, design, and manufacturing to installation and ongoing maintenance.",
-      service1_title: "SIGNS",
-      service1_desc: "Modern, high-impact outdoor signage that helps customers notice your business.",
-      service2_title: "FACADES",
-      service2_desc: "Efficient, polished insulation and ventilated facade systems for commercial buildings.",
-      service3_title: "METAL STRUCTURES",
-      service3_desc: "Strong, durable frames for advertising and architectural structures.",
-      service4_title: "PRINTING",
-      service4_desc: "High-quality printed materials that help present and promote your brand.",
-      gallery_cta: "View all work",
-      your_success_subtitle: "Your success",
-      your_success_title1: "OUR EXPERIENCE —",
+      tile_signs: "Signs",
+      tile_facades: "Ventilated facades",
+      tile_structures: "Advertising structures",
+      tile_printing: "Printing",
+      gallery_cta: "All works",
+      your_success_title1: "OUR EXPERIENCE -",
       your_success_title2: "IS YOUR",
       your_success_title3: "SUCCESS",
-      your_success_desc: "Every project is shaped around a specific business need. We combine more than 20 years of engineering experience with sharp design thinking. Take the first step toward the facade or sign your business deserves.",
+      your_success_desc: "Take the first step towards your idea!",
       your_success_btn: "Contact us",
-      testimonials_subtitle: "Testimonials",
-      testimonials_title: "WHAT CLIENTS SAY",
+      partners_title: "OUR PARTNERS",
       t1_text: "\"We ordered a sign for our store, and everything was completed quickly and to a high standard. We are very happy with the result. Thank you, Design Center!\"",
+      t1_author: "Modul+",
       t2_text: "\"We needed an entrance group for our office, and Design Center handled it perfectly. A very professional approach to the client.\"",
+      t2_author: "Mafia Clubs",
       t3_text: "\"We ordered an advertising structure and received excellent service and a great result. Highly recommended!\"",
-      t4_text: "\"They installed a sign for our cafe, and everything was done beautifully. Friendly people and true professionals.\""
-    },
-    portfolio: {
-      title: "PORTFOLIO",
-      subtitle: "Our portfolio",
-      desc: "Explore our latest completed projects. From comprehensive facade decoration to interior solutions and branding.",
-      gallery_title: "WORK GALLERY",
-      gallery_desc: "We offer a full cycle of advertising production: from planning, design, and manufacturing to installation and ongoing maintenance.",
-      projects_subtitle: "Our projects",
-      projects_desc_short: "Explore our latest completed projects.",
-      error: "Failed to load projects. Please try again later.",
-      loading: "Loading projects..."
+      t3_author: "Dovzhenko",
+      t4_text: "\"Top-level printing! Fast, high quality, and at a reasonable price. Thank you for your work!\"",
+      t4_author: "Company Name",
+      t5_text: "\"They installed a sign for our cafe, and everything was done beautifully. Friendly people and true professionals.\"",
+      t5_author: "Coffe Caffee",
+      t6_text: "\"We ordered metal structures, and the result exceeded our expectations. Reliable, high quality, on time!\"",
+      t6_author: "Metal Board",
+      t7_text: "\"The sign for our salon turned out just perfect! Material and build quality are top-notch. Recommended!\"",
+      t7_author: "Hair Salon",
+      t8_text: "\"We have worked with the company more than once — every time everything is done to a high standard. Thanks for the printing and structures!\"",
+      t8_author: "Metalobaza"
     },
     services: {
       signs: {
         title: "SIGNS",
-        desc: "Modern, high-impact outdoor signage that helps customers notice your business."
+        desc: "A way to attract attention through outdoor advertising objects"
       },
       facades: {
         title: "FACADES",
-        desc: "Efficient, polished insulation and ventilated facade systems for commercial buildings."
+        desc: "Efficient and aesthetic thermal insulation of buildings"
       },
       metal: {
         title: "METAL STRUCTURES",
-        desc: "Strong, durable frames for advertising and architectural structures."
+        desc: "A solid foundation for building structures"
       },
       poly: {
         title: "PRINTING",
-        desc: "High-quality printed materials that help present and promote your brand."
+        desc: "Visual presentation of information through printed materials"
       }
     },
-    gallery: {
-      signs: {
-        title: "Signage",
-        desc: "Illuminated and dimensional letters, lightboxes, and entrance signs that attract customers."
-      },
-      facades: {
-        title: "Ventilated facades",
-        desc: "Composite panels, insulation, and full branding for building entrances."
-      },
-      structures: {
-        title: "Advertising structures",
-        desc: "Steles, pylons, metal frames, banners, and wallscapes in any size."
-      },
-      poly: {
-        title: "Printing",
-        desc: "Business cards, booklets, restaurant menus, and branded printed materials."
-      }
+    portfolio: {
+      gallery_title: "WORK GALLERY"
     },
-    clients: {
-      title: "OUR CLIENTS",
-      subtitle: "Our partners",
-      desc: "We are proud to collaborate with leading companies and brands. Thank you for your trust!",
-      dovzhenko: "Dovzhenko"
-    },
-    about: {
-      hero_subtitle: "About the company",
-      hero_title: "WHO ARE WE",
-      hero_desc1: "The client's success is our success. We strive not only to meet needs but to exceed expectations, walking together with our partners towards success.",
-      hero_desc2: "For over 20 years, we have proudly offered our clients a full range of services in the production of signs, facades and metal structures, as well as the development and printing of printed products. Our professional designers and craftsmen with extensive experience are always ready to turn your ideas into reality with high quality and on-time delivery.",
-      hero_desc3: "We are proud of our reputation and the trust of clients in Lutsk and throughout Ukraine, and always strive for the highest standards in all our work.",
-      contacts_title: "Contact Information",
-      contacts_office: "Office in Lutsk",
-      contacts_address: "Kovelska street, 1, Lutsk, Ukraine",
-      contacts_phone_label: "Phone for orders",
-      contacts_btn: "Leave a request",
-      stats_years_label: "Years of experience in the market",
-      stats_projects_label: "Completed projects",
-      stats_clients_label: "Satisfied clients",
-      founders_subtitle: "Management",
-      founders_title: "COMPANY FOUNDERS",
-      founders_desc: "The founders of the \"Design Center\" company are creative and dedicated professionals who combined their efforts and energy to create innovative and impressive design solutions.",
-      founder1_role: "Co-founder / Director",
-      founder2_role: "Co-founder / Art Director"
+    products_page: {
+      title: "OUR SERVICES",
+      desc: "We offer our clients a full range of services for the production of signs, facades and metal structures, as well as the design and printing of promotional products",
+      cat1: "Signs",
+      cat1_i1: "Illuminated letters",
+      cat1_i2: "Light boxes",
+      cat1_i3: "Dynamic light structures",
+      cat1_i4: "Banners",
+      cat2: "Advertising structures",
+      cat2_i1: "Steles",
+      cat2_i2: "Small architectural forms",
+      cat2_i3: "Signposts",
+      cat2_i4: "Pavement signs",
+      cat3: "Ventilated facades",
+      cat3_i1: "Aluminum composite panels (ACP)",
+      cat3_i2: "Porcelain stoneware",
+      cat3_i3: "HPL panels",
+      cat4: "Printing",
+      cat4_i1: "Business cards",
+      cat4_i2: "Flyers",
+      cat4_i3: "Menus",
+      cat4_i4: "Miscellaneous",
+      cat5: "Entrance groups",
+      cat5_i1: "Canopies",
+      cat5_i2: "Portals",
+      cat6: "Welding works",
+      cat6_i1: "Structures",
+      cat6_i2: "Canopies, awnings",
+      cat6_i3: "Stairs, railings",
+      cat7: "Branding",
+      cat7_i1: "Interior decoration",
+      cat7_i2: "Vehicle branding",
+      cat7_i3: "Shop window decoration",
+      cat8: "Stands, plaques, POS products",
+      cat8_i1: "Consumer information corners",
+      cat8_i2: "Opening-hours signs",
+      cat8_i3: "Information signs",
+      cat8_i4: "Flags",
+      cat9: "Furniture",
+      cat9_i1: "Manufacturing and delivery",
+      cat10: "Interior items",
+      cat10_i1: "Clocks",
+      cat10_i2: "Decor",
+      price_list_title: "PRICE LIST",
+      price_list_desc: "At Design Center, we strive to provide our clients with the highest quality products and services at reasonable prices. We understand the importance of the balance between price and quality and always work to ensure the optimal ratio between them. Our team is ready to meet your needs, providing high quality at competitive prices.",
+      price_list_cta: "CALL US NOW AND FIND OUT HOW MUCH YOUR PROJECT WILL COST"
     },
     footer: {
-      desc: "A full range of services in design, manufacturing, and installation of advertising objects.",
-      company: "COMPANY",
-      contacts: "CONTACTS",
-      feedback: "FEEDBACK",
-      copyright: "&copy; 2026 Design Center. All rights reserved.",
-      admin: "Admin Login",
-      rights: "© 2026 Design Center. All rights reserved.",
-      privacy: "Privacy Policy",
-      terms: "Terms of Use"
+      desc: "A full range of design, manufacturing and installation services.",
+      link_home: "HOME",
+      link_services: "SERVICES",
+      write_us: "Write to us",
+      address_city: "Lutsk,",
+      address_street: "KOVELSKA STREET, 1",
+      copyright: "© 2026 Design Center. All rights reserved.",
+      admin: "Admin Login"
     },
     modal: {
-      title: "Write to us",
-      name: "Your Name",
-      email: "Email Address",
+      name: "Your name",
+      email: "Your email",
       subject: "Subject",
-      message: "Message (optional)",
-      submit: "Send Message",
+      message: "Your message (optional)",
+      submit: "Submit",
       success_title: "Successfully sent!",
-      success_desc: "Thank you! We will contact you shortly."
+      success_desc: "Thank you! We will contact you shortly.",
+      sending: "Sending…",
+      error: "The message could not be sent. Please try again later or call us."
     }
   }
 };

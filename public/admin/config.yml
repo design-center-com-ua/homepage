@@ -31,11 +31,13 @@ collections:
               - {label: "Project Image", name: "imageUrl", widget: "image"}
 
   - name: "crm_clients"
-    label: "CRM: Clients"
+    label: "CRM: Partners"
     files:
-      - label: "Clients List"
+      - label: "Partners List"
         name: "clients"
         file: "public/data/clients.json"
+        media_folder: "/public/clients"
+        public_folder: "/clients"
         fields:
           - label: "Clients"
             name: "items"
