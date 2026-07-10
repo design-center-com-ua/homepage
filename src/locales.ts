@@ -1,5 +1,7 @@
 export const translations = {
   uk: {
+    
+    
     meta: {
       title_home: "Дизайн Центр — Виробництво вивісок, фасадів та поліграфії у Луцьку",
       desc_home: "Дизайн Центр пропонує повний спектр послуг з виготовлення та монтажу вивісок, вентильованих фасадів, металоконструкцій та поліграфії. 20 років досвіду у Луцьку.",
@@ -53,13 +55,14 @@ export const translations = {
       t4_text: "\"Робили монтаж вивіски для нашого кафе — все було зроблено на відмінно! Дуже приємні люди й професіонали своєї справи.\""
     },
     portfolio: {
-      title: "ПОРТФОЛІО РОБІТ",
-      subtitle: "Наше портфоліо",
-      desc: "Ознайомтесь із нашими останніми реалізованими проєктами. Від комплексного оформлення фасадів до інтер'єрних рішень та брендування.",
-      projects_subtitle: "Наші проєкти",
-      projects_desc_short: "Ознайомтесь із нашими останніми реалізованими проєктами.",
-      error: "Не вдалося завантажити проєкти. Будь ласка, спробуйте пізніше.",
-      loading: "Завантаження проєктів..."
+      subtitle: "Our Portfolio",
+      projects_subtitle: "Portfolio",
+      title: "PORTFOLIO OF WORKS",
+      desc: "Explore our latest completed projects. From comprehensive facade decoration to interior solutions and branding.",
+      gallery_title: "GALLERY OF WORKS",
+      gallery_desc: "We offer a full cycle of advertising production: from engineering, design and manufacturing to installation and maintenance of structures.",
+      projects_desc_short: "Explore our latest completed projects.",
+      loading: "Loading projects..."
     },
     clients: {
       title: "НАШІ КЛІЄНТИ",
@@ -90,7 +93,8 @@ export const translations = {
       desc: "Повний спектр послуг з дизайну, виготовлення і монтажу рекламних об'єктів.",
       company: "КОМПАНІЯ",
       contacts: "КОНТАКТИ",
-      feedback: "ЗВОРОТНИЙ ЗВ'ЯЗОК",
+      feedback: "ЗВОРОТНИЙ ЗВ\'ЯЗОК",
+      copyright: "&copy; 2026 Дизайн Центр. Всі права захищено.",
       admin: "Вхід для адміністратора",
       rights: "© 2026 Дизайн Центр. Всі права захищено.",
       privacy: "Політика конфіденційності",
@@ -101,13 +105,15 @@ export const translations = {
       name: "Ваше ім'я",
       email: "Електронна адреса",
       subject: "Тема звернення",
-      message: "Повідомлення (необов'язково)",
+      message: "Повідомлення (необов\'язково)",
       submit: "Надіслати повідомлення",
       success_title: "Успішно надіслано!",
       success_desc: "Дякуємо! Ми зв'яжемося з вами найближчим часом."
     }
   },
   en: {
+    
+    
     meta: {
       title_home: "Design Center — Production of signs, facades and printing in Lutsk",
       desc_home: "Design Center offers a full range of services for the production and installation of signs, ventilated facades, metal structures and printing. 20 years of experience in Lutsk.",
@@ -199,6 +205,7 @@ export const translations = {
       company: "COMPANY",
       contacts: "CONTACTS",
       feedback: "FEEDBACK",
+      copyright: "&copy; 2026 Design Center. All rights reserved.",
       admin: "Admin Login",
       rights: "© 2026 Design Center. All rights reserved.",
       privacy: "Privacy Policy",

@@ -11,7 +11,6 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         products: resolve(__dirname, 'products.html'),
-        about: resolve(__dirname, 'about.html'),
       },
     },
   },
