@@ -276,25 +276,55 @@ function initContactModal() {
 
       if (hasError) return;
 
-      // Simulated Success State
-      console.log('Sending message:', {
-        name: nameInput.value,
-        email: emailInput.value,
-        subject: subjectInput.value,
-        message: messageInput ? messageInput.value : ''
-      });
-
-      // Clear Form fields
-      form.reset();
-      toggleModal(false);
-
-      // Trigger Toast Success
-      if (successToast) {
-        successToast.classList.remove('translate-y-24', 'opacity-0');
-        setTimeout(() => {
-          successToast.classList.add('translate-y-24', 'opacity-0');
-        }, 3500);
+      // Disable button to prevent double-submit
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.5';
       }
+
+      // Send to PHP Backend
+      fetch('/sendmail.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: nameInput.value,
+          email: emailInput.value,
+          subject: subjectInput.value,
+          message: messageInput ? messageInput.value : ''
+        })
+      })
+      .then(response => {
+        if (!response.ok) throw new Error('Server error');
+        return response.json();
+      })
+      .then(data => {
+        if (data.status === 'success') {
+          // Clear Form fields
+          form.reset();
+          toggleModal(false);
+
+          // Trigger Toast Success
+          if (successToast) {
+            successToast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+              successToast.classList.add('translate-y-24', 'opacity-0');
+            }, 3500);
+          }
+        } else {
+          alert('Помилка: ' + data.message);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Помилка відправки повідомлення. Спробуйте пізніше.');
+      })
+      .finally(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+        }
+      });
     });
   }
 }
