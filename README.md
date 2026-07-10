@@ -23,6 +23,12 @@ When you click "Publish" in the Admin Dashboard, the changes are saved directly 
 GitHub will then **automatically** rebuild the website and upload the fresh files to Cityhost. 
 **Please wait about 60 to 90 seconds** after clicking Publish, then refresh your live website to see the changes!
 
+### 🔐 How do the Admin Passwords work? (Netlify Identity)
+Because this is a completely static site with no MySQL database, the passwords for the `/admin` page are handled by a free third-party authentication service called **Netlify Identity**.
+- The authentication bridge is hosted at `https://mellow-chimera-825f2d.netlify.app`.
+- This bridge connects the login screen on Cityhost directly to this GitHub repository.
+- If you need to change your password, add a new team member, or revoke access, you must log into your **Netlify.com dashboard**, select the site, and manage users in the **Identity** tab.
+
 ---
 
 ## 💻 For Developers (Technical Architecture)
