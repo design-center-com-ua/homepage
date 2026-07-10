@@ -9,7 +9,14 @@
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     
-    <!-- Setup netlify identity widget (optional but recommended for Netlify hosting) -->
+    <!-- Setup netlify identity widget (configured for external host) -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.init({
+          APIUrl: "https://mellow-chimera-825f2d.netlify.app/.netlify/identity"
+        });
+      }
+    </script>
   </body>
 </html>
