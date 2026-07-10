@@ -3,7 +3,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: "Montserrat", system-ui, -apple-system, sans-serif;
   --font-display: "Montserrat", sans-serif;
   --color-brand: #b6ce01;
   --color-brand-dark: #91a500;
