@@ -8,8 +8,43 @@ export const translations = {
       title_about: "Про компанію — Дизайн Центр",
       desc_about: "Дізнайтеся більше про Дизайн Центр: понад 20 років досвіду у виробництві вивісок, навісів та друкованої реклами у Луцьку."
     },
+    
+    services_page: {
+      title: "НАШІ ПОСЛУГИ",
+      desc: "Ми пропонуємо нашим клієнтам повний спектр послуг з виготовлення вивісок, фасадів та металоконструкцій, а також розробку та друк поліграфічної продукції.",
+      items: {
+        light_signs: "СВІТЛОВІ ВИВІСКИ",
+        neon_signs: "НЕОНОВІ ВИВІСКИ",
+        composite: "КОМПОЗИТ",
+        ceramic: "КЕРАМОГРАНІТ",
+        welding: "ЗВАРЮВАЛЬНІ РОБОТИ",
+        interiors: "ІНТЕР'ЄРИ ТА ФАСАДИ",
+        brand_style: "ФІРМОВИЙ СТИЛЬ",
+        cards: "ВІЗИТКИ",
+        flyers: "ФЛАЄРИ",
+        posters: "ПЛАКАТИ"
+      },
+      price_list_title: "ПРАЙС-ЛИСТ",
+      price_list_desc: "У 'Дизайн-центрі' ми прагнемо забезпечити нашим клієнтам найвищу якість продукції та послуг за адекватними цінами. Ми розуміємо важливість балансу між ціною та якістю і завжди працюємо, щоб забезпечити оптимальне співвідношення між ними. Наша команда готова відповісти на ваші потреби, забезпечуючи високу якість за конкурентоспроможними цінами.",
+      price_list_cta: "ЗАТЕЛЕФОНУЙТЕ НАМ ВЖЕ ЗАРАЗ І ДІЗНАЙТЕСЬ СКІЛЬКИ КОШТУВАТИМЕ ВАШ ПРОЄКТ"
+    },
+    neon_page: {
+      title: "НЕОНОВІ ВИВІСКИ",
+      subtitle: "Наша компанія спеціалізується на створенні неповторних неонових вивісок, які привертають увагу та роблять ваш бізнес видимим у нічному часі.",
+      p1: "завдяки високоякісним матеріалам та передовим технологіям ми створюємо яскраві та ефектні вивіски, які не лише привертають погляди, але й надають вашому бренду неповторного стилю та характеру.",
+      p2: "Неонові вивіски - це не лише засіб реклами, а й справжнє мистецтво, яке може стати візитною карткою вашого бізнесу. Наші дизайнери та майстри мають великий досвід у розробці та виготовленні неонових вивісок для різноманітних галузей, від ресторанів та магазинів до офісних комплексів та бізнес-центрів. Ми працюємо над кожним проєктом з індивідуальним підходом, забезпечуючи високу якість та креативність кожної вивіски.",
+      p3: "Зверніться до нас, щоб отримати унікальну неонову вивіску, яка відобразить ваш бренд у найкращому світлі та приверне увагу вашої цільової аудиторії. Довіртеся професіоналам у Дизайн-центрі, і ми зробимо ваші ідеї видимими!",
+      btn: "Всі послуги"
+    },
+    contact_page: {
+      title: "ЗВ'ЯЗАТИСЬ З НАМИ",
+      desc: "Якщо ви маєте будь-які запитання, пропозиції або бажаєте замовити наші послуги, будь ласка, зв'яжіться з нами.",
+      contacts_title: "Контакти",
+      email: "DC@EMAIL.UA"
+    },
     nav: {
       home: "Головна",
+      services: "Послуги",
       portfolio: "Портфоліо",
       about: "Про нас",
       contact: "Написати нам",
@@ -156,8 +191,43 @@ export const translations = {
       title_about: "About the Company — Design Center",
       desc_about: "Learn more about Design Center: over 20 years of experience in the production of signs, canopies and printed advertising in Lutsk."
     },
+    
+    services_page: {
+      title: "OUR SERVICES",
+      desc: "We offer our clients a full range of services for the production of signs, facades, and metal structures, as well as the development and printing of printed products.",
+      items: {
+        light_signs: "ILLUMINATED SIGNS",
+        neon_signs: "NEON SIGNS",
+        composite: "COMPOSITE",
+        ceramic: "PORCELAIN STONEWARE",
+        welding: "WELDING WORKS",
+        interiors: "INTERIORS AND FACADES",
+        brand_style: "BRAND IDENTITY",
+        cards: "BUSINESS CARDS",
+        flyers: "FLYERS",
+        posters: "POSTERS"
+      },
+      price_list_title: "PRICE LIST",
+      price_list_desc: "At Design Center, we strive to provide our clients with the highest quality products and services at reasonable prices. We understand the importance of the balance between price and quality and always work to ensure the optimal ratio between them. Our team is ready to meet your needs, providing high quality at competitive prices.",
+      price_list_cta: "CALL US NOW AND FIND OUT HOW MUCH YOUR PROJECT WILL COST"
+    },
+    neon_page: {
+      title: "NEON SIGNS",
+      subtitle: "Our company specializes in creating unique neon signs that attract attention and make your business visible at night.",
+      p1: "Thanks to high-quality materials and advanced technologies, we create bright and effective signs that not only attract glances but also give your brand a unique style and character.",
+      p2: "Neon signs are not only a means of advertising, but also true art that can become the calling card of your business. Our designers and craftsmen have extensive experience in designing and manufacturing neon signs for various industries, from restaurants and shops to office complexes and business centers. We approach each project individually, ensuring high quality and creativity of each sign.",
+      p3: "Contact us to get a unique neon sign that will reflect your brand in the best light and attract the attention of your target audience. Trust the professionals at Design Center, and we will make your ideas visible!",
+      btn: "All services"
+    },
+    contact_page: {
+      title: "CONTACT US",
+      desc: "If you have any questions, suggestions, or would like to order our services, please contact us.",
+      contacts_title: "Contacts",
+      email: "DC@EMAIL.UA"
+    },
     nav: {
       home: "Home",
+      services: "Services",
       portfolio: "Portfolio",
       about: "About Us",
       contact: "Contact Us",

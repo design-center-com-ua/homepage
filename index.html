@@ -8,37 +8,79 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <!-- Logo -->
         <a href="/" class="flex items-center gap-3">
-          <div class="bg-zinc-900 text-brand font-black text-xs w-10 h-10 flex items-center justify-center rounded-sm">DC</div>
-          <div class="leading-none flex items-center gap-1">
-            <span class="font-display font-black text-lg tracking-wider text-zinc-900" data-i18n="header.logo_design">ДИЗАЙН</span>
-            <span class="font-display font-black text-lg tracking-wider text-zinc-900" data-i18n="header.logo_center">ЦЕНТР</span>
-          </div>
+          <img src="/images/logo-dc-dark.png" alt="Дизайн Центр" class="h-10" />
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden md:flex items-center gap-8">
+        <nav class="hidden md:flex items-center gap-8 relative">
           <a href="/" class="nav-link font-display text-[10px] uppercase tracking-widest text-zinc-900 font-bold hover:text-brand transition-colors duration-200" data-i18n="nav.home">Головна</a>
           <a href="/about.html" class="nav-link font-display text-[10px] uppercase tracking-widest text-zinc-900 font-bold hover:text-brand transition-colors duration-200" data-i18n="nav.about">Про компанію</a>
+          
+          <!-- Services Mega Menu Trigger -->
+          <div class="group relative">
+            <a href="/services.html" class="nav-link font-display text-[10px] uppercase tracking-widest text-zinc-900 font-bold hover:text-brand transition-colors duration-200 py-8" data-i18n="nav.services">Послуги</a>
+            
+            <!-- Mega Menu Dropdown -->
+            <div class="absolute left-1/2 -translate-x-1/2 top-full mt-0 w-max bg-[#1a1a1a] text-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-2xl flex">
+              
+              <!-- Column 1 (Quick Links) -->
+              <div class="p-10 border-r border-zinc-800 flex flex-col gap-4">
+                <a href="/about.html" class="text-xs font-display tracking-widest text-zinc-400 hover:text-white uppercase transition-colors" data-i18n="nav.about">Про компанію</a>
+                <a href="/products.html" class="text-xs font-display tracking-widest text-zinc-400 hover:text-white uppercase transition-colors" data-i18n="nav.portfolio">Галерея робіт</a>
+                <a href="/contact.html" class="text-xs font-display tracking-widest text-zinc-400 hover:text-white uppercase transition-colors" data-i18n="nav.contact">Контакти</a>
+              </div>
+
+              <!-- Column 2 & 3 (Services) -->
+              <div class="p-10 flex flex-col gap-6">
+                <h4 class="text-[10px] text-zinc-500 font-display uppercase tracking-widest" data-i18n="nav.services">ПОСЛУГИ</h4>
+                <div class="flex gap-16">
+                  <div class="flex flex-col gap-3">
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.light_signs">СВІТЛОВІ ВИВІСКИ</a>
+                    <a href="/services/neon.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.neon_signs">НЕОНОВІ ВИВІСКИ</a>
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.composite">КОМПОЗИТ</a>
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.ceramic">КЕРАМОГРАНІТ</a>
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.welding">ЗВАРЮВАЛЬНІ РОБОТИ</a>
+                  </div>
+                  <div class="flex flex-col gap-3">
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.interiors">ІНТЕР'ЄРИ ТА ФАСАДИ</a>
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.brand_style">ФІРМОВИЙ СТИЛЬ</a>
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.cards">ВІЗИТКИ</a>
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.flyers">ФЛАЄРИ</a>
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.posters">ПЛАКАТИ</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
           <a href="/products.html" class="nav-link font-display text-[10px] uppercase tracking-widest text-zinc-900 font-bold hover:text-brand transition-colors duration-200" data-i18n="nav.portfolio">Галерея робіт</a>
+          <a href="/contact.html" class="nav-link font-display text-[10px] uppercase tracking-widest text-zinc-900 font-bold hover:text-brand transition-colors duration-200" data-i18n="nav.contact">Контакти</a>
         </nav>
 
         <!-- CTA Action -->
-        <div class="hidden md:flex items-center gap-4">
-          <div class="flex items-center gap-2 mr-4 border border-zinc-200 rounded-full px-3 py-1 bg-zinc-50">
+        <div class="hidden md:flex items-center">
+          <div class="flex items-center gap-2 mr-6">
             <a href="#" class="lang-btn text-zinc-900 font-bold text-[10px] uppercase" data-lang="uk">UK</a>
             <span class="text-zinc-300 text-[10px]">|</span>
             <a href="#" class="lang-btn text-zinc-400 hover:text-zinc-900 text-[10px] uppercase transition-colors" data-lang="en">EN</a>
           </div>
-          <button id="mobile-menu-btn" class="md:hidden p-2 text-zinc-900 hover:text-brand transition-colors focus:outline-none" aria-label="Toggle mobile menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+          <!-- Menu Block (Right) -->
+          <button class="bg-[#1a1a1a] text-white flex items-center gap-3 h-20 px-8 hover:bg-black transition-colors">
+            <span class="text-[10px] font-display uppercase tracking-widest">Меню</span>
+            <div class="grid grid-cols-3 gap-[2px]">
+              <div class="w-1 h-1 bg-white rounded-full"></div><div class="w-1 h-1 bg-white rounded-full"></div><div class="w-1 h-1 bg-white rounded-full"></div>
+              <div class="w-1 h-1 bg-white rounded-full"></div><div class="w-1 h-1 bg-white rounded-full"></div><div class="w-1 h-1 bg-white rounded-full"></div>
+              <div class="w-1 h-1 bg-white rounded-full"></div><div class="w-1 h-1 bg-white rounded-full"></div><div class="w-1 h-1 bg-white rounded-full"></div>
+            </div>
           </button>
         </div>
       </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative w-full h-screen bg-zinc-100 bg-cover bg-center overflow-hidden pt-20" style="background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=2000');">
-      <div class="absolute inset-0 bg-white/60 z-0"></div>
+    <section class="relative w-full h-screen bg-zinc-100 bg-cover bg-center overflow-hidden pt-20" style="background-image: url('/images/hero-desk.png');">
+      <div class="absolute inset-0 bg-white/20 z-0"></div>
       
       <div class="absolute inset-0 z-10 flex flex-col justify-center items-center text-center mt-[-10vh] px-4">
         <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black font-display text-zinc-900 uppercase tracking-tighter leading-[0.85] mb-6">

@@ -11,42 +11,77 @@
   <body class="bg-zinc-950 text-zinc-100 font-sans selection:bg-brand selection:text-zinc-950 antialiased overflow-x-hidden">
 
     <!-- Global Header -->
-    <header id="header" class="fixed top-0 left-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900">
+    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-zinc-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <!-- Logo -->
         <a href="/" class="flex items-center gap-3">
-          <img src="/images/logo.svg" alt="Дизайн Центр Логотип" class="w-12 h-12 object-contain" />
-          <div class="leading-tight">
-            <span class="font-display font-black text-lg tracking-wider text-white" data-i18n="header.logo_design">ДИЗАЙН</span>
-            <span class="font-display font-black text-lg tracking-wider text-brand block" data-i18n="header.logo_center">ЦЕНТР</span>
-          </div>
+          <img src="/images/logo-dc-dark.png" alt="Дизайн Центр" class="h-10" />
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden md:flex items-center gap-8">
-          <a href="/" class="nav-link font-display text-sm uppercase tracking-wider text-zinc-400 hover:text-white transition-colors duration-200" data-i18n="nav.home">Головна</a>
-          <a href="/products.html" class="nav-link font-display text-sm uppercase tracking-wider text-brand font-semibold transition-colors duration-200" data-i18n="nav.portfolio">Портфоліо</a>
+        <nav class="hidden md:flex items-center gap-8 relative">
+          <a href="/" class="nav-link font-display text-[10px] uppercase tracking-widest text-zinc-900 font-bold hover:text-brand transition-colors duration-200" data-i18n="nav.home">Головна</a>
+          <a href="/about.html" class="nav-link font-display text-[10px] uppercase tracking-widest text-zinc-900 font-bold hover:text-brand transition-colors duration-200" data-i18n="nav.about">Про компанію</a>
           
+          <!-- Services Mega Menu Trigger -->
+          <div class="group relative">
+            <a href="/services.html" class="nav-link font-display text-[10px] uppercase tracking-widest text-zinc-900 font-bold hover:text-brand transition-colors duration-200 py-8" data-i18n="nav.services">Послуги</a>
+            
+            <!-- Mega Menu Dropdown -->
+            <div class="absolute left-1/2 -translate-x-1/2 top-full mt-0 w-max bg-[#1a1a1a] text-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-2xl flex">
+              
+              <!-- Column 1 (Quick Links) -->
+              <div class="p-10 border-r border-zinc-800 flex flex-col gap-4">
+                <a href="/about.html" class="text-xs font-display tracking-widest text-zinc-400 hover:text-white uppercase transition-colors" data-i18n="nav.about">Про компанію</a>
+                <a href="/products.html" class="text-xs font-display tracking-widest text-zinc-400 hover:text-white uppercase transition-colors" data-i18n="nav.portfolio">Галерея робіт</a>
+                <a href="/contact.html" class="text-xs font-display tracking-widest text-zinc-400 hover:text-white uppercase transition-colors" data-i18n="nav.contact">Контакти</a>
+              </div>
+
+              <!-- Column 2 & 3 (Services) -->
+              <div class="p-10 flex flex-col gap-6">
+                <h4 class="text-[10px] text-zinc-500 font-display uppercase tracking-widest" data-i18n="nav.services">ПОСЛУГИ</h4>
+                <div class="flex gap-16">
+                  <div class="flex flex-col gap-3">
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.light_signs">СВІТЛОВІ ВИВІСКИ</a>
+                    <a href="/services/neon.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.neon_signs">НЕОНОВІ ВИВІСКИ</a>
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.composite">КОМПОЗИТ</a>
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.ceramic">КЕРАМОГРАНІТ</a>
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.welding">ЗВАРЮВАЛЬНІ РОБОТИ</a>
+                  </div>
+                  <div class="flex flex-col gap-3">
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.interiors">ІНТЕР'ЄРИ ТА ФАСАДИ</a>
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.brand_style">ФІРМОВИЙ СТИЛЬ</a>
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.cards">ВІЗИТКИ</a>
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.flyers">ФЛАЄРИ</a>
+                    <a href="/services.html" class="text-[10px] font-display tracking-widest text-zinc-300 hover:text-brand uppercase transition-colors" data-i18n="services_page.items.posters">ПЛАКАТИ</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <a href="/products.html" class="nav-link font-display text-[10px] uppercase tracking-widest text-zinc-900 font-bold hover:text-brand transition-colors duration-200" data-i18n="nav.portfolio">Галерея робіт</a>
+          <a href="/contact.html" class="nav-link font-display text-[10px] uppercase tracking-widest text-zinc-900 font-bold hover:text-brand transition-colors duration-200" data-i18n="nav.contact">Контакти</a>
         </nav>
 
         <!-- CTA Action -->
-        <div class="hidden md:flex items-center gap-4">
-          <div class="flex items-center gap-2 mr-2">
-            <a href="#" class="lang-btn text-brand font-bold text-xs uppercase" data-lang="uk">UA</a>
-            <span class="text-zinc-700">|</span>
-            <a href="#" class="lang-btn text-zinc-500 hover:text-brand text-xs uppercase transition-colors" data-lang="en">EN</a>
+        <div class="hidden md:flex items-center">
+          <div class="flex items-center gap-2 mr-6">
+            <a href="#" class="lang-btn text-zinc-900 font-bold text-[10px] uppercase" data-lang="uk">UK</a>
+            <span class="text-zinc-300 text-[10px]">|</span>
+            <a href="#" class="lang-btn text-zinc-400 hover:text-zinc-900 text-[10px] uppercase transition-colors" data-lang="en">EN</a>
           </div>
-          <a href="tel:+380503782521" class="text-zinc-300 hover:text-brand font-semibold text-sm transition-colors duration-200 flex items-center gap-2">
-            <svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            050 378 2521
-          </a>
-          <button class="contact-trigger bg-brand hover:bg-brand-light text-zinc-950 font-display text-xs uppercase tracking-wider font-bold px-5 py-2.5 rounded transition-all duration-300 shadow-lg shadow-brand/10" data-i18n="header.contact_btn">Написати нам</button>
+          <!-- Menu Block (Right) -->
+          <button class="bg-[#1a1a1a] text-white flex items-center gap-3 h-20 px-8 hover:bg-black transition-colors">
+            <span class="text-[10px] font-display uppercase tracking-widest">Меню</span>
+            <div class="grid grid-cols-3 gap-[2px]">
+              <div class="w-1 h-1 bg-white rounded-full"></div><div class="w-1 h-1 bg-white rounded-full"></div><div class="w-1 h-1 bg-white rounded-full"></div>
+              <div class="w-1 h-1 bg-white rounded-full"></div><div class="w-1 h-1 bg-white rounded-full"></div><div class="w-1 h-1 bg-white rounded-full"></div>
+              <div class="w-1 h-1 bg-white rounded-full"></div><div class="w-1 h-1 bg-white rounded-full"></div><div class="w-1 h-1 bg-white rounded-full"></div>
+            </div>
+          </button>
         </div>
-
-        <!-- Hamburger Icon -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-zinc-400 hover:text-white transition-colors focus:outline-none" aria-label="Toggle mobile menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
-        </button>
       </div>
     </header>
 
