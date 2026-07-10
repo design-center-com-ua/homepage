@@ -3,6 +3,43 @@ import { translations } from './locales';
 
 let currentLang: 'uk' | 'en' = (localStorage.getItem('lang') as 'uk' | 'en') || 'uk';
 
+type ContentRecord = Record<string, unknown>;
+
+function getLocalizedValue(item: ContentRecord, key: string) {
+  return String(item[`${key}_${currentLang}`] || item[`${key}_uk`] || item[key] || '');
+}
+
+function normalizeMediaUrl(value: unknown) {
+  const url = String(value || '').trim();
+  if (url.startsWith('/') || url.startsWith('https://') || url.startsWith('http://')) {
+    return url;
+  }
+  return '';
+}
+
+function createLocationIcon() {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('class', 'w-4 h-4 text-brand');
+  svg.setAttribute('fill', 'none');
+  svg.setAttribute('stroke', 'currentColor');
+  svg.setAttribute('viewBox', '0 0 24 24');
+
+  const pinPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  pinPath.setAttribute('stroke-linecap', 'round');
+  pinPath.setAttribute('stroke-linejoin', 'round');
+  pinPath.setAttribute('stroke-width', '2');
+  pinPath.setAttribute('d', 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z');
+
+  const dotPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  dotPath.setAttribute('stroke-linecap', 'round');
+  dotPath.setAttribute('stroke-linejoin', 'round');
+  dotPath.setAttribute('stroke-width', '2');
+  dotPath.setAttribute('d', 'M15 11a3 3 0 11-6 0 3 3 0 016 0z');
+
+  svg.append(pinPath, dotPath);
+  return svg;
+}
+
 export function setLanguage(lang: 'uk' | 'en') {
   currentLang = lang;
   localStorage.setItem('lang', lang);
@@ -240,7 +277,7 @@ function initContactModal() {
 
   // Handle Form Submission
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const nameInput = document.getElementById('form-name') as HTMLInputElement;
@@ -283,48 +320,40 @@ function initContactModal() {
         submitBtn.style.opacity = '0.5';
       }
 
-      // Send to PHP Backend
-      fetch('/sendmail.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: nameInput.value,
-          email: emailInput.value,
-          subject: subjectInput.value,
-          message: messageInput ? messageInput.value : ''
-        })
-      })
-      .then(response => {
-        if (!response.ok) throw new Error('Server error');
-        return response.json();
-      })
-      .then(data => {
-        if (data.status === 'success') {
-          // Clear Form fields
-          form.reset();
-          toggleModal(false);
+      const formData = new URLSearchParams();
+      formData.set('form-name', form.getAttribute('name') || 'contact');
+      formData.set('name', nameInput.value.trim());
+      formData.set('email', emailInput.value.trim());
+      formData.set('subject', subjectInput.value.trim());
+      formData.set('message', messageInput ? messageInput.value.trim() : '');
 
-          // Trigger Toast Success
-          if (successToast) {
-            successToast.classList.remove('translate-y-24', 'opacity-0');
-            setTimeout(() => {
-              successToast.classList.add('translate-y-24', 'opacity-0');
-            }, 3500);
-          }
-        } else {
-          alert('Помилка: ' + data.message);
+      try {
+        const response = await fetch(form.getAttribute('action') || '/', {
+          method: form.getAttribute('method') || 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: formData.toString()
+        });
+
+        if (!response.ok) throw new Error('Server error');
+
+        form.reset();
+        toggleModal(false);
+
+        if (successToast) {
+          successToast.classList.remove('translate-y-24', 'opacity-0');
+          setTimeout(() => {
+            successToast.classList.add('translate-y-24', 'opacity-0');
+          }, 3500);
         }
-      })
-      .catch(error => {
+      } catch (error) {
         console.error('Error:', error);
         alert('Помилка відправки повідомлення. Спробуйте пізніше.');
-      })
-      .finally(() => {
+      } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.style.opacity = '1';
         }
-      });
+      }
     });
   }
 }
@@ -406,36 +435,54 @@ async function initDynamicProjects() {
     const projects = data.items || data;
     container.innerHTML = '';
     
-    projects.forEach((project: any) => {
-      const name = project[`name_${currentLang}`] || project.name_uk || project.name;
-      const category = project[`categoryLabel_${currentLang}`] || project.categoryLabel_uk || project.categoryLabel;
-      const location = project[`location_${currentLang}`] || project.location_uk || project.location;
-      const desc = project[`description_${currentLang}`] || project.description_uk || project.description;
+    projects.forEach((project: ContentRecord) => {
+      const name = getLocalizedValue(project, 'name');
+      const category = getLocalizedValue(project, 'categoryLabel');
+      const location = getLocalizedValue(project, 'location');
+      const desc = getLocalizedValue(project, 'description');
+      const imageUrl = normalizeMediaUrl(project.imageUrl);
 
       const card = document.createElement('div');
       card.className = 'glass-panel overflow-hidden rounded-xl group flex flex-col h-full';
-      
-      card.innerHTML = `
-        <div class="relative h-64 overflow-hidden bg-zinc-900 shrink-0">
-          <div class="absolute inset-0 bg-black/40 z-10 transition-colors group-hover:bg-black/10 duration-300"></div>
-          <img src="${project.imageUrl}" alt="${name}" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-          <div class="absolute top-4 right-4 z-20">
-            <span class="bg-brand text-zinc-950 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded shadow-lg">
-              ${category}
-            </span>
-          </div>
-        </div>
-        <div class="p-8 flex flex-col grow">
-          <div class="flex items-center gap-2 mb-3 text-zinc-400 text-xs font-medium">
-            <svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            ${location}
-          </div>
-          <h3 class="text-xl font-bold uppercase tracking-wide mb-3 group-hover:text-brand transition-colors">${name}</h3>
-          <p class="text-zinc-400 text-sm font-light leading-relaxed grow">
-            ${desc}
-          </p>
-        </div>
-      `;
+
+      const imageWrap = document.createElement('div');
+      imageWrap.className = 'relative h-64 overflow-hidden bg-zinc-900 shrink-0';
+
+      const overlay = document.createElement('div');
+      overlay.className = 'absolute inset-0 bg-black/40 z-10 transition-colors group-hover:bg-black/10 duration-300';
+
+      const img = document.createElement('img');
+      img.src = imageUrl;
+      img.alt = name;
+      img.loading = 'lazy';
+      img.className = 'w-full h-full object-cover transition-transform duration-700 group-hover:scale-110';
+
+      const badgeWrap = document.createElement('div');
+      badgeWrap.className = 'absolute top-4 right-4 z-20';
+
+      const badge = document.createElement('span');
+      badge.className = 'bg-brand text-zinc-950 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded shadow-lg';
+      badge.textContent = category;
+
+      const body = document.createElement('div');
+      body.className = 'p-8 flex flex-col grow';
+
+      const locationEl = document.createElement('div');
+      locationEl.className = 'flex items-center gap-2 mb-3 text-zinc-400 text-xs font-medium';
+      locationEl.append(createLocationIcon(), document.createTextNode(location));
+
+      const title = document.createElement('h3');
+      title.className = 'text-xl font-bold uppercase tracking-wide mb-3 group-hover:text-brand transition-colors';
+      title.textContent = name;
+
+      const description = document.createElement('p');
+      description.className = 'text-zinc-400 text-sm font-light leading-relaxed grow';
+      description.textContent = desc;
+
+      badgeWrap.appendChild(badge);
+      imageWrap.append(overlay, img, badgeWrap);
+      body.append(locationEl, title, description);
+      card.append(imageWrap, body);
       container.appendChild(card);
     });
     
@@ -459,10 +506,16 @@ async function initDynamicClients() {
     
     container.innerHTML = '';
     
-    clients.forEach((client: any) => {
+    clients.forEach((client: ContentRecord) => {
       const div = document.createElement('div');
       div.className = 'glass-panel p-6 rounded-xl flex items-center justify-center h-32 group hover:bg-zinc-900/80 transition-colors';
-      div.innerHTML = `<img src="${client.imageUrl}" alt="${client.name}" class="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 opacity-60 group-hover:opacity-100" />`;
+
+      const img = document.createElement('img');
+      img.src = normalizeMediaUrl(client.imageUrl);
+      img.alt = String(client.name || '');
+      img.className = 'max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 opacity-60 group-hover:opacity-100';
+
+      div.appendChild(img);
       container.appendChild(div);
     });
   } catch (err) {

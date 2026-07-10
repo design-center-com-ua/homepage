@@ -18,6 +18,7 @@ export const translations = {
     header: {
       logo_design: "ДИЗАЙН",
       logo_center: "ЦЕНТР",
+      contact_btn: "Написати нам",
       callUs: "ЗАТЕЛЕФОНУЙТЕ НАМ ВЖЕ ЗАРАЗ І ДІЗНАЙТЕСЬ ВАРТІСТЬ:"
     },
     home: {
@@ -55,6 +56,8 @@ export const translations = {
       title: "ПОРТФОЛІО РОБІТ",
       subtitle: "Наше портфоліо",
       desc: "Ознайомтесь із нашими останніми реалізованими проєктами. Від комплексного оформлення фасадів до інтер'єрних рішень та брендування.",
+      projects_subtitle: "Наші проєкти",
+      projects_desc_short: "Ознайомтесь із нашими останніми реалізованими проєктами.",
       error: "Не вдалося завантажити проєкти. Будь ласка, спробуйте пізніше.",
       loading: "Завантаження проєктів..."
     },
@@ -123,6 +126,7 @@ export const translations = {
     header: {
       logo_design: "DESIGN",
       logo_center: "CENTER",
+      contact_btn: "Write to us",
       callUs: "CALL US NOW TO GET A QUOTE:"
     },
     home: {
@@ -160,6 +164,8 @@ export const translations = {
       title: "PORTFOLIO",
       subtitle: "Our portfolio",
       desc: "Explore our latest completed projects. From comprehensive facade decoration to interior solutions and branding.",
+      projects_subtitle: "Our projects",
+      projects_desc_short: "Explore our latest completed projects.",
       error: "Failed to load projects. Please try again later.",
       loading: "Loading projects..."
     },
