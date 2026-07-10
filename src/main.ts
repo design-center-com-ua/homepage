@@ -96,11 +96,11 @@ function initLanguageToggle() {
 // 1. Mobile Menu Drawer
 // ==========================================
 function initMobileMenu() {
-  const openBtn = document.getElementById('mobile-menu-btn');
+  const openBtns = [document.getElementById('mobile-menu-btn'), document.getElementById('mobile-menu-btn-small')];
   const closeBtn = document.getElementById('mobile-menu-close');
   const drawer = document.getElementById('mobile-menu');
 
-  if (!openBtn || !drawer) return;
+  if (!drawer) return;
 
   const toggleMenu = (open: boolean) => {
     if (open) {
@@ -112,7 +112,7 @@ function initMobileMenu() {
     }
   };
 
-  openBtn.addEventListener('click', () => toggleMenu(true));
+  openBtns.forEach(btn => btn && btn.addEventListener('click', () => toggleMenu(true)));
   if (closeBtn) {
     closeBtn.addEventListener('click', () => toggleMenu(false));
   }
