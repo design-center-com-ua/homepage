@@ -1,5 +1,6 @@
 backend:
   name: git-gateway
+  site_domain: "mellow-chimera-825f2d.netlify.app"
   branch: main # Branch to update (optional; defaults to master)
 
 media_folder: "public/data/projects" # Media files will be stored in the repo under public/data/projects
