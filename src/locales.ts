@@ -1,7 +1,5 @@
 export const translations = {
   uk: {
-    
-    
     meta: {
       title_home: "Дизайн Центр — Виробництво вивісок, фасадів та поліграфії у Луцьку",
       desc_home: "Дизайн Центр пропонує повний спектр послуг з виготовлення та монтажу вивісок, вентильованих фасадів, металоконструкцій та поліграфії. 20 років досвіду у Луцьку.",
@@ -26,48 +24,86 @@ export const translations = {
     home: {
       hero_title: "ДИЗАЙН ЦЕНТР",
       hero_subtitle: "ВИГОТОВЛЕННЯ ТА МОНТАЖ РЕКЛАМИ",
-      hero_desc: "Ми створюємо сучасні рішення для вашого бізнесу: від вивісок та брендування авто до комплексного оформлення фасадів. Якість, надійність та індивідуальний підхід до кожного клієнта.",
-      hero_cta_projects: "Всі роботи",
-      hero_cta_contact: "Зв'язатись з нами",
+      hero_desc: "Ми створюємо сучасні рішення для вашого бізнесу: від вивісок і брендування авто до комплексного оформлення фасадів. Якість, надійність та індивідуальний підхід до кожного клієнта.",
+      hero_cta_projects: "Усі роботи",
+      hero_cta_contact: "Зв'язатися з нами",
       services_title: "НАШІ ПОСЛУГИ",
       services_subtitle: "Що ми робимо",
       services_desc: "Ми пропонуємо повний цикл виробництва реклами: від проєктування, дизайну та виготовлення до монтажу та сервісного обслуговування конструкцій.",
       service1_title: "ВИВІСКИ",
-      service1_desc: "Засіб привернення уваги через сучасні та яскраві зовнішні рекламні обʼєкти.",
+      service1_desc: "Сучасна зовнішня реклама, яка привертає увагу до вашого бізнесу.",
       service2_title: "ФАСАДИ",
       service2_desc: "Ефективна, естетична теплоізоляція та вентильоване оздоблення будівель.",
       service3_title: "МЕТАЛОКОНСТРУКЦІЇ",
       service3_desc: "Міцна та довговічна основа для каркасних рекламних та будівельних споруд.",
       service4_title: "ПОЛІГРАФІЯ",
-      service4_desc: "Візуальне представлення бренду через якісні друковані рекламні матеріали.",
+      service4_desc: "Якісні друковані матеріали для впізнаваності та презентації вашого бренду.",
       gallery_cta: "Переглянути всі роботи",
       your_success_subtitle: "Ваш успіх",
       your_success_title1: "НАШ ДОСВІД —",
       your_success_title2: "ЦЕ ВАШ",
       your_success_title3: "УСПІХ",
       your_success_desc: "Кожен проєкт створюється під потреби конкретного бізнесу. Ми поєднуємо понад 20-річний інженерний досвід із передовими дизайнерськими ідеями. Зробіть перший крок до втілення вашого ідеального фасаду чи вивіски вже сьогодні!",
-      your_success_btn: "Зв'язатись з нами",
+      your_success_btn: "Зв'язатися з нами",
       testimonials_subtitle: "Відгуки",
       testimonials_title: "ЩО КАЖУТЬ КЛІЄНТИ",
       t1_text: "\"Замовляли вивіску для магазину — все виконано якісно та швидко! Дуже задоволені результатом, дякуємо Дизайн Центру!\"",
       t2_text: "\"Потрібна була вхідна група для офісу, і Дизайн Центр зробив все ідеально. Дуже професійний підхід до клієнта!\"",
-      t3_text: "\"Замовили рекламну конструкцію — отримали відмінний сервіс та чудовий результат. Рекомендуємо всім!\"",
+      t3_text: "\"Замовили рекламну конструкцію й отримали відмінний сервіс та чудовий результат. Рекомендуємо!\"",
       t4_text: "\"Робили монтаж вивіски для нашого кафе — все було зроблено на відмінно! Дуже приємні люди й професіонали своєї справи.\""
     },
     portfolio: {
-      subtitle: "Our Portfolio",
-      projects_subtitle: "Portfolio",
-      title: "PORTFOLIO OF WORKS",
-      desc: "Explore our latest completed projects. From comprehensive facade decoration to interior solutions and branding.",
-      gallery_title: "GALLERY OF WORKS",
-      gallery_desc: "We offer a full cycle of advertising production: from engineering, design and manufacturing to installation and maintenance of structures.",
-      projects_desc_short: "Explore our latest completed projects.",
-      loading: "Loading projects..."
+      subtitle: "Портфоліо",
+      projects_subtitle: "Наші проєкти",
+      title: "ПОРТФОЛІО РОБІТ",
+      desc: "Ознайомтеся з нашими останніми реалізованими проєктами: від комплексного оформлення фасадів до інтер'єрних рішень та брендування.",
+      gallery_title: "ГАЛЕРЕЯ РОБІТ",
+      gallery_desc: "Ми пропонуємо повний цикл виробництва реклами: від проєктування, дизайну та виготовлення до монтажу й сервісного обслуговування конструкцій.",
+      projects_desc_short: "Ознайомтеся з нашими останніми реалізованими проєктами.",
+      error: "Не вдалося завантажити проєкти. Будь ласка, спробуйте пізніше.",
+      loading: "Завантаження проєктів..."
+    },
+    services: {
+      signs: {
+        title: "ВИВІСКИ",
+        desc: "Сучасна зовнішня реклама, яка привертає увагу до вашого бізнесу."
+      },
+      facades: {
+        title: "ФАСАДИ",
+        desc: "Ефективне, естетичне утеплення та вентильоване оздоблення будівель."
+      },
+      metal: {
+        title: "МЕТАЛОКОНСТРУКЦІЇ",
+        desc: "Міцна та довговічна основа для рекламних і будівельних конструкцій."
+      },
+      poly: {
+        title: "ПОЛІГРАФІЯ",
+        desc: "Якісні друковані матеріали для впізнаваності та презентації вашого бренду."
+      }
+    },
+    gallery: {
+      signs: {
+        title: "Вивіски",
+        desc: "Світлові та об'ємні літери, короби й вхідні вивіски для залучення клієнтів."
+      },
+      facades: {
+        title: "Вентильовані фасади",
+        desc: "Композитні панелі, утеплення та комплексне брендування вхідних груп будівель."
+      },
+      structures: {
+        title: "Рекламні конструкції",
+        desc: "Стели, пілони, металеві каркаси, банери та брандмауери будь-яких розмірів."
+      },
+      poly: {
+        title: "Поліграфія",
+        desc: "Друк візиток, буклетів, меню для ресторанів та брендованої продукції."
+      }
     },
     clients: {
       title: "НАШІ КЛІЄНТИ",
       subtitle: "Наші партнери",
-      desc: "Ми пишаємося співпрацею з провідними компаніями та брендами. Дякуємо за довіру!"
+      desc: "Ми пишаємося співпрацею з провідними компаніями та брендами. Дякуємо за довіру!",
+      dovzhenko: "Довженко"
     },
     about: {
       hero_subtitle: "Про компанію",
@@ -94,9 +130,9 @@ export const translations = {
       company: "КОМПАНІЯ",
       contacts: "КОНТАКТИ",
       feedback: "ЗВОРОТНИЙ ЗВ\'ЯЗОК",
-      copyright: "&copy; 2026 Дизайн Центр. Всі права захищено.",
+      copyright: "© 2026 Дизайн Центр. Усі права захищено.",
       admin: "Вхід для адміністратора",
-      rights: "© 2026 Дизайн Центр. Всі права захищено.",
+      rights: "© 2026 Дизайн Центр. Усі права захищено.",
       privacy: "Політика конфіденційності",
       terms: "Правила використання"
     },
@@ -105,15 +141,13 @@ export const translations = {
       name: "Ваше ім'я",
       email: "Електронна адреса",
       subject: "Тема звернення",
-      message: "Повідомлення (необов\'язково)",
+      message: "Повідомлення (необов'язково)",
       submit: "Надіслати повідомлення",
       success_title: "Успішно надіслано!",
       success_desc: "Дякуємо! Ми зв'яжемося з вами найближчим часом."
     }
   },
   en: {
-    
-    
     meta: {
       title_home: "Design Center — Production of signs, facades and printing in Lutsk",
       desc_home: "Design Center offers a full range of services for the production and installation of signs, ventilated facades, metal structures and printing. 20 years of experience in Lutsk.",
@@ -138,47 +172,86 @@ export const translations = {
     home: {
       hero_title: "DESIGN CENTER",
       hero_subtitle: "MANUFACTURING & INSTALLATION",
-      hero_desc: "We create modern solutions for your business: from signboards and car branding to comprehensive facade decoration. Quality, reliability, and an individual approach to every client.",
-      hero_cta_projects: "All works",
+      hero_desc: "We create modern solutions for your business: from signage and vehicle branding to complete facade design. Quality, reliability, and a tailored approach for every client.",
+      hero_cta_projects: "View all work",
       hero_cta_contact: "Contact us",
       services_title: "OUR SERVICES",
       services_subtitle: "What we do",
-      services_desc: "We offer a full cycle of advertising production: from planning, design and manufacturing to installation and service maintenance of structures.",
+      services_desc: "We offer a full cycle of advertising production: from planning, design, and manufacturing to installation and ongoing maintenance.",
       service1_title: "SIGNS",
-      service1_desc: "A means of attracting attention through modern and bright outdoor advertising objects.",
+      service1_desc: "Modern, high-impact outdoor signage that helps customers notice your business.",
       service2_title: "FACADES",
-      service2_desc: "Efficient, aesthetic thermal insulation and ventilated building decoration.",
+      service2_desc: "Efficient, polished insulation and ventilated facade systems for commercial buildings.",
       service3_title: "METAL STRUCTURES",
-      service3_desc: "A strong and durable foundation for frame advertising and building structures.",
+      service3_desc: "Strong, durable frames for advertising and architectural structures.",
       service4_title: "PRINTING",
-      service4_desc: "Visual representation of the brand through high-quality printed advertising materials.",
-      gallery_cta: "View all works",
+      service4_desc: "High-quality printed materials that help present and promote your brand.",
+      gallery_cta: "View all work",
       your_success_subtitle: "Your success",
       your_success_title1: "OUR EXPERIENCE —",
       your_success_title2: "IS YOUR",
       your_success_title3: "SUCCESS",
-      your_success_desc: "Each project is created for the needs of a specific business. We combine over 20 years of engineering experience with cutting-edge design ideas. Take the first step to realizing your perfect facade or sign today!",
+      your_success_desc: "Every project is shaped around a specific business need. We combine more than 20 years of engineering experience with sharp design thinking. Take the first step toward the facade or sign your business deserves.",
       your_success_btn: "Contact us",
       testimonials_subtitle: "Testimonials",
       testimonials_title: "WHAT CLIENTS SAY",
-      t1_text: "\"Ordered a sign for the store — everything was done qualitatively and quickly! Very satisfied with the result, thanks Design Center!\"",
-      t2_text: "\"We needed an entrance group for the office, and Design Center did everything perfectly. Very professional approach to the client!\"",
-      t3_text: "\"Ordered an advertising structure — received excellent service and a wonderful result. We recommend everyone!\"",
-      t4_text: "\"They installed a sign for our cafe — everything was done perfectly! Very pleasant people and professionals in their field.\""
+      t1_text: "\"We ordered a sign for our store, and everything was completed quickly and to a high standard. We are very happy with the result. Thank you, Design Center!\"",
+      t2_text: "\"We needed an entrance group for our office, and Design Center handled it perfectly. A very professional approach to the client.\"",
+      t3_text: "\"We ordered an advertising structure and received excellent service and a great result. Highly recommended!\"",
+      t4_text: "\"They installed a sign for our cafe, and everything was done beautifully. Friendly people and true professionals.\""
     },
     portfolio: {
       title: "PORTFOLIO",
       subtitle: "Our portfolio",
       desc: "Explore our latest completed projects. From comprehensive facade decoration to interior solutions and branding.",
+      gallery_title: "WORK GALLERY",
+      gallery_desc: "We offer a full cycle of advertising production: from planning, design, and manufacturing to installation and ongoing maintenance.",
       projects_subtitle: "Our projects",
       projects_desc_short: "Explore our latest completed projects.",
       error: "Failed to load projects. Please try again later.",
       loading: "Loading projects..."
     },
+    services: {
+      signs: {
+        title: "SIGNS",
+        desc: "Modern, high-impact outdoor signage that helps customers notice your business."
+      },
+      facades: {
+        title: "FACADES",
+        desc: "Efficient, polished insulation and ventilated facade systems for commercial buildings."
+      },
+      metal: {
+        title: "METAL STRUCTURES",
+        desc: "Strong, durable frames for advertising and architectural structures."
+      },
+      poly: {
+        title: "PRINTING",
+        desc: "High-quality printed materials that help present and promote your brand."
+      }
+    },
+    gallery: {
+      signs: {
+        title: "Signage",
+        desc: "Illuminated and dimensional letters, lightboxes, and entrance signs that attract customers."
+      },
+      facades: {
+        title: "Ventilated facades",
+        desc: "Composite panels, insulation, and full branding for building entrances."
+      },
+      structures: {
+        title: "Advertising structures",
+        desc: "Steles, pylons, metal frames, banners, and wallscapes in any size."
+      },
+      poly: {
+        title: "Printing",
+        desc: "Business cards, booklets, restaurant menus, and branded printed materials."
+      }
+    },
     clients: {
       title: "OUR CLIENTS",
       subtitle: "Our partners",
-      desc: "We are proud to collaborate with leading companies and brands. Thank you for your trust!"
+      desc: "We are proud to collaborate with leading companies and brands. Thank you for your trust!",
+      dovzhenko: "Dovzhenko"
     },
     about: {
       hero_subtitle: "About the company",
@@ -189,7 +262,7 @@ export const translations = {
       contacts_title: "Contact Information",
       contacts_office: "Office in Lutsk",
       contacts_address: "Kovelska street, 1, Lutsk, Ukraine",
-      contacts_phone_label: "Order phone",
+      contacts_phone_label: "Phone for orders",
       contacts_btn: "Leave a request",
       stats_years_label: "Years of experience in the market",
       stats_projects_label: "Completed projects",
