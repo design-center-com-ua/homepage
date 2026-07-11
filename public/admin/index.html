@@ -101,16 +101,6 @@
     <script>window.CMS_MANUAL_INIT = true;</script>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
-    <!-- Netlify identity widget (configured for external host) -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.init({
-          APIUrl: "https://mellow-chimera-825f2d.netlify.app/.netlify/identity"
-        });
-      }
-    </script>
-
     <script>
       // ---- Bilingual admin: UI locale + all labels follow the chosen language ----
       var cmsLang = localStorage.getItem("cms_lang") === "en" ? "en" : "uk";
