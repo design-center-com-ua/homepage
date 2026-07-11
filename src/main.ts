@@ -385,13 +385,13 @@ async function initDynamicClients() {
 
     clients.forEach((client: ContentRecord) => {
       const div = document.createElement('div');
-      div.className = 'flex items-center justify-center h-28';
+      div.className = 'flex items-center justify-center h-32 xl:h-40';
 
       const img = document.createElement('img');
       img.src = normalizeMediaUrl(client.imageUrl);
       img.alt = String(client.name || '');
       img.loading = 'lazy';
-      img.className = 'max-h-24 max-w-full w-auto object-contain';
+      img.className = 'max-h-28 xl:max-h-36 max-w-full w-auto object-contain';
 
       div.appendChild(img);
       container.appendChild(div);
