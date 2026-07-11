@@ -151,55 +151,6 @@ function initMenuDrawer() {
 }
 
 // ==========================================
-// 2. Testimonials Slider (black section)
-// ==========================================
-function initTestimonialSlider() {
-  const cards = document.querySelectorAll('.testimonial-card');
-  const dots = document.querySelectorAll('.testimonial-dot');
-  if (cards.length === 0) return;
-
-  let currentIdx = 0;
-  let intervalId: any = null;
-
-  const showTestimonial = (idx: number) => {
-    cards.forEach((card, index) => {
-      if (index === idx) {
-        card.classList.remove('hidden', 'opacity-0');
-      } else {
-        card.classList.add('hidden', 'opacity-0');
-      }
-    });
-    dots.forEach((dot, index) => {
-      dot.classList.toggle('active', index === idx);
-    });
-    currentIdx = idx;
-  };
-
-  const nextTestimonial = () => {
-    showTestimonial((currentIdx + 1) % cards.length);
-  };
-
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      showTestimonial(index % cards.length);
-      resetAutoPlay();
-    });
-  });
-
-  const startAutoPlay = () => {
-    intervalId = setInterval(nextTestimonial, 5000);
-  };
-
-  const resetAutoPlay = () => {
-    if (intervalId) clearInterval(intervalId);
-    startAutoPlay();
-  };
-
-  showTestimonial(currentIdx);
-  startAutoPlay();
-}
-
-// ==========================================
 // 3. Contact Form (inside the side drawer)
 // ==========================================
 function initContactForm() {
@@ -429,7 +380,6 @@ async function initDynamicClients() {
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
   initMenuDrawer();
-  initTestimonialSlider();
   initContactForm();
   highlightActiveNav();
   initBackToTop();

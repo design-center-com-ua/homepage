@@ -178,17 +178,6 @@
   margin-top: 10px;
 }
 
-/* Testimonial avatar pagination */
-.testimonial-dot {
-  width: 35px; height: 35px;
-  border-radius: 9999px;
-  overflow: hidden;
-  opacity: .4;
-  cursor: pointer;
-  transition: opacity .2s ease-out;
-}
-.testimonial-dot.active, .testimonial-dot:hover { opacity: 1; }
-
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
