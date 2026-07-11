@@ -8,15 +8,19 @@ This website was built to be completely secure, unhackable, and extremely fast. 
 
 ## 📝 For the Client (How to Edit Content)
 
-You do not need to understand code or use this GitHub repository to update the website! 
+You do not need to understand code or use this GitHub repository to update the website!
 
-### How to add/edit Projects and Clients:
-1. Go to your live website and add `/admin` to the end of the URL (e.g., `https://design-center.com.ua/admin`).
+> **Note:** This same guide is available inside the admin panel itself — click the green **"Guide" / "Довідка"** button in the bottom-right corner after opening the **Internal** page. The panel is bilingual; switch it with the **УКР | EN** button in the bottom-left corner.
+
+### How to add/edit Projects and Partners:
+1. Go to your live website and add `/admin` to the end of the URL (e.g., `https://design-center.com.ua/admin`). This is the **Internal** page.
 2. Log in using your email and password.
 3. You will see a friendly **Admin Dashboard** (Decap CMS).
-4. Click on **"CRM: Projects"** or **"CRM: Clients"** on the left side.
-5. Here, you can edit text, upload new images, and add new portfolio items in both Ukrainian and English.
-6. When you are done, click the green **"Publish"** button.
+4. On the left, choose **"CRM: Projects"** (the work gallery items) or **"CRM: Partners"** (the partner logos).
+5. Click the **"… List"** to open the existing entries.
+6. Edit text or upload new images. Fill in **both the Ukrainian and English** fields — the site is bilingual.
+7. To add a new item, click the **"Add …"** button at the bottom of the list.
+8. When you are done, click the green **"Publish"** button at the top.
 
 ### How long does it take to update?
 When you click "Publish" in the Admin Dashboard, the changes are saved directly here to GitHub. 
@@ -28,6 +32,8 @@ Because this is a completely static site with no MySQL database, the passwords f
 - The authentication bridge is hosted at `https://mellow-chimera-825f2d.netlify.app`.
 - This bridge connects the login screen on Cityhost directly to this GitHub repository.
 - If you need to change your password, add a new team member, or revoke access, you must log into your **Netlify.com dashboard**, select the site, and manage users in the **Identity** tab.
+
+> **Testing the panel locally (developers):** the dev server has no login service, so open `http://localhost:5173/admin/index.html?backend=test` to explore the CMS with an in-memory sandbox (no login, nothing is saved).
 
 ---
 

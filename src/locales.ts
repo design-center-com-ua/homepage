@@ -63,9 +63,7 @@ export const translations = {
       desc2: "Протягом понад 20 років ми з великою гордістю пропонуємо нашим клієнтам повний спектр послуг з виготовлення вивісок, фасадів та металоконструкцій, а також розробку та друк поліграфічної продукції. Наші професійні дизайнери та майстри з великим досвідом завжди готові втілити ваші ідеї в реальність з високою якістю та вчасною доставкою.",
       desc3: "Ми пишаємося своєю репутацією та довірою клієнтів у Луцьку та всій Україні, і завжди прагнемо до найвищих стандартів усіх наших робіт.",
       years_number: "20",
-      years_label: "років досвіду у виробництві реклами",
-      founders_title: "ЗАСНОВНИКИ КОМПАНІЇ",
-      founders_desc: "Засновниками компанії «Дизайн-центр» є творчі та віддані професіонали, які об'єднали свої зусилля та енергію для створення інноваційних та вражаючих дизайнерських рішень."
+      years_label: "років досвіду у виробництві реклами"
     },
     services_page: {
       title: "НАШІ ПОСЛУГИ",
@@ -184,9 +182,7 @@ export const translations = {
       desc2: "For over 20 years, we have proudly offered our clients a full range of services in the production of signs, facades and metal structures, as well as the development and printing of printed products. Our professional designers and craftsmen with extensive experience are always ready to turn your ideas into reality with high quality and on-time delivery.",
       desc3: "We are proud of our reputation and the trust of clients in Lutsk and throughout Ukraine, and always strive for the highest standards in all our work.",
       years_number: "20",
-      years_label: "years of experience in advertising production",
-      founders_title: "COMPANY FOUNDERS",
-      founders_desc: "The founders of the \"Design Center\" company are creative and dedicated professionals who combined their efforts and energy to create innovative and impressive design solutions."
+      years_label: "years of experience in advertising production"
     },
     services_page: {
       title: "OUR SERVICES",
