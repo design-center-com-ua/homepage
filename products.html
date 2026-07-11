@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <title data-i18n="meta.title_products">Наша продукція — Дизайн Центр</title>
+  <title data-i18n="meta.title_products">Галерея робіт — Дизайн Центр</title>
   <meta name="description" content="Наші реалізовані проєкти: фасади, вивіски, інтер'єрне оформлення та брендування." data-i18n="meta.desc_products" />
 </head>
 <body class="no-scrollbar overflow-x-hidden">
@@ -26,7 +26,7 @@
             <a href="/" class="nav-link" data-i18n="nav.home">Головна</a>
             <a href="/about.html" class="nav-link" data-i18n="nav.about">Про нас</a>
             <a href="/services.html" class="nav-link" data-i18n="nav.services">Наші послуги</a>
-            <a href="/products.html" class="nav-link" data-i18n="nav.products">Наша продукція</a>
+            <a href="/products.html" class="nav-link" data-i18n="nav.products">Галерея робіт</a>
           </nav>
           <div class="flex items-center gap-2">
             <a href="#" class="lang-btn font-display text-[12px] font-bold uppercase text-zinc-900" data-lang="uk">UK</a>
@@ -53,7 +53,7 @@
     <!-- Page title + intro -->
     <div class="pt-[110px] min-[1025px]:pt-[160px] bg-white">
       <div class="w-full md:w-5/6 mx-auto px-5">
-        <h2 class="section-title" data-i18n="products_page.title">НАША ПРОДУКЦІЯ</h2>
+        <h2 class="section-title" data-i18n="products_page.title">ГАЛЕРЕЯ РОБІТ</h2>
         <div class="separator"></div>
         <p class="max-w-3xl mt-4" data-i18n="products_page.desc">
           Ознайомтеся з нашими реалізованими проєктами: від комплексного оформлення фасадів до інтер'єрних рішень та брендування.
@@ -79,7 +79,7 @@
             <li><a href="/" class="text-white hover:text-brand transition-colors" data-i18n="footer.link_home">ГОЛОВНА</a></li>
             <li><a href="/about.html" class="text-white hover:text-brand transition-colors" data-i18n="footer.link_about">ПРО НАС</a></li>
             <li><a href="/services.html" class="text-white hover:text-brand transition-colors" data-i18n="footer.link_services">НАШІ ПОСЛУГИ</a></li>
-            <li><a href="/products.html" class="text-white hover:text-brand transition-colors" data-i18n="footer.link_products">НАША ПРОДУКЦІЯ</a></li>
+            <li><a href="/products.html" class="text-white hover:text-brand transition-colors" data-i18n="footer.link_products">ГАЛЕРЕЯ РОБІТ</a></li>
           </ul>
         </div>
 
@@ -97,9 +97,12 @@
 
       <div class="w-full md:w-5/6 mx-auto px-5 mt-16 pt-6 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-2 text-[11px] text-zinc-600">
         <p data-i18n="footer.copyright">© 2026 Дизайн Центр. Всі права захищено.</p>
-        <a href="/admin/index.html" class="hover:text-brand transition-colors" data-i18n="footer.admin">Вхід для адміністратора</a>
+        <a href="/admin/index.html" class="hover:text-brand transition-colors" data-i18n="footer.admin">Internal</a>
       </div>
     </footer>
+
+    <!-- Internal (CMS) access -->
+    <a href="/admin/index.html" class="fixed bottom-[92px] right-8 z-40 bg-black text-white font-display text-[10px] uppercase tracking-widest px-4 py-2.5 rounded-full shadow-lg hover:bg-brand hover:text-black transition-colors" data-i18n="footer.admin">Internal</a>
 
     <!-- Back to top -->
     <a id="back-to-top" href="#" aria-label="Back To Top" class="fixed bottom-8 right-8 z-40 w-[50px] h-[50px] rounded-full border-2 border-brand bg-white flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
@@ -122,7 +125,7 @@
           <a href="/" class="nav-link !text-white hover:!text-brand" data-i18n="nav.home">Головна</a>
           <a href="/about.html" class="nav-link !text-white hover:!text-brand" data-i18n="nav.about">Про нас</a>
           <a href="/services.html" class="nav-link !text-white hover:!text-brand" data-i18n="nav.services">Наші послуги</a>
-          <a href="/products.html" class="nav-link !text-white hover:!text-brand" data-i18n="nav.products">Наша продукція</a>
+          <a href="/products.html" class="nav-link !text-white hover:!text-brand" data-i18n="nav.products">Галерея робіт</a>
         </nav>
 
         <form id="contact-form" name="contact" method="POST" action="/sendmail.php" class="flex flex-col gap-5" novalidate>

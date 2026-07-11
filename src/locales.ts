@@ -7,14 +7,14 @@ export const translations = {
       desc_about: "Про компанію Дизайн Центр: понад 20 років досвіду у виробництві вивісок, фасадів, металоконструкцій та поліграфії у Луцьку.",
       title_services: "Наші послуги — Дизайн Центр",
       desc_services: "Зовнішня реклама, вентильовані фасади, металоконструкції та поліграфія — повний спектр послуг Дизайн Центру.",
-      title_products: "Наша продукція — Дизайн Центр",
+      title_products: "Галерея робіт — Дизайн Центр",
       desc_products: "Наші реалізовані проєкти: фасади, вивіски, інтер'єрне оформлення та брендування."
     },
     nav: {
       home: "Головна",
       about: "Про нас",
       services: "Наші послуги",
-      products: "Наша продукція"
+      products: "Галерея робіт"
     },
     home: {
       hero_subtitle: "ВИРОБНИЦТВО",
@@ -93,7 +93,7 @@ export const translations = {
       price_list_cta: "ЗАТЕЛЕФОНУЙТЕ НАМ ВЖЕ ЗАРАЗ І ДІЗНАЙТЕСЬ СКІЛЬКИ КОШТУВАТИМЕ ВАШ ПРОЄКТ"
     },
     products_page: {
-      title: "НАША ПРОДУКЦІЯ",
+      title: "ГАЛЕРЕЯ РОБІТ",
       desc: "Ознайомтеся з нашими реалізованими проєктами: від комплексного оформлення фасадів до інтер'єрних рішень та брендування."
     },
     footer: {
@@ -101,12 +101,12 @@ export const translations = {
       link_home: "ГОЛОВНА",
       link_about: "ПРО НАС",
       link_services: "НАШІ ПОСЛУГИ",
-      link_products: "НАША ПРОДУКЦІЯ",
+      link_products: "ГАЛЕРЕЯ РОБІТ",
       write_us: "Написати нам",
       contacts: "КОНТАКТИ",
       address: "м. Луцьк, вул. Теремнівська, 51а",
       copyright: "© 2026 Дизайн Центр. Всі права захищено.",
-      admin: "Вхід для адміністратора"
+      admin: "Internal"
     },
     modal: {
       name: "Ваше ім'я",
@@ -128,14 +128,14 @@ export const translations = {
       desc_about: "About Design Center: over 20 years of experience producing signs, facades, metal structures and printing in Lutsk.",
       title_services: "Our Services — Design Center",
       desc_services: "Outdoor advertising, ventilated facades, metal structures and printing — the full range of Design Center services.",
-      title_products: "Our Products — Design Center",
+      title_products: "Work Gallery — Design Center",
       desc_products: "Our completed projects: facades, signs, interior decoration and branding."
     },
     nav: {
       home: "Main",
       about: "About Us",
       services: "Our Services",
-      products: "Our Products"
+      products: "Work gallery"
     },
     home: {
       hero_subtitle: "MANUFACTURING",
@@ -214,7 +214,7 @@ export const translations = {
       price_list_cta: "CALL US NOW AND FIND OUT HOW MUCH YOUR PROJECT WILL COST"
     },
     products_page: {
-      title: "OUR PRODUCTS",
+      title: "WORK GALLERY",
       desc: "Explore our completed projects: from comprehensive facade decoration to interior solutions and branding."
     },
     footer: {
@@ -222,12 +222,12 @@ export const translations = {
       link_home: "HOME",
       link_about: "ABOUT US",
       link_services: "OUR SERVICES",
-      link_products: "OUR PRODUCTS",
+      link_products: "WORK GALLERY",
       write_us: "Write to us",
       contacts: "CONTACTS",
       address: "Lutsk, 51a Teremnivska St.",
       copyright: "© 2026 Design Center. All rights reserved.",
-      admin: "Admin Login"
+      admin: "Internal"
     },
     modal: {
       name: "Your name",
