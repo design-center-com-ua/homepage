@@ -367,7 +367,6 @@ async function initDynamicProjects() {
       img.src = imageUrl;
       img.alt = name;
       img.loading = 'lazy';
-      if (desc) img.title = desc;
 
       const title = document.createElement('h5');
       title.className = 'project-title';
@@ -378,6 +377,13 @@ async function initDynamicProjects() {
       categoryEl.textContent = location ? `${category} / ${location}` : category;
 
       card.append(img, title, categoryEl);
+
+      if (desc) {
+        const descEl = document.createElement('p');
+        descEl.className = 'project-description';
+        descEl.textContent = desc;
+        card.append(descEl);
+      }
       container.appendChild(card);
     });
   } catch (error) {

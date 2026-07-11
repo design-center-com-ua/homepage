@@ -171,6 +171,12 @@
   color: #888;
   margin-top: 2px;
 }
+.project-card .project-description {
+  font-size: 14px;
+  line-height: 23px;
+  color: #555;
+  margin-top: 10px;
+}
 
 /* Testimonial avatar pagination */
 .testimonial-dot {
