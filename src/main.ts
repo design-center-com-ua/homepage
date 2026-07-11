@@ -46,6 +46,7 @@ export function setLanguage(lang: 'uk' | 'en') {
 
   initDynamicProjects();
   initDynamicClients();
+  initServiceCategories();
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     if (btn.getAttribute('data-lang') === lang) {
@@ -373,6 +374,68 @@ async function initDynamicClients() {
   } catch (err) {
     console.error(err);
   }
+}
+
+// ==========================================
+// 8. Service Categories (services page)
+//    Rendered from the localized services_page.categories array so the
+//    category titles and sub-item lists follow the active language.
+//    Images are recycled from the homepage category tiles.
+// ==========================================
+const SERVICE_CATEGORY_IMAGES = [
+  '/images/services/signs.jpg',       // Зовнішня реклама
+  '/images/services/facades.jpg',     // Вентильовані фасади
+  '/images/services/structures.jpg',  // Металоконструкції
+  '/images/services/printing.jpg'     // Поліграфія (light image -> dark title)
+];
+
+function initServiceCategories() {
+  const container = document.getElementById('services-categories');
+  if (!container) return;
+
+  const categories = (translations[currentLang].services_page as any).categories as
+    { title: string; items: string[] }[];
+  if (!Array.isArray(categories)) return;
+
+  container.innerHTML = '';
+
+  categories.forEach((cat, index) => {
+    const row = document.createElement('div');
+    row.className = 'grid grid-cols-1 md:grid-cols-2 gap-10 items-center';
+
+    // Image tile with green hover + centered title
+    const tile = document.createElement('div');
+    tile.className = 'cat-tile aspect-[966/472]';
+
+    const bg = document.createElement('span');
+    bg.className = 'cat-bg';
+
+    const img = document.createElement('img');
+    img.src = SERVICE_CATEGORY_IMAGES[index] || SERVICE_CATEGORY_IMAGES[0];
+    img.alt = cat.title;
+    img.loading = 'lazy';
+
+    const titleEl = document.createElement('span');
+    titleEl.className = 'cat-title' + (index === 3 ? ' cat-title-dark' : '');
+    titleEl.textContent = cat.title;
+
+    tile.append(bg, img, titleEl);
+
+    // Sub-item list
+    const list = document.createElement('ul');
+    list.className = 'flex flex-col gap-5 md:pl-10';
+    cat.items.forEach(item => {
+      const li = document.createElement('li');
+      const h4 = document.createElement('h4');
+      h4.className = 'text-lg font-medium';
+      h4.textContent = item;
+      li.appendChild(h4);
+      list.appendChild(li);
+    });
+
+    row.append(tile, list);
+    container.appendChild(row);
+  });
 }
 
 // ==========================================

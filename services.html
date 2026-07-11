@@ -5,25 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <title data-i18n="meta.title_home">Дизайн Центр — Виробництво вивісок, фасадів та поліграфії у Луцьку</title>
-  <meta name="description" content="Дизайн Центр пропонує повний спектр послуг з виготовлення та монтажу вивісок, вентильованих фасадів, металоконструкцій та поліграфії." data-i18n="meta.desc_home" />
+  <title data-i18n="meta.title_services">Наші послуги — Дизайн Центр</title>
+  <meta name="description" content="Зовнішня реклама, вентильовані фасади, металоконструкції та поліграфія — повний спектр послуг Дизайн Центру." data-i18n="meta.desc_services" />
 </head>
 <body class="no-scrollbar overflow-x-hidden">
 
-    <!-- Global Header (matches original: logo left, nav right, dots side-menu opener) -->
+    <!-- Global Header -->
     <header id="header" class="fixed top-0 left-0 w-full z-50 bg-white">
       <div class="w-full px-5 min-[1025px]:px-20 h-[70px] min-[1025px]:h-[100px] flex items-center justify-between relative">
-        <!-- Mobile: hamburger left -->
         <button id="mobile-menu-btn-small" aria-controls="mobile-menu" aria-expanded="false" class="min-[1025px]:hidden p-2 -ml-2 text-black" aria-label="Menu">
           <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
 
-        <!-- Logo (left on desktop, centered on mobile) -->
         <a href="/" class="h-full flex items-center absolute left-1/2 -translate-x-1/2 min-[1025px]:static min-[1025px]:translate-x-0">
           <img src="/images/logo-dc-dark.png" alt="Дизайн Центр" class="h-[54px] min-[1025px]:h-[86px] w-auto" />
         </a>
 
-        <!-- Desktop nav + dots opener -->
         <div class="hidden min-[1025px]:flex items-center gap-8">
           <nav class="flex items-center gap-8">
             <a href="/" class="nav-link" data-i18n="nav.home">Головна</a>
@@ -45,7 +42,6 @@
           </button>
         </div>
 
-        <!-- Mobile: language switcher (balances the hamburger) -->
         <div class="min-[1025px]:hidden flex items-center gap-1.5">
           <a href="#" class="lang-btn font-display text-[12px] font-bold uppercase text-zinc-900" data-lang="uk">UK</a>
           <span class="text-zinc-300 text-[12px]">|</span>
@@ -54,147 +50,51 @@
       </div>
     </header>
 
-    <!-- Hero (matches original Revolution Slider: fullscreen, centered, Montserrat 700) -->
-    <section class="relative w-full h-screen bg-cover bg-center" style="background-image: url('/images/hero-desk.png');">
-      <div class="absolute inset-0 z-10 flex flex-col justify-center items-center text-center px-4 pt-[70px] min-[1025px]:pt-[100px]">
-        <h1 class="hero-title">
-          <span data-i18n="home.hero_subtitle">ВИРОБНИЦТВО</span><br>
-          <span class="text-brand" data-i18n="home.hero_accent">ТА ДИЗАЙН.</span>
-        </h1>
-        <p class="hero-subtitle mt-10 max-w-[904px] mx-auto" data-i18n="home.hero_desc">
-          Наша компанія пропонує повний спектр послуг з виготовлення та монтажу вивісок, фасадів та металоконструкцій, а також розробку та друк поліграфічної продукції.
+    <!-- Page title + intro -->
+    <div class="pt-[110px] min-[1025px]:pt-[160px] bg-white">
+      <div class="w-full md:w-5/6 mx-auto px-5">
+        <h2 class="section-title" data-i18n="services_page.title">НАШІ ПОСЛУГИ</h2>
+        <div class="separator"></div>
+        <p class="max-w-3xl mt-4" data-i18n="services_page.desc">
+          Ми пропонуємо нашим клієнтам повний спектр послуг з виготовлення вивісок, фасадів та металоконструкцій, а також розробку та друк поліграфічної продукції
         </p>
       </div>
-    </section>
 
-    <!-- Services Icon Bar (black, original icons) -->
-    <section class="bg-black py-16">
-      <div class="w-full md:w-2/3 mx-auto px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <!-- Category rows: image tile + sub-service list (rendered from locales via main.ts) -->
+      <div id="services-categories" class="w-full md:w-5/6 mx-auto px-5 mt-16 flex flex-col gap-20 pb-24"></div>
+    </div>
 
-        <div class="flex flex-col items-center text-center px-[3%]">
-          <img src="/images/icon-1.png" alt="" class="w-[82px] h-[86px]" />
-          <h4 class="text-white text-lg font-bold mt-6 mb-2" data-i18n="services.signs.title">ВИВІСКИ</h4>
-          <p class="text-white" data-i18n="services.signs.desc">Засіб привернення уваги через зовнішній рекламний обʼєкт</p>
-        </div>
-
-        <div class="flex flex-col items-center text-center px-[3%]">
-          <img src="/images/icon-2.png" alt="" class="w-[82px] h-[86px]" />
-          <h4 class="text-white text-lg font-bold mt-6 mb-2" data-i18n="services.facades.title">ФАСАДИ</h4>
-          <p class="text-white" data-i18n="services.facades.desc">Ефективна та естетична теплоізоляція будівель</p>
-        </div>
-
-        <div class="flex flex-col items-center text-center px-[3%]">
-          <img src="/images/icon-3.png" alt="" class="w-[82px] h-[86px]" />
-          <h4 class="text-white text-lg font-bold mt-6 mb-2" data-i18n="services.metal.title">МЕТАЛОКОНСТРУКЦІЇ</h4>
-          <p class="text-white" data-i18n="services.metal.desc">Міцна основа для будівельних споруд</p>
-        </div>
-
-        <div class="flex flex-col items-center text-center px-[3%]">
-          <img src="/images/icon-4.png" alt="" class="w-[82px] h-[86px]" />
-          <h4 class="text-white text-lg font-bold mt-6 mb-2" data-i18n="services.poly.title">ПОЛІГРАФІЯ</h4>
-          <p class="text-white" data-i18n="services.poly.desc">Візуальне представлення інформації через друковані матеріали</p>
-        </div>
-
-      </div>
-      <div class="h-16"></div>
-    </section>
-
-    <!-- Gallery Section (original #ecebe9 background, masonry project cards from CRM) -->
-    <section id="portfolio" class="bg-paper">
-      <div class="w-full md:w-2/3 mx-auto px-5 pt-24 pb-16">
-        <h2 class="section-title"><span data-i18n="portfolio.gallery_title">ГАЛЕРЕЯ РОБІТ</span><span class="dot">.</span></h2>
-        <div class="separator"></div>
-
-        <!-- Dynamic project cards (populated from public/data/projects.json via the CRM) -->
-        <div id="dynamic-projects-gallery" class="columns-1 md:columns-2 lg:columns-3 gap-5 mt-10"></div>
-
-        <div class="mt-12 text-center">
-          <a href="/products.html" class="dc-btn" data-i18n="home.gallery_cta">Всі роботи</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- НАШІ ПОСЛУГИ (title row + 2x2 category tiles, matches original) -->
-    <section id="services" class="bg-white pt-24">
+    <!-- ПРАЙС-ЛИСТ -->
+    <section class="bg-paper py-24">
       <div class="w-full md:w-5/6 mx-auto px-5">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
-          <div class="md:col-span-2">
-            <h2 class="section-title"><span data-i18n="home.services_title">НАШІ ПОСЛУГИ</span><span class="dot">.</span></h2>
-            <div class="separator"></div>
-          </div>
-          <div>
-            <p class="border-l-2 border-brand pl-[10px]" data-i18n="home.services_desc">
-              Ми пропонуємо повний цикл виробництва реклами: від проєктування, дизайну та виготовлення до монтажу та сервісного обслуговування конструкцій.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 w-full mt-16">
-        <a href="/services.html" class="cat-tile aspect-[966/472]">
-          <span class="cat-bg"></span>
-          <img src="/images/services/signs.jpg" alt="Зовнішня реклама" loading="lazy" />
-          <span class="cat-title" data-i18n="home.tile_signs">Зовнішня реклама</span>
-        </a>
-        <a href="/services.html" class="cat-tile aspect-[966/472]">
-          <span class="cat-bg"></span>
-          <img src="/images/services/facades.jpg" alt="Вентильовані фасади" loading="lazy" />
-          <span class="cat-title" data-i18n="home.tile_facades">Вентильовані фасади</span>
-        </a>
-        <a href="/services.html" class="cat-tile aspect-[966/472]">
-          <span class="cat-bg"></span>
-          <img src="/images/services/structures.jpg" alt="Металоконструкції" loading="lazy" />
-          <span class="cat-title" data-i18n="home.tile_structures">Металоконструкції</span>
-        </a>
-        <a href="/services.html" class="cat-tile aspect-[966/472]">
-          <span class="cat-bg"></span>
-          <img src="/images/services/printing.jpg" alt="Поліграфія" loading="lazy" />
-          <span class="cat-title cat-title-dark" data-i18n="home.tile_printing">Поліграфія</span>
-        </a>
-      </div>
-
-      <div class="text-center pt-12 pb-16">
-        <a href="/services.html" class="dc-btn" data-i18n="home.services_all">Усі послуги</a>
-      </div>
-    </section>
-
-    <!-- НАШ ДОСВІД - ЦЕ ВАШ УСПІХ (matches original: title left, laptop right) -->
-    <section class="bg-white py-16">
-      <div class="w-full md:w-5/6 mx-auto px-5 grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
-        <div class="md:col-span-4">
-          <h2 class="section-title">
-            <span data-i18n="home.your_success_title1">НАШ ДОСВІД -</span><br>
-            <span data-i18n="home.your_success_title2">ЦЕ ВАШ</span> <span class="font-black" data-i18n="home.your_success_title3">УСПІХ</span><span class="dot">.</span>
-          </h2>
-          <div class="separator"></div>
-          <p class="mt-4" data-i18n="home.your_success_desc">Зробіть перший крок до вашого втілення!</p>
-          <button class="contact-trigger dc-btn mt-20" data-i18n="home.your_success_btn">Зв'язатись з нами</button>
-        </div>
-        <div class="md:col-span-7 md:col-start-6">
-          <img src="/images/laptop.png" alt="Дизайн Центр" class="w-full h-auto" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <!-- НАШІ ПАРТНЕРИ (new feature: partner logos from CRM) -->
-    <section class="bg-paper">
-      <div class="w-full md:w-5/6 mx-auto px-5 pt-24 pb-20">
-        <h2 class="section-title"><span data-i18n="home.partners_title">НАШІ ПАРТНЕРИ</span><span class="dot">.</span></h2>
+        <h2 class="section-title" data-i18n="services_page.price_list_title">ПРАЙС-ЛИСТ</h2>
         <div class="separator"></div>
-        <div id="dynamic-clients-gallery" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-10 gap-y-14 items-center mt-12"></div>
+
+        <div class="max-w-3xl mt-6">
+          <p class="mb-10" data-i18n="services_page.price_list_desc">
+            У “Дизайн-центрі” ми прагнемо забезпечити нашим клієнтам найвищу якість продукції та послуг за адекватними цінами. Ми розуміємо важливість балансу між ціною та якістю і завжди працюємо, щоб забезпечити оптимальне співвідношення між ними. Наша команда готова відповісти на ваші потреби, забезпечуючи високу якість за конкурентоспроможними цінами.
+          </p>
+
+          <p class="text-ink font-bold mb-6" data-i18n="services_page.price_list_cta">
+            ЗАТЕЛЕФОНУЙТЕ НАМ ВЖЕ ЗАРАЗ І ДІЗНАЙТЕСЬ СКІЛЬКИ КОШТУВАТИМЕ ВАШ ПРОЄКТ
+          </p>
+
+          <a href="tel:+380502891490" class="inline-flex items-center gap-4">
+            <svg class="w-8 h-8 text-brand" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1H8c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <h4 class="text-lg font-bold text-ink">050 289 14 90</h4>
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- Footer (black, matches original) -->
+    <!-- Footer -->
     <footer class="bg-black pt-20 pb-8">
       <div class="w-full md:w-5/6 mx-auto px-5 grid grid-cols-1 md:grid-cols-4 gap-12">
-        <!-- Logo & tagline -->
         <div>
           <img src="/images/logo-dc-dark.png" alt="DC Logo" class="w-[130px] h-auto mb-6" />
           <p class="text-body" data-i18n="footer.desc">Повний спектр послуг з дизайну, виготовлення і монтажу.</p>
         </div>
 
-        <!-- Links -->
         <div>
           <ul class="space-y-3">
             <li><a href="/" class="text-white hover:text-brand transition-colors" data-i18n="footer.link_home">ГОЛОВНА</a></li>
@@ -204,7 +104,6 @@
           </ul>
         </div>
 
-        <!-- Contacts -->
         <div>
           <h4 class="text-[10px] font-display uppercase tracking-widest font-bold mb-5 text-zinc-300" data-i18n="footer.contacts">КОНТАКТИ</h4>
           <p class="text-body mb-3" data-i18n="footer.address">м. Луцьк, вул. Теремнівська, 51а</p>
@@ -212,7 +111,6 @@
           <p><a href="tel:+380503782521" class="text-white hover:text-brand transition-colors font-bold">050 378 25 21</a></p>
         </div>
 
-        <!-- Write to us -->
         <div>
           <button class="contact-trigger inline-block border-2 border-[#8d8d8d] text-[#8d8d8d] hover:border-white hover:text-white transition-colors rounded-full px-6 py-2.5 text-[17px] leading-snug" data-i18n="footer.write_us">Написати нам</button>
         </div>
@@ -224,14 +122,14 @@
       </div>
     </footer>
 
-    <!-- Back to top (matches original) -->
+    <!-- Back to top -->
     <a id="back-to-top" href="#" aria-label="Back To Top" class="fixed bottom-8 right-8 z-40 w-[50px] h-[50px] rounded-full border-2 border-brand bg-white flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
       <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
     </a>
 
     <script type="module" src="/src/main.ts"></script>
 
-    <!-- Side Menu Drawer (matches original: black 550px panel with logo, menu, contact form) -->
+    <!-- Side Menu Drawer -->
     <div id="mobile-menu" aria-hidden="true" class="fixed inset-y-0 right-0 w-full max-w-[550px] bg-black text-white z-[100] transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col">
       <div class="px-10 md:px-[84px] pt-8 flex justify-end">
         <button id="mobile-menu-close" aria-label="Close menu" class="p-2 -mr-4 text-zinc-400 hover:text-white transition-colors">
@@ -248,7 +146,6 @@
           <a href="/products.html" class="nav-link !text-white hover:!text-brand" data-i18n="nav.products">Наша продукція</a>
         </nav>
 
-        <!-- Contact form (posts to /sendmail.php) -->
         <form id="contact-form" name="contact" method="POST" action="/sendmail.php" class="flex flex-col gap-5" novalidate>
           <p class="hidden">
             <label>Do not fill this out: <input name="website" tabindex="-1" autocomplete="off" /></label>
