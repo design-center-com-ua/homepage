@@ -32,6 +32,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
+          timeout: 120000
           # Ensure it deploys to the correct public directory on Cityhost
           # Usually it's public_html or www or the domain name folder. 
           # You might need to change this depending on your Cityhost configuration.
