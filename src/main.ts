@@ -6,6 +6,29 @@ let currentLang: 'uk' | 'en' = storedLang === 'en' ? 'en' : 'uk';
 
 type ContentRecord = Record<string, unknown>;
 
+function initGoogleAnalytics() {
+  const measurementId = document
+    .querySelector<HTMLMetaElement>('meta[name="google-analytics-id"]')
+    ?.content.trim();
+
+  if (!measurementId || !/^G-[A-Z0-9]+$/.test(measurementId) || measurementId === 'G-XXXXXXXXXX') {
+    return;
+  }
+
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
+  document.head.appendChild(script);
+
+  const analyticsWindow = window as Window & { dataLayer?: unknown[][] };
+  const dataLayer = analyticsWindow.dataLayer ??= [];
+  const gtag = (...args: unknown[]) => dataLayer.push(args);
+  gtag('js', new Date());
+  gtag('config', measurementId);
+}
+
+initGoogleAnalytics();
+
 function getLocalizedValue(item: ContentRecord, key: string) {
   return String(item[`${key}_${currentLang}`] || item[`${key}_uk`] || item[key] || '');
 }
