@@ -114,9 +114,11 @@ function initMenuDrawer() {
   const toggleMenu = (open: boolean) => {
     openBtns.forEach(btn => btn?.setAttribute('aria-expanded', String(open)));
     drawer.setAttribute('aria-hidden', String(!open));
+    drawer.toggleAttribute('inert', !open);
     if (open) {
       drawer.classList.remove('translate-x-full');
       document.body.classList.add('overflow-hidden');
+      closeBtn?.focus();
     } else {
       drawer.classList.add('translate-x-full');
       document.body.classList.remove('overflow-hidden');
@@ -131,7 +133,7 @@ function initMenuDrawer() {
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') {
       toggleMenu(false);
-      openBtns.find(Boolean)?.focus();
+      openBtns.find(btn => btn && btn.offsetParent !== null)?.focus();
     }
   });
 
