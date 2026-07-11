@@ -4,12 +4,41 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
+    <style>
+      .cms-lang-switch {
+        position: fixed;
+        bottom: 14px;
+        left: 14px;
+        z-index: 2147483647;
+        background: #1d1d1d;
+        border-radius: 999px;
+        padding: 6px 14px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        box-shadow: 0 4px 14px rgba(0,0,0,.25);
+      }
+      .cms-lang-switch button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #8d8d8d;
+        font: inherit;
+        padding: 0;
+      }
+      .cms-lang-switch button.active { color: #b6ce01; }
+    </style>
   </head>
   <body>
-    <!-- Include the script that builds the page and powers Decap CMS -->
+    <!-- Must be set before decap-cms.js loads -->
+    <script>window.CMS_MANUAL_INIT = true;</script>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    
-    <!-- Setup netlify identity widget (configured for external host) -->
+
+    <!-- Netlify identity widget (configured for external host) -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
       if (window.netlifyIdentity) {
@@ -17,6 +46,159 @@
           APIUrl: "https://mellow-chimera-825f2d.netlify.app/.netlify/identity"
         });
       }
+    </script>
+
+    <script>
+      // ---- Bilingual admin: UI locale + all labels follow the chosen language ----
+      var cmsLang = localStorage.getItem("cms_lang") === "en" ? "en" : "uk";
+
+      var STRINGS = {
+        uk: {
+          projectsLabel: "CRM: Проєкти",
+          projectsFile: "Список проєктів",
+          projectsList: "Проєкти",
+          id: "ID (частина адреси, латиницею, напр. dzvinok)",
+          nameUk: "Назва (українською)",
+          nameEn: "Назва (англійською)",
+          category: "ID категорії (напр. facades, interior)",
+          categoryUk: "Назва категорії (українською)",
+          categoryEn: "Назва категорії (англійською)",
+          locationUk: "Локація (українською)",
+          locationEn: "Локація (англійською)",
+          descUk: "Опис (українською)",
+          descEn: "Опис (англійською)",
+          image: "Зображення проєкту",
+          partnersLabel: "CRM: Партнери",
+          partnersFile: "Список партнерів",
+          partnersList: "Партнери",
+          partnerName: "Назва партнера",
+          partnerLogo: "Логотип партнера"
+        },
+        en: {
+          projectsLabel: "CRM: Projects",
+          projectsFile: "Projects List",
+          projectsList: "Projects",
+          id: "ID (URL slug, e.g. dzvinok)",
+          nameUk: "Name (Ukrainian)",
+          nameEn: "Name (English)",
+          category: "Category ID (e.g. facades, interior)",
+          categoryUk: "Category Label (Ukrainian)",
+          categoryEn: "Category Label (English)",
+          locationUk: "Location (Ukrainian)",
+          locationEn: "Location (English)",
+          descUk: "Description (Ukrainian)",
+          descEn: "Description (English)",
+          image: "Project Image",
+          partnersLabel: "CRM: Partners",
+          partnersFile: "Partners List",
+          partnersList: "Partners",
+          partnerName: "Partner Name",
+          partnerLogo: "Partner Logo"
+        }
+      };
+
+      var t = STRINGS[cmsLang];
+
+      var config = {
+        locale: cmsLang,
+        load_config_file: false,
+        backend: {
+          name: "git-gateway",
+          site_domain: "mellow-chimera-825f2d.netlify.app",
+          branch: "main"
+        },
+        media_folder: "public/data/projects",
+        public_folder: "/data/projects",
+        collections: [
+          {
+            name: "crm_projects",
+            label: t.projectsLabel,
+            files: [
+              {
+                label: t.projectsFile,
+                name: "projects",
+                file: "public/data/projects.json",
+                fields: [
+                  {
+                    label: t.projectsList,
+                    name: "items",
+                    widget: "list",
+                    fields: [
+                      { label: t.id, name: "id", widget: "string" },
+                      { label: t.nameUk, name: "name_uk", widget: "string" },
+                      { label: t.nameEn, name: "name_en", widget: "string" },
+                      { label: t.category, name: "category", widget: "string" },
+                      { label: t.categoryUk, name: "categoryLabel_uk", widget: "string" },
+                      { label: t.categoryEn, name: "categoryLabel_en", widget: "string" },
+                      { label: t.locationUk, name: "location_uk", widget: "string" },
+                      { label: t.locationEn, name: "location_en", widget: "string" },
+                      { label: t.descUk, name: "description_uk", widget: "text" },
+                      { label: t.descEn, name: "description_en", widget: "text" },
+                      { label: t.image, name: "imageUrl", widget: "image" }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            name: "crm_clients",
+            label: t.partnersLabel,
+            files: [
+              {
+                label: t.partnersFile,
+                name: "clients",
+                file: "public/data/clients.json",
+                media_folder: "/public/clients",
+                public_folder: "/clients",
+                fields: [
+                  {
+                    label: t.partnersList,
+                    name: "items",
+                    widget: "list",
+                    fields: [
+                      { label: t.id, name: "id", widget: "string" },
+                      { label: t.partnerName, name: "name", widget: "string" },
+                      { label: t.partnerLogo, name: "imageUrl", widget: "image" }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      };
+
+      // Local preview without authentication: open /admin/?backend=test
+      if (new URLSearchParams(window.location.search).get("backend") === "test") {
+        config.backend = { name: "test-repo" };
+      }
+
+      window.CMS.init({ config: config });
+
+      // ---- Floating language toggle ----
+      var bar = document.createElement("div");
+      bar.className = "cms-lang-switch";
+      ["uk", "en"].forEach(function (lang, i) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = lang === "uk" ? "УКР" : "EN";
+        if (lang === cmsLang) btn.className = "active";
+        btn.addEventListener("click", function () {
+          if (lang !== cmsLang) {
+            localStorage.setItem("cms_lang", lang);
+            window.location.reload();
+          }
+        });
+        bar.appendChild(btn);
+        if (i === 0) {
+          var sep = document.createElement("span");
+          sep.textContent = "|";
+          sep.style.color = "#555";
+          bar.appendChild(sep);
+        }
+      });
+      document.body.appendChild(bar);
     </script>
   </body>
 </html>
