@@ -82,6 +82,14 @@
       .cms-help-card li { margin-bottom: 8px; font-size: 14px; }
       .cms-help-intro { font-weight: 600; color: #1d1d1d !important; }
       .cms-help-note { font-size: 12px; color: #888 !important; margin-top: 18px; }
+      .cms-help-link {
+        display: inline-block;
+        color: #1d1d1d;
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
       .cms-help-close {
         position: absolute;
         top: 12px;
@@ -104,6 +112,8 @@
     <script>
       // ---- Bilingual admin: UI locale + all labels follow the chosen language ----
       var cmsLang = localStorage.getItem("cms_lang") === "en" ? "en" : "uk";
+      var backendParams = new URLSearchParams(window.location.search);
+      var backendMode = backendParams.get("backend") || "netlify";
 
       var STRINGS = {
         uk: {
@@ -224,8 +234,20 @@
         ]
       };
 
-      // Local preview without authentication: open /admin/?backend=test
-      if (new URLSearchParams(window.location.search).get("backend") === "test") {
+      // Migration-safe backend selection:
+      // - /admin/ keeps Netlify as rollback until GitHub OAuth is configured.
+      // - /admin/?backend=github tests the client-owned GitHub OAuth flow.
+      // - /admin/?backend=test is the local, in-memory developer sandbox.
+      if (backendMode === "github") {
+        config.backend = {
+          name: "github",
+          repo: "design-center-com-ua/homepage",
+          branch: "main",
+          base_url: window.location.origin + "/admin/oauth",
+          auth_endpoint: "auth.php"
+        };
+        document.title = "Internal — GitHub";
+      } else if (backendMode === "test") {
         config.backend = { name: "test-repo" };
       }
 
@@ -272,7 +294,10 @@
           waitTitle: "Скільки чекати оновлення?",
           wait: "Після натискання «Publish» зміни зберігаються у GitHub, і сайт автоматично пересобирається. Зачекайте 60–90 секунд, потім оновіть сторінку сайту — і ви побачите зміни.",
           accessTitle: "Доступ і паролі",
-          access: "Вхід захищено службою Netlify Identity. Щоб змінити пароль, додати нового користувача або забрати доступ — увійдіть у панель на Netlify.com, оберіть сайт і керуйте користувачами у вкладці «Identity».",
+          access: backendMode === "github"
+            ? "Увійдіть через особистий обліковий запис GitHub, якому надано право запису до репозиторію design-center-com-ua/homepage. Доступ редакторів керується через Collaborators у GitHub; для кожного редактора використовуйте окремий обліковий запис із двофакторною автентифікацією."
+            : "Триває перехід з Netlify Identity на вхід через GitHub. Поточний вхід Netlify залишається резервним, доки GitHub OAuth не буде налаштовано й перевірено.",
+          githubTest: "Перевірити вхід через GitHub",
           langNote: "Мову цієї панелі можна змінити кнопкою УКР | EN у лівому нижньому кутку."
         },
         en: {
@@ -290,7 +315,10 @@
           waitTitle: "How long until it updates?",
           wait: "After you click “Publish”, the changes are saved to GitHub and the site rebuilds automatically. Wait about 60–90 seconds, then refresh your live website to see the changes.",
           accessTitle: "Access & passwords",
-          access: "Login is protected by Netlify Identity. To change your password, add a new user, or revoke access, log into your Netlify.com dashboard, select the site, and manage users in the “Identity” tab.",
+          access: backendMode === "github"
+            ? "Sign in with an individual GitHub account that has write access to design-center-com-ua/homepage. Manage editors through GitHub repository collaborators; every editor should use a separate account with two-factor authentication."
+            : "Migration from Netlify Identity to GitHub sign-in is in progress. The current Netlify login remains available as rollback until GitHub OAuth is configured and verified.",
+          githubTest: "Test GitHub sign-in",
           langNote: "You can change this panel's language with the УКР | EN button in the bottom-left corner."
         }
       };
@@ -313,6 +341,7 @@
         + '<ol>' + stepsHtml + '</ol>'
         + '<h3>' + h.waitTitle + '</h3><p>' + h.wait + '</p>'
         + '<h3>' + h.accessTitle + '</h3><p>' + h.access + '</p>'
+        + (backendMode === "github" ? '' : '<a class="cms-help-link" href="/admin/index.html?backend=github">' + h.githubTest + '</a>')
         + '<p class="cms-help-note">' + h.langNote + '</p>'
         + '</div>';
 
