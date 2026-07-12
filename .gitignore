@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .design-center-oauth.php
+public/private-config/oauth.php
 
 # Editor directories and files
 .vscode/*

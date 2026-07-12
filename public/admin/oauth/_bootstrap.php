@@ -26,7 +26,17 @@ function dc_oauth_config(): array
     // file outside the public web root that returns the same keys as above.
     $externalConfigPath = dc_oauth_env('DESIGN_CENTER_OAUTH_CONFIG');
     if ($externalConfigPath === '' && !empty($_SERVER['DOCUMENT_ROOT'])) {
-        $externalConfigPath = dirname(rtrim((string) $_SERVER['DOCUMENT_ROOT'], '/')) . '/.design-center-oauth.php';
+        $documentRoot = rtrim((string) $_SERVER['DOCUMENT_ROOT'], '/');
+        $outsideWebRoot = dirname($documentRoot) . '/.design-center-oauth.php';
+        $protectedWebRootFallback = $documentRoot . '/private-config/oauth.php';
+
+        // Prefer storage outside the public web root. Some shared hosts jail their
+        // file manager to DOCUMENT_ROOT, so fall back to a PHP file in a directory
+        // protected by its own .htaccess. A direct PHP request produces no output,
+        // while Apache denies access before execution when overrides are enabled.
+        $externalConfigPath = is_readable($outsideWebRoot)
+            ? $outsideWebRoot
+            : $protectedWebRootFallback;
     }
     if ($externalConfigPath !== '' && is_readable($externalConfigPath)) {
         $externalConfig = require $externalConfigPath;

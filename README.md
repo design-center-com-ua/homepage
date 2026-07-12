@@ -81,7 +81,9 @@ GITHUB_OAUTH_CMS_ORIGIN=https://design-center.com.ua
 GITHUB_OAUTH_SCOPE=public_repo read:user user:email
 ```
 
-If Cityhost does not expose PHP environment variables, upload a file named `.design-center-oauth.php` to the parent `www` directory, outside `www/design-center.com.ua`. The bridge discovers that location automatically. A different absolute location can be selected with `DESIGN_CENTER_OAUTH_CONFIG`.
+If Cityhost does not expose PHP environment variables, the preferred location is a file named `.design-center-oauth.php` in the parent `www` directory, outside `www/design-center.com.ua`. The bridge discovers that location automatically.
+
+If Cityhost's file manager is restricted to the website root, create `private-config/oauth.php` inside the website root instead. The repository deploys `private-config/.htaccess`, which denies every HTTP request to that directory. The PHP configuration file also returns data without printing it, providing a second layer of protection. Never remove or replace that `.htaccess` file. A different absolute location can be selected with `DESIGN_CENTER_OAUTH_CONFIG`.
 
 ```php
 <?php
