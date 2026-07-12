@@ -214,8 +214,6 @@
                 label: t.partnersFile,
                 name: "clients",
                 file: "public/data/clients.json",
-                media_folder: "public/clients",
-                public_folder: "/clients",
                 fields: [
                   {
                     label: t.partnersList,
@@ -224,7 +222,15 @@
                     fields: [
                       { label: t.id, name: "id", widget: "string" },
                       { label: t.partnerName, name: "name", widget: "string" },
-                      { label: t.partnerLogo, name: "imageUrl", widget: "image" }
+                      {
+                        label: t.partnerLogo,
+                        name: "imageUrl",
+                        widget: "image",
+                        // A leading slash makes this repository-root absolute.
+                        // Without it, Decap nests uploads beside clients.json.
+                        media_folder: "/public/clients",
+                        public_folder: "/clients"
+                      }
                     ]
                   }
                 ]
