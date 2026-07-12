@@ -32,7 +32,9 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          timeout: 120000
+          # Cityhost can pause the FTP control channel while processing a larger
+          # incremental upload. Keep the connection alive long enough to finish.
+          timeout: 300000
           # Ensure it deploys to the correct public directory on Cityhost
           # Usually it's public_html or www or the domain name folder. 
           # You might need to change this depending on your Cityhost configuration.
