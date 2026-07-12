@@ -243,8 +243,10 @@
           name: "github",
           repo: "design-center-com-ua/homepage",
           branch: "main",
-          base_url: window.location.origin + "/admin/oauth",
-          auth_endpoint: "auth.php"
+          // Decap validates postMessage event.origin against base_url, so this
+          // must be the origin only; keep the handler path in auth_endpoint.
+          base_url: window.location.origin,
+          auth_endpoint: "admin/oauth/auth.php"
         };
         document.title = "Internal — GitHub";
       } else if (backendMode === "test") {
