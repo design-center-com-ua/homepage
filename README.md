@@ -4,7 +4,7 @@ This repository contains the source code for the new, lightning-fast static webs
 
 The public website is statically generated and does not use WordPress or a traditional database. Content is stored in this GitHub repository and edited through a Decap CMS admin dashboard.
 
-For ownership, credentials, deployment, recovery, and final acceptance, see [HANDOVER.md](HANDOVER.md).
+For ownership, credentials, deployment, recovery, and final acceptance, choose [English](HANDOVER_EN.md) or [Ukrainian](HANDOVER_UK.md). The [handover index](HANDOVER.md) links to both versions.
 
 ---
 
