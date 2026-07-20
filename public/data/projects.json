@@ -1,6 +1,7 @@
 {
   "items": [
     {
+      "published": true,
       "location_uk": "м. Горохів",
       "name_uk": "Дзвінок",
       "description_en": "Manufacturing and installation of composite material frieze and illuminated sign for the Dzvinok retail chain in Horokhiv.",
@@ -12,8 +13,14 @@
       "name_en": "Dzvinok",
       "category": "facades",
       "categoryLabel_uk": "Фасади та вивіски"
+      ,"body_uk": "Виготовлення та монтаж фризу з композитного матеріалу та світлової вивіски для мережі магазинів «Дзвінок».",
+      "body_en": "Manufacturing and installation of a composite-material frieze and illuminated sign for the Dzvinok retail chain.",
+      "imageAlt_uk": "Фасад магазину Дзвінок зі світловою вивіскою",
+      "imageAlt_en": "Dzvinok store facade with illuminated sign",
+      "gallery": []
     },
     {
+      "published": true,
       "location_uk": "смт. Луків",
       "name_uk": "Дизель-Босс",
       "description_en": "Decoration of the Diesel Boss gas station in Lukiv. Aluminum composite panels, illuminated letters, and LED frieze lighting.",
@@ -25,8 +32,14 @@
       "name_en": "Diesel Boss",
       "category": "facades",
       "categoryLabel_uk": "Фасади та вивіски"
+      ,"body_uk": "Оздоблення АЗС «Дизель-Босс»: алюмінієві композитні панелі, світлові літери та LED-підсвітка фризу.",
+      "body_en": "Diesel Boss gas station decoration with aluminium composite panels, illuminated letters, and LED frieze lighting.",
+      "imageAlt_uk": "Оздоблення АЗС Дизель-Босс",
+      "imageAlt_en": "Diesel Boss gas station exterior",
+      "gallery": []
     },
     {
+      "published": true,
       "location_uk": "м. Луцьк",
       "name_uk": "Дах-профіль",
       "description_en": "Facade decoration of the Dakh-profil factory office in Lutsk. Window and entrance group framing with aluminum composite material. Illuminated sign with volumetric letters.",
@@ -38,8 +51,14 @@
       "name_en": "Dakhprofil",
       "category": "facades",
       "categoryLabel_uk": "Фасади та вивіски"
+      ,"body_uk": "Оформлення фасаду офісного приміщення заводу «Дах-профіль» у Луцьку з обрамленням вікон, вхідної групи та світловою вивіскою.",
+      "body_en": "Facade design for the Dakh-profil factory office in Lutsk, including window framing, an entrance group, and an illuminated sign.",
+      "imageAlt_uk": "Фасад офісу Дах-профіль",
+      "imageAlt_en": "Dakh-profil office facade",
+      "gallery": []
     },
     {
+      "published": true,
       "location_uk": "м. Нововолинськ",
       "name_uk": "Парфумер",
       "description_en": "Comprehensive facade decoration of the Parfumer store in Novovolynsk. Installation of a ventilated porcelain stoneware facade. Construction of a composite canopy and frieze. Illuminated signs. Manufacturing and installation of railings.",
@@ -51,8 +70,14 @@
       "name_en": "Parfumer",
       "category": "facades",
       "categoryLabel_uk": "Фасади та вивіски"
+      ,"body_uk": "Комплексне оздоблення фасаду магазину «Парфумер»: вентильований фасад, дашок і фриз з композиту, світлові вивіски та перила.",
+      "body_en": "Comprehensive Parfumer store facade project: ventilated porcelain-stoneware facade, composite canopy and frieze, illuminated signs, and railings.",
+      "imageAlt_uk": "Фасад магазину Парфумер",
+      "imageAlt_en": "Parfumer store facade",
+      "gallery": []
     },
     {
+      "published": true,
       "location_uk": "м. Луцьк",
       "name_uk": "Valeriy Holub Dentistry",
       "description_en": "Decoration of the reception area at Valeriy Holub dentistry in Lutsk. Manufacturing and installation of acrylic letters.",
@@ -64,6 +89,11 @@
       "name_en": "Valeriy Holub Dentistry",
       "category": "interior",
       "categoryLabel_uk": "Інтер'єрне оформлення"
+      ,"body_uk": "Оформлення зони рецепції стоматологічного кабінету Валерія Голуба у Луцьку. Виготовлення та монтаж акрилових літер.",
+      "body_en": "Reception-area design for Valeriy Holub Dentistry in Lutsk, with manufactured and installed acrylic letters.",
+      "imageAlt_uk": "Зона рецепції стоматології Валерія Голуба",
+      "imageAlt_en": "Valeriy Holub Dentistry reception area",
+      "gallery": []
     }
   ]
 }

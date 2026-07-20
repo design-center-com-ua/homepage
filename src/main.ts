@@ -70,6 +70,14 @@ export function setLanguage(lang: 'uk' | 'en') {
   initDynamicProjects();
   initDynamicClients();
   initServiceCategories();
+  document.querySelectorAll<HTMLElement>('[data-project-lang]').forEach(section => {
+    section.hidden = section.dataset.projectLang !== lang;
+  });
+  document.querySelectorAll<HTMLElement>('[data-project-nav-lang]').forEach(section => {
+    section.hidden = section.dataset.projectNavLang !== lang;
+  });
+  const projectName = document.querySelector<HTMLElement>(`[data-project-lang="${lang}"] h1`)?.textContent;
+  if (projectName) document.title = `${projectName} — Design Center`;
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     if (btn.getAttribute('data-lang') === lang) {
@@ -165,73 +173,73 @@ function initMenuDrawer() {
     link.addEventListener('click', () => toggleMenu(false));
   });
 
-  // "Написати нам" / "Зв'язатись з нами" triggers open the drawer with the contact form
+  // Contact CTAs always lead to the dedicated conversion section.
   document.querySelectorAll('.contact-trigger').forEach(trigger => {
     trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      toggleMenu(true);
-      const nameInput = drawer.querySelector<HTMLInputElement>('#form-name');
-      setTimeout(() => nameInput?.focus(), 350);
+      if (window.location.pathname === '/' || window.location.pathname.endsWith('/index.html')) {
+        e.preventDefault();
+        document.querySelector<HTMLElement>('#contact')?.scrollIntoView({ behavior: 'smooth' });
+        window.setTimeout(() => document.querySelector<HTMLInputElement>('[data-contact-name]')?.focus(), 350);
+      }
     });
   });
 }
 
 // ==========================================
-// 3. Contact Form (inside the side drawer)
+// 3. Reusable contact form
 // ==========================================
 function initContactForm() {
-  const form = document.getElementById('contact-form') as HTMLFormElement | null;
-  const successToast = document.getElementById('contact-success-toast');
-  if (!form) return;
-
-  form.addEventListener('submit', async (e) => {
+  document.querySelectorAll<HTMLFormElement>('[data-contact-form]').forEach(form => form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const nameInput = document.getElementById('form-name') as HTMLInputElement;
-    const emailInput = document.getElementById('form-email') as HTMLInputElement;
-    const subjectInput = document.getElementById('form-subject') as HTMLInputElement;
-    const messageInput = document.getElementById('form-message') as HTMLTextAreaElement;
-    const status = document.getElementById('form-status');
+    const nameInput = form.querySelector<HTMLInputElement>('[data-contact-name]');
+    const emailInput = form.querySelector<HTMLInputElement>('[data-contact-email]');
+    const subjectInput = form.querySelector<HTMLInputElement>('[data-contact-subject]');
+    const messageInput = form.querySelector<HTMLTextAreaElement>('[data-contact-message]');
+    const status = form.querySelector<HTMLElement>('[data-contact-status]');
     const honeypot = form.querySelector<HTMLInputElement>('[name="website"]');
 
     let hasError = false;
 
-    [nameInput, emailInput, subjectInput].forEach(input => {
+    [nameInput, emailInput, subjectInput, messageInput].forEach(input => {
       if (input) {
         input.classList.remove('border-red-500');
         input.classList.add('border-zinc-800');
+        input.removeAttribute('aria-invalid');
       }
     });
 
-    if (!nameInput || nameInput.value.trim().length < 2) {
-      nameInput?.classList.add('border-red-500');
+    const invalid = (input: HTMLInputElement | HTMLTextAreaElement | null, valid: boolean) => {
+      if (valid || !input) return false;
+      input.classList.add('border-red-500'); input.setAttribute('aria-invalid', 'true'); return true;
+    };
+    if (invalid(nameInput, !!nameInput && nameInput.value.trim().length >= 2 && nameInput.value.trim().length <= 100)) {
       hasError = true;
     }
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailInput || !emailRegex.test(emailInput.value.trim())) {
-      emailInput?.classList.add('border-red-500');
+    if (invalid(emailInput, !!emailInput && emailRegex.test(emailInput.value.trim()))) {
       hasError = true;
     }
 
-    if (!subjectInput || subjectInput.value.trim().length < 3) {
-      subjectInput?.classList.add('border-red-500');
+    if (invalid(subjectInput, !!subjectInput && subjectInput.value.trim().length >= 3 && subjectInput.value.trim().length <= 200)) {
       hasError = true;
     }
 
-    if (hasError) return;
+    if (invalid(messageInput, !messageInput || messageInput.value.trim().length <= 2000)) hasError = true;
+    if (hasError) { if (status) status.textContent = translate('contact.validation') || 'Please correct the highlighted fields.'; form.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus(); return; }
     if (honeypot?.value) return;
 
-    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    const submitBtn = form.querySelector<HTMLButtonElement>('[data-contact-submit]');
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.style.opacity = '0.5';
     }
 
     const payload = {
-      name: nameInput.value.trim(),
-      email: emailInput.value.trim(),
-      subject: subjectInput.value.trim(),
+      name: nameInput?.value.trim() || '',
+      email: emailInput?.value.trim() || '',
+      subject: subjectInput?.value.trim() || '',
       message: messageInput ? messageInput.value.trim() : '',
       website: honeypot?.value || ''
     };
@@ -255,12 +263,6 @@ function initContactForm() {
         status.textContent = translate('modal.success_desc') || 'Thank you! We will contact you shortly.';
         status.classList.add('text-brand');
       }
-      if (successToast) {
-        successToast.classList.remove('translate-y-24', 'opacity-0');
-        setTimeout(() => {
-          successToast.classList.add('translate-y-24', 'opacity-0');
-        }, 3500);
-      }
     } catch (error) {
       console.error('Error:', error);
       const message = translate('modal.error') || 'Could not send the message. Please try again later.';
@@ -276,7 +278,7 @@ function initContactForm() {
         submitBtn.style.opacity = '1';
       }
     }
-  });
+  }));
 }
 
 // ==========================================
@@ -313,58 +315,72 @@ function initBackToTop() {
   });
 }
 
+function initProjectGalleries() {
+  document.querySelectorAll<HTMLElement>('[data-project-gallery]').forEach(gallery => {
+    const mainImage = gallery.querySelector<HTMLImageElement>('[data-project-main-image]');
+    const thumbnails = Array.from(gallery.querySelectorAll<HTMLButtonElement>('[data-project-thumbnail]'));
+    const strip = gallery.querySelector<HTMLElement>('[data-project-thumbnail-strip]');
+    thumbnails.forEach(thumbnail => thumbnail.addEventListener('click', () => {
+      if (!mainImage) return;
+      mainImage.src = thumbnail.dataset.imageSrc || mainImage.src;
+      mainImage.alt = thumbnail.dataset.imageAlt || mainImage.alt;
+      thumbnails.forEach(item => { item.classList.toggle('is-selected', item === thumbnail); item.setAttribute('aria-pressed', String(item === thumbnail)); });
+    }));
+    if (gallery.dataset.galleryAutoplay !== 'true' || thumbnails.length < 2 || !strip) return;
+    const interval = Math.max(1000, Number(gallery.dataset.galleryInterval) || 5000);
+    let index = 0;
+    window.setInterval(() => {
+      index = (index + 1) % thumbnails.length;
+      thumbnails[index].click();
+      thumbnails[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }, interval);
+  });
+}
+
 // ==========================================
 // 6. Dynamic Project Gallery (CRM: public/data/projects.json)
 //    Rendered in the original portfolio-card style:
 //    image, bold title, italic category/location below.
 // ==========================================
+let projectsCache: ContentRecord[] | null = null;
 async function initDynamicProjects() {
   const container = document.getElementById('dynamic-projects-gallery');
   if (!container) return;
 
   try {
-    const response = await fetch('/data/projects.json');
-    if (!response.ok) throw new Error('Failed to load projects data');
-
-    const data = await response.json();
-    const projects = data.items || data;
+    if (!projectsCache) {
+      const response = await fetch('/data/projects.json');
+      if (!response.ok) throw new Error('Failed to load projects data');
+      const data = await response.json(); projectsCache = data.items || data;
+    }
+    const projects = (projectsCache || []).filter(project => project.published !== false && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(project.id || '')));
     container.innerHTML = '';
 
     projects.forEach((project: ContentRecord) => {
       const name = getLocalizedValue(project, 'name');
-      const category = getLocalizedValue(project, 'categoryLabel');
-      const location = getLocalizedValue(project, 'location');
-      const desc = getLocalizedValue(project, 'description');
       const imageUrl = normalizeMediaUrl(project.imageUrl);
 
       const card = document.createElement('article');
       card.className = 'project-card';
+      const link = document.createElement('a');
+      link.href = `/projects/${encodeURIComponent(String(project.id))}.html`;
+      link.className = 'project-card-link';
 
       const img = document.createElement('img');
       img.src = imageUrl;
-      img.alt = name;
+      img.alt = getLocalizedValue(project, 'imageAlt') || name;
       img.loading = 'lazy';
 
-      const title = document.createElement('h5');
-      title.className = 'project-title';
-      title.textContent = name;
-
-      const categoryEl = document.createElement('p');
-      categoryEl.className = 'project-category';
-      categoryEl.textContent = location ? `${category} / ${location}` : category;
-
-      card.append(img, title, categoryEl);
-
-      if (desc) {
-        const descEl = document.createElement('p');
-        descEl.className = 'project-description';
-        descEl.textContent = desc;
-        card.append(descEl);
-      }
+      const label = document.createElement('span');
+      label.className = 'project-card-overlay';
+      label.textContent = name;
+      link.append(img, label);
+      card.appendChild(link);
       container.appendChild(card);
     });
   } catch (error) {
     console.error('Error loading dynamic projects:', error);
+    container.textContent = translate('project.load_error') || 'Projects could not be loaded. Please try again later.';
   }
 }
 
@@ -471,5 +487,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   highlightActiveNav();
   initBackToTop();
+  initProjectGalleries();
   initLanguageToggle(); // also triggers initDynamicProjects / initDynamicClients
 });

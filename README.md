@@ -2,6 +2,12 @@
 
 This repository contains the source code for the new, lightning-fast static website for **Design Center**.
 
+## Project pages and CRM fields
+
+Published project records in `public/data/projects.json` are generated as static pages at `/projects/{id}.html` during `npm run build`. Keep `id` lowercase, URL-safe, and stable: changing it changes the public URL. Marking `published` false removes the item from the work gallery and generated output.
+
+The work gallery is image-led. Each project page has a large selected image with clickable thumbnails underneath; selecting a thumbnail changes the main image. In Internal, drag gallery items into the desired order. The cover image is first, then gallery images. Editors can enable or disable gallery auto-play and set its interval from 1 to 60 seconds (default: 5 seconds). Complete both language variants for the short description, long Markdown body, cover alt text, and every gallery-image alt text; captions are optional. The dedicated contact page is `/contact.html`.
+
 The public website is statically generated and does not use WordPress or a traditional database. Content is stored in this GitHub repository and edited through a Decap CMS admin dashboard.
 
 For ownership, credentials, deployment, recovery, and final acceptance, choose [English](HANDOVER_EN.md) or [Ukrainian](HANDOVER_UK.md). The [handover index](HANDOVER.md) links to both versions.
@@ -116,6 +122,8 @@ The public status endpoint `/admin/oauth/status.php` reports whether both creden
 ### Local Development
 To run this project on your local machine:
 
+> Node.js 20.19+ or 22.12+ is required.
+
 1. **Install Dependencies:**
    ```bash
    npm ci
@@ -124,6 +132,7 @@ To run this project on your local machine:
    ```bash
    npm run dev
    ```
+   This generates project pages before Vite starts. Use `/projects/{id}.html` to inspect a project page locally.
 3. **Build for Production:**
    ```bash
    npm run build

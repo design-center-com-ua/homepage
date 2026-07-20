@@ -15,6 +15,7 @@ export const translations = {
       about: "Про нас",
       services: "Наші послуги",
       products: "Галерея робіт"
+      ,contact: "Контакти"
     },
     home: {
       hero_subtitle: "ВИРОБНИЦТВО",
@@ -116,6 +117,15 @@ export const translations = {
       success_desc: "Дякуємо! Ми зв'яжемося з вами найближчим часом.",
       sending: "Надсилання…",
       error: "Не вдалося надіслати повідомлення. Спробуйте пізніше або зателефонуйте нам."
+    },
+    contact: {
+      title: "ПОЧНІМО ВАШ ПРОЄКТ",
+      description: "Розкажіть про задачу — ми зв’яжемося найближчим часом.",
+      validation: "Перевірте, будь ласка, позначені поля."
+    },
+    project: {
+      back: "← Галерея робіт",
+      load_error: "Не вдалося завантажити проєкти. Спробуйте пізніше."
     }
   },
   en: {
@@ -134,6 +144,7 @@ export const translations = {
       about: "About Us",
       services: "Our Services",
       products: "Work gallery"
+      ,contact: "Contact"
     },
     home: {
       hero_subtitle: "MANUFACTURING",
@@ -235,6 +246,15 @@ export const translations = {
       success_desc: "Thank you! We will contact you shortly.",
       sending: "Sending…",
       error: "The message could not be sent. Please try again later or call us."
+    },
+    contact: {
+      title: "START YOUR PROJECT",
+      description: "Tell us about your task and we will be in touch shortly.",
+      validation: "Please correct the highlighted fields."
+    },
+    project: {
+      back: "← Work gallery",
+      load_error: "Projects could not be loaded. Please try again later."
     }
   }
 };

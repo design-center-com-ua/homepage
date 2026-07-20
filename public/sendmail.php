@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     // Basic validation
-    if (strlen($name) < 2 || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($subject) < 3) {
+    if (strlen($name) < 2 || strlen($name) > 100 || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($subject) < 3 || strlen($subject) > 200 || strlen($message) > 2000) {
         http_response_code(400);
         echo json_encode(["status" => "error", "message" => "Invalid input data."]);
         exit;

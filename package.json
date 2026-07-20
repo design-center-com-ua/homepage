@@ -7,8 +7,10 @@
     "node": "^20.19.0 || >=22.12.0"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "npm run generate:projects && vite",
+    "generate:projects": "node scripts/generate-project-pages.mjs",
+    "clean:generated": "node -e \"import('node:fs/promises').then(fs => fs.rm('.generated',{recursive:true,force:true}))\"",
+    "build": "npm run generate:projects && tsc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
