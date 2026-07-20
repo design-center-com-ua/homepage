@@ -8,7 +8,9 @@
 
 ## Projects
 
-Projects are edited through Internal → CRM: Projects. Each published item creates `/projects/{id}.html`; do not change the lowercase slug unless the URL should change. Add both-language long text and cover alt text. Gallery images are optional but require alt text in both languages. Publish in Internal and wait for the automatic build.
+Projects are edited through Internal → CRM: Projects. Each published item creates `/projects/{id}.html`; do not change the lowercase slug unless the URL should change. The public work gallery is image-led, and each project page includes a selectable main image with clickable thumbnails below it.
+
+Add the cover image first, then optional gallery images. Drag gallery items in Internal to set their display order. Add alt text in both Ukrainian and English for the cover and each gallery image; captions are optional. Complete both-language long text. Editors can turn gallery auto-play on or off and set its interval to 1–60 seconds (default: 5 seconds). The project page links to the dedicated contact page at `/contact.html`. Publish when ready and wait for the automatic build.
 
 This document summarizes ownership, access, operation, deployment, security, and maintenance of the Design Center website. Replace the placeholders in the credential inventory only inside the client's password manager. Never commit completed passwords, tokens, secrets, or recovery codes to this repository.
 
@@ -204,6 +206,8 @@ If deployment fails:
 For a code rollback, revert the relevant commit through Git and push the new revert commit to `main`. Do not use destructive history rewrites on the deployed branch.
 
 ## 9. Local development
+
+Node.js 20.19+ or 22.12+ is required. `npm run dev` generates project pages before Vite starts; open a project locally at `/projects/{id}.html`.
 
 ```bash
 npm ci
