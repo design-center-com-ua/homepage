@@ -112,6 +112,9 @@
           projectsFile: "Список проєктів",
           projectsList: "Проєкти",
           id: "ID (частина адреси, латиницею, напр. dzvinok)",
+          published: "Опублікований",
+          bodyUk: "Повний текст (українською)", bodyEn: "Повний текст (англійською)",
+          altUk: "Опис фото (українською)", altEn: "Опис фото (англійською)", gallery: "Галерея (необов'язково; перетягуйте елементи для зміни порядку)", captionUk: "Підпис (українською)", captionEn: "Підпис (англійською)", autoplay: "Автопрокрутка галереї", interval: "Інтервал автопрокрутки (секунди)",
           nameUk: "Назва (українською)",
           nameEn: "Назва (англійською)",
           category: "ID категорії (напр. facades, interior)",
@@ -133,6 +136,9 @@
           projectsFile: "Projects List",
           projectsList: "Projects",
           id: "ID (URL slug, e.g. dzvinok)",
+          published: "Published",
+          bodyUk: "Long text (Ukrainian)", bodyEn: "Long text (English)",
+          altUk: "Image description (Ukrainian)", altEn: "Image description (English)", gallery: "Gallery (optional; drag items to arrange them)", captionUk: "Caption (Ukrainian)", captionEn: "Caption (English)", autoplay: "Gallery auto-scroll", interval: "Auto-scroll interval (seconds)",
           nameUk: "Name (Ukrainian)",
           nameEn: "Name (English)",
           category: "Category ID (e.g. facades, interior)",
@@ -182,7 +188,8 @@
                     name: "items",
                     widget: "list",
                     fields: [
-                      { label: t.id, name: "id", widget: "string" },
+                      { label: t.id, name: "id", widget: "string", pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Use lowercase Latin letters, numbers and hyphens only. Changing this changes the page URL."], hint: "Changing this value changes the project URL." },
+                      { label: t.published, name: "published", widget: "boolean", default: true },
                       { label: t.nameUk, name: "name_uk", widget: "string" },
                       { label: t.nameEn, name: "name_en", widget: "string" },
                       { label: t.category, name: "category", widget: "string" },
@@ -192,7 +199,20 @@
                       { label: t.locationEn, name: "location_en", widget: "string" },
                       { label: t.descUk, name: "description_uk", widget: "text" },
                       { label: t.descEn, name: "description_en", widget: "text" },
-                      { label: t.image, name: "imageUrl", widget: "image" }
+                      { label: t.bodyUk, name: "body_uk", widget: "markdown" },
+                      { label: t.bodyEn, name: "body_en", widget: "markdown" },
+                      { label: t.image, name: "imageUrl", widget: "image" },
+                      { label: t.altUk, name: "imageAlt_uk", widget: "string" },
+                      { label: t.altEn, name: "imageAlt_en", widget: "string" },
+                      { label: t.autoplay, name: "galleryAutoplay", widget: "boolean", default: true, required: false },
+                      { label: t.interval, name: "galleryInterval", widget: "number", default: 5, value_type: "int", min: 1, max: 60, required: false },
+                      { label: t.gallery, name: "gallery", widget: "list", required: false, fields: [
+                        { label: t.image, name: "imageUrl", widget: "image" },
+                        { label: t.altUk, name: "alt_uk", widget: "string" },
+                        { label: t.altEn, name: "alt_en", widget: "string" },
+                        { label: t.captionUk, name: "caption_uk", widget: "string", required: false },
+                        { label: t.captionEn, name: "caption_en", widget: "string", required: false }
+                      ] }
                     ]
                   }
                 ]

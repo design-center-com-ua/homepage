@@ -2,6 +2,10 @@
 
 This repository contains the source code for the new, lightning-fast static website for **Design Center**.
 
+## Project pages and CRM fields
+
+Published project records in `public/data/projects.json` are generated as static pages at `/projects/{id}.html` during `npm run build`. Keep `id` lowercase, URL-safe, and stable: changing it changes the public URL. Complete both language variants for the short description, long Markdown body, and cover-image alt text. `gallery` is optional; each image needs Ukrainian and English alt text, while captions are optional. Marking `published` false removes the item from galleries and generated output. In Internal, upload gallery images, complete both languages, then use Publish; the deployment rebuilds pages automatically.
+
 The public website is statically generated and does not use WordPress or a traditional database. Content is stored in this GitHub repository and edited through a Decap CMS admin dashboard.
 
 For ownership, credentials, deployment, recovery, and final acceptance, choose [English](HANDOVER_EN.md) or [Ukrainian](HANDOVER_UK.md). The [handover index](HANDOVER.md) links to both versions.

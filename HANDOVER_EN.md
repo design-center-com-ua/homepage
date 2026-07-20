@@ -6,6 +6,10 @@
 **Client contact:** contact@design-center.com.ua  
 **Handover date:** 13 July 2026
 
+## Projects
+
+Projects are edited through Internal → CRM: Projects. Each published item creates `/projects/{id}.html`; do not change the lowercase slug unless the URL should change. Add both-language long text and cover alt text. Gallery images are optional but require alt text in both languages. Publish in Internal and wait for the automatic build.
+
 This document summarizes ownership, access, operation, deployment, security, and maintenance of the Design Center website. Replace the placeholders in the credential inventory only inside the client's password manager. Never commit completed passwords, tokens, secrets, or recovery codes to this repository.
 
 ## 1. Final system overview
@@ -267,4 +271,3 @@ The core website and administration workflow are operational. Optional SEO work 
 | Analytics receiving data | `[CONFIRMED / YYYY-MM-DD]` |
 | Credential inventory transferred | `[CONFIRMED / YYYY-MM-DD]` |
 | Client acceptance | `[CLIENT NAME / SIGNATURE / DATE]` |
-
