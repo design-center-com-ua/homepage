@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
-import { existsSync, readdirSync, readFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readdirSync, readFileSync, renameSync, rmSync } from 'node:fs'
 
 const generatedProjects = resolve(__dirname, '.generated/projects')
+const projectOutputPrefix = '.generated/projects/'
 const projectInputs = (() => {
   try {
     return Object.fromEntries(readdirSync(generatedProjects)
@@ -27,6 +28,26 @@ export default defineConfig({
           res.setHeader('Content-Type', 'text/html; charset=utf-8');
           res.end(readFileSync(file, 'utf8'));
         });
+      },
+    },
+    {
+      name: 'emit-project-pages-at-public-path',
+      writeBundle(options) {
+        if (!options.dir) throw new Error('Vite output directory is required to emit project pages')
+
+        const generatedOutput = resolve(options.dir, projectOutputPrefix)
+        const publicOutput = resolve(options.dir, 'projects')
+        const projectFiles = existsSync(generatedOutput)
+          ? readdirSync(generatedOutput).filter(file => file.endsWith('.html'))
+          : []
+
+        if (projectFiles.length !== Object.keys(projectInputs).length) {
+          throw new Error(`Expected ${Object.keys(projectInputs).length} generated project pages, found ${projectFiles.length}`)
+        }
+
+        mkdirSync(publicOutput, { recursive: true })
+        for (const file of projectFiles) renameSync(resolve(generatedOutput, file), resolve(publicOutput, file))
+        rmSync(resolve(options.dir, '.generated'), { recursive: true, force: true })
       },
     },
   ],
