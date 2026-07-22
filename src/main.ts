@@ -349,7 +349,7 @@ async function initDynamicProjects() {
 
   try {
     if (!projectsCache) {
-      const response = await fetch('/data/projects.json');
+      const response = await fetch('/data/projects.json', { cache: 'no-store' });
       if (!response.ok) throw new Error('Failed to load projects data');
       const data = await response.json(); projectsCache = data.items || data;
     }
