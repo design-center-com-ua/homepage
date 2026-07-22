@@ -94,35 +94,6 @@
       "name_en": "Valeriy Holub Dentistry",
       "category": "interior",
       "categoryLabel_uk": "Інтер'єрне оформлення"
-    },
-    {
-      "location_uk": "test",
-      "body_en": "test",
-      "imageAlt_uk": "test",
-      "name_uk": "test",
-      "description_en": "test",
-      "published": true,
-      "categoryLabel_en": "test",
-      "gallery": [
-        {
-          "imageUrl": "/data/projects/services.jpg",
-          "alt_uk": "test",
-          "alt_en": "test",
-          "caption_uk": "test",
-          "caption_en": "test"
-        }
-      ],
-      "location_en": "test",
-      "body_uk": "test",
-      "imageUrl": "/data/projects/services-1.jpg",
-      "galleryAutoplay": true,
-      "galleryInterval": 5,
-      "description_uk": "test",
-      "imageAlt_en": "test",
-      "id": "test",
-      "name_en": "test",
-      "category": "test",
-      "categoryLabel_uk": "test"
     }
   ]
 }
