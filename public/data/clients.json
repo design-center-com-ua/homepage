@@ -49,11 +49,6 @@
       "id": "volynpharm",
       "name": "Volynpharm",
       "imageUrl": "/clients/Volynpharm.png"
-    },
-    {
-      "id": "test",
-      "name": "TEST",
-      "imageUrl": "/clients/jpg_test.jpg"
     }
   ]
 }
