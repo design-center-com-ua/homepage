@@ -464,11 +464,11 @@ function initServiceCategories() {
 
     // Sub-item list
     const list = document.createElement('ul');
-    list.className = 'flex flex-col gap-5 md:pl-10';
+    list.className = 'flex flex-col gap-1 md:pl-10';
     cat.items.forEach(item => {
       const li = document.createElement('li');
       const h4 = document.createElement('h4');
-      h4.className = 'text-lg font-medium';
+      h4.className = 'text-lg font-medium leading-snug';
       h4.textContent = item;
       li.appendChild(h4);
       list.appendChild(li);

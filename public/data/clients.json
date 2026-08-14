@@ -1,9 +1,9 @@
 {
   "items": [
     {
-      "id": "autodrive",
-      "name": "AutoDrive",
-      "imageUrl": "/clients/AutoDrive.png"
+      "id": "nova-poshta",
+      "name": "Nova Poshta",
+      "imageUrl": "/clients/Nova Poshta.png"
     },
     {
       "id": "cappuccino",
@@ -26,14 +26,14 @@
       "imageUrl": "/clients/Dnipro-M.png"
     },
     {
+      "id": "volynpharm",
+      "name": "Volynpharm",
+      "imageUrl": "/clients/Volynpharm.png"
+    },
+    {
       "id": "dzvinok",
       "name": "Dzvinok",
       "imageUrl": "/clients/Dzvinok.png"
-    },
-    {
-      "id": "nova-poshta",
-      "name": "Nova Poshta",
-      "imageUrl": "/clients/Nova Poshta.png"
     },
     {
       "id": "protezyst",
@@ -46,9 +46,9 @@
       "imageUrl": "/clients/Ukr-Petrol.png"
     },
     {
-      "id": "volynpharm",
-      "name": "Volynpharm",
-      "imageUrl": "/clients/Volynpharm.png"
+      "id": "autodrive",
+      "name": "AutoDrive",
+      "imageUrl": "/clients/AutoDrive.png"
     }
   ]
 }

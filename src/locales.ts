@@ -2,9 +2,9 @@ export const translations = {
   uk: {
     meta: {
       title_home: "Дизайн Центр — Виробництво вивісок, фасадів та поліграфії у Луцьку",
-      desc_home: "Дизайн Центр пропонує повний спектр послуг з виготовлення та монтажу вивісок, вентильованих фасадів, металоконструкцій та поліграфії. 20 років досвіду у Луцьку.",
+      desc_home: "Дизайн Центр пропонує повний спектр послуг з виготовлення та монтажу вивісок, вентильованих фасадів, металоконструкцій та поліграфії. 25 років досвіду у Луцьку.",
       title_about: "Про нас — Дизайн Центр",
-      desc_about: "Про компанію Дизайн Центр: понад 20 років досвіду у виробництві вивісок, фасадів, металоконструкцій та поліграфії у Луцьку.",
+      desc_about: "Про компанію Дизайн Центр: понад 25 років досвіду у виробництві вивісок, фасадів, металоконструкцій та поліграфії у Луцьку.",
       title_services: "Наші послуги — Дизайн Центр",
       desc_services: "Зовнішня реклама, вентильовані фасади, металоконструкції та поліграфія — повний спектр послуг Дизайн Центру.",
       title_products: "Галерея робіт — Дизайн Центр",
@@ -61,9 +61,9 @@ export const translations = {
       subtitle: "Про компанію",
       title: "ХТО МИ",
       desc1: "Успіх клієнта — наш успіх. Ми прагнемо не лише задовольнити потреби, а й перевершити очікування, крокуючи разом із нашими партнерами до успіху.",
-      desc2: "Протягом понад 20 років ми з великою гордістю пропонуємо нашим клієнтам повний спектр послуг з виготовлення вивісок, фасадів та металоконструкцій, а також розробку та друк поліграфічної продукції. Наші професійні дизайнери та майстри з великим досвідом завжди готові втілити ваші ідеї в реальність з високою якістю та вчасною доставкою.",
+      desc2: "Протягом понад 25 років ми з гордістю пропонуємо нашим клієнтам повний спектр послуг з виготовлення вивісок, фасадів та металоконструкцій, а також розробку та друк поліграфічної продукції. Наші професійні дизайнери та майстри з великим досвідом завжди готові втілити ваші ідеї в реальність з високою якістю та вчасною доставкою.",
       desc3: "Ми пишаємося своєю репутацією та довірою клієнтів у Луцьку та всій Україні, і завжди прагнемо до найвищих стандартів усіх наших робіт.",
-      years_number: "20",
+      years_number: "25",
       years_label: "років досвіду у виробництві реклами"
     },
     services_page: {
@@ -131,9 +131,9 @@ export const translations = {
   en: {
     meta: {
       title_home: "Design Center — Production of signs, facades and printing in Lutsk",
-      desc_home: "Design Center offers a full range of services for the production and installation of signs, ventilated facades, metal structures and printing. 20 years of experience in Lutsk.",
+      desc_home: "Design Center offers a full range of services for the production and installation of signs, ventilated facades, metal structures and printing. 25 years of experience in Lutsk.",
       title_about: "About Us — Design Center",
-      desc_about: "About Design Center: over 20 years of experience producing signs, facades, metal structures and printing in Lutsk.",
+      desc_about: "About Design Center: over 25 years of experience producing signs, facades, metal structures and printing in Lutsk.",
       title_services: "Our Services — Design Center",
       desc_services: "Outdoor advertising, ventilated facades, metal structures and printing — the full range of Design Center services.",
       title_products: "Work Gallery — Design Center",
@@ -190,9 +190,9 @@ export const translations = {
       subtitle: "About the company",
       title: "WHO WE ARE",
       desc1: "The client's success is our success. We strive not only to meet needs but to exceed expectations, walking together with our partners towards success.",
-      desc2: "For over 20 years, we have proudly offered our clients a full range of services in the production of signs, facades and metal structures, as well as the development and printing of printed products. Our professional designers and craftsmen with extensive experience are always ready to turn your ideas into reality with high quality and on-time delivery.",
+      desc2: "For over 25 years, we have proudly offered our clients a full range of services in the production of signs, facades and metal structures, as well as the development and printing of printed products. Our professional designers and craftsmen with extensive experience are always ready to turn your ideas into reality with high quality and on-time delivery.",
       desc3: "We are proud of our reputation and the trust of clients in Lutsk and throughout Ukraine, and always strive for the highest standards in all our work.",
-      years_number: "20",
+      years_number: "25",
       years_label: "years of experience in advertising production"
     },
     services_page: {

@@ -43,7 +43,7 @@ graph TD
 ### Flow B: About the Company & Credentials
 1. **Entry**: User clicks "About Us" in the header menu or footer.
 2. **Who We Are**: User reads about the 20+ years of history, experience, and the Lutsk location.
-3. **Experience Countup**: Scroll-triggered counting animation for "20 років досвіду" (20 years of experience).
+3. **Experience Countup**: Scroll-triggered counting animation for "25 років досвіду" (25 years of experience).
 4. **Team/Founders Section**: User reviews founders/key team cards. Hovering reveals additional details or roles.
 5. **Call to Action**: User clicks the quick-call phone number to request a quote.
 

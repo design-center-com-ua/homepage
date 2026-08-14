@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     // Email Config
-    $to = "contact@design-center.com.ua";
+    $to = "design_office@ukr.net";
     $email_subject = "Новий запит з сайту: $subject";
     
     $email_body = "Ви отримали нове повідомлення з форми на сайті.\n\n";
