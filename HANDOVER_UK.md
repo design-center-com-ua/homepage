@@ -3,7 +3,7 @@
 **Вебсайт:** https://design-center.com.ua  
 **Адмінпанель:** https://design-center.com.ua/admin/  
 **Репозиторій:** https://github.com/design-center-com-ua/homepage  
-**Контакт клієнта:** contact@design-center.com.ua  
+**Контакт клієнта:** design_office@ukr.net\
 **Дата передачі:** 13 липня 2026 року
 
 ## Проєкти
@@ -30,7 +30,7 @@
 Під контролем клієнта мають залишатися:
 
 - GitHub-акаунт і репозиторій: `design-center-com-ua`
-- Основна електронна адреса: `contact@design-center.com.ua`
+- Основна електронна адреса: `design_office@ukr.net`
 - Хостинг Cityhost
 - Реєстратор домену та DNS
 - GitHub OAuth App: `Design Center Internal`

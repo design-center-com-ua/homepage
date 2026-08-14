@@ -3,7 +3,7 @@
 **Website:** https://design-center.com.ua  
 **Admin:** https://design-center.com.ua/admin/  
 **Repository:** https://github.com/design-center-com-ua/homepage  
-**Client contact:** contact@design-center.com.ua  
+**Client contact:** design_office@ukr.net\
 **Handover date:** 13 July 2026
 
 ## Projects
@@ -30,7 +30,7 @@ This document summarizes ownership, access, operation, deployment, security, and
 The following services should remain under client-controlled accounts:
 
 - GitHub account/repository owner: `design-center-com-ua`
-- Primary contact email: `contact@design-center.com.ua`
+- Primary contact email: `design_office@ukr.net`
 - Cityhost hosting account
 - Domain registrar and DNS account
 - GitHub OAuth App: `Design Center Internal`
