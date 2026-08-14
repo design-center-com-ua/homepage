@@ -101,7 +101,7 @@
       "imageAlt_uk": "test",
       "name_uk": "test",
       "description_en": "test",
-      "published": true,
+      "published": false,
       "categoryLabel_en": "test",
       "gallery": [
         {

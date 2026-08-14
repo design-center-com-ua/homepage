@@ -1,70 +1,92 @@
-# User Flow - Design Center Website Reconstruction
+# Design Center Website User Flow
 
-This document outlines the user flow, page structure, and interactive states of the recreated Design Center website, built using HTML, Tailwind CSS (Modern Dark/Zinc aesthetic), and TypeScript.
+This document describes the current public navigation, project discovery, contact flow, language behavior, and editor publishing flow.
 
----
-
-## 1. Site Map & Navigation Hierarchy
+## 1. Site map
 
 ```mermaid
 graph TD
-    Home[Main Page: Home / Головна]
-    Products[Services & Works / Наші роботи]
-    About[About Us / Про нас]
-    ContactModal[Contact Form Modal / Напишіть нам]
+    Home[Home / Головна]
+    About[About / Про нас]
+    Services[Services / Наші послуги]
+    Gallery[Work gallery / Галерея робіт]
+    Project[Project detail / Проєкт]
+    Contact[Contact / Контакти]
+    Internal[Internal / Decap CMS]
 
-    Home -->|Click Nav: Products| Products
-    Home -->|Click Nav: About Us| About
-    Home -->|Click "Всі роботи"| Products
-    Home -->|Click "Зв'язатись з нами"| ContactModal
-
-    Products -->|Click Nav: Home| Home
-    Products -->|Click Nav: About Us| About
-    Products -->|Click Call to Action| ContactModal
-
-    About -->|Click Nav: Home| Home
-    About -->|Click Nav: Products| Products
-    About -->|Click Phone / Call| ContactModal
+    Home --> About
+    Home --> Services
+    Home --> Gallery
+    Home --> Contact
+    Home --> Project
+    Gallery --> Project
+    Project --> Gallery
+    Project --> Contact
+    About --> Contact
+    Services --> Contact
+    Internal --> Gallery
+    Internal --> Project
 ```
 
----
+## 2. Public visitor flows
 
-## 2. Core User Flows
+### A. Discover services and work
 
-### Flow A: Service Discovery & Portfolio Review
-1. **Entry**: User lands on the **Home** page.
-2. **Hero Slide Show**: User views the initial high-quality imagery of signs, facades, printing, and metal structures.
-3. **Services Overview**: User scrolls down to the grid of core categories (Вивіски, Фасади, Металоконструкції, Поліграфія). Hovering reveals micro-animations and descriptions.
-4. **Recent Works Gallery**: User interacts with a visual masonry gallery displaying recent work items. Hovering displays the item title and tag.
-5. **Deeper Dive**: User clicks "Всі роботи" (All Works) or the "Products" navigation link.
-6. **Detailed Services Page**: User reviews subcategories (e.g., entrance groups, welding, POS printing, furniture) and details.
-7. **Action**: User clicks the "Написати нам" (Write to Us) or phone call button.
+1. The visitor lands on the homepage.
+2. They review the service categories and recent project cards.
+3. A service tile opens `/services.html` for the complete localized service lists.
+4. “All works” opens `/products.html`.
+5. Selecting a project card opens `/projects/{id}.html`.
+6. The project page presents the cover image, optional thumbnails, localized description, and previous/next navigation.
+7. The visitor opens `/contact.html` or the homepage contact section to make an inquiry.
 
-### Flow B: About the Company & Credentials
-1. **Entry**: User clicks "About Us" in the header menu or footer.
-2. **Who We Are**: User reads about the 20+ years of history, experience, and the Lutsk location.
-3. **Experience Countup**: Scroll-triggered counting animation for "25 років досвіду" (25 years of experience).
-4. **Team/Founders Section**: User reviews founders/key team cards. Hovering reveals additional details or roles.
-5. **Call to Action**: User clicks the quick-call phone number to request a quote.
+### B. Learn about the company
 
-### Flow C: Client Inquiry / Contact Submission
-1. **Trigger**: User clicks "Зв'язатись з нами", "Написати нам", or "Написати нам" button in the footer/side menu.
-2. **Interaction**: A smooth modal slides/fades into view with a backdrop blur.
-3. **Form Entry**:
-   - User inputs Name (required)
-   - User inputs Email (required)
-   - User inputs Subject (required)
-   - User inputs Message (optional)
-4. **Validation**: TypeScript client-side validator validates fields. Helpful error/success states animate.
-5. **Submission**: User submits the form. A success banner animates, and the modal auto-closes after 2 seconds.
+1. The visitor opens `/about.html`.
+2. They read the company description and 25-year experience statement.
+3. They review the partner-logo grid.
+4. They use the phone link or Contact navigation item to start an inquiry.
 
----
+### C. Submit a contact inquiry
 
-## 3. Interactive States & Micro-animations
+1. The visitor uses the homepage contact section or `/contact.html`.
+2. They enter name, email, subject, and an optional message.
+3. Client-side validation checks required fields and length limits.
+4. The form submits JSON to `/sendmail.php`.
+5. Success or error feedback appears inline without navigating away.
+6. Successful messages are routed to `design_office@ukr.net` with the visitor's email as `Reply-To`.
 
-- **Navbar**: Sticky header changes opacity/size on scroll.
-- **Side Panel Menu**: For mobile/responsive layout, a slide-out hamburger menu with smooth transitions.
-- **Service Cards**: Hovering zooms in target background images and transitions text overlays with lime green (#b6ce01) borders.
-- **Masonry Gallery**: Image scaling/reveal animations when loaded and hovered.
-- **Testimonial Slider**: Auto-rotating carousel with drag/swipe support and fade transitions.
-- **Modal View**: Scale-up and backdrop blur entrance animations.
+The slide-out menu contains navigation only. It links to the dedicated Contact page instead of duplicating the inquiry form.
+
+## 3. Language flow
+
+1. Ukrainian is used by default.
+2. The visitor selects `UA` or `EN` in the header.
+3. Elements with `data-i18n` are replaced from `src/locales.ts`.
+4. Dynamic services and project cards are rendered again in the selected language.
+5. Project detail pages show the matching localized content section.
+6. The preference is saved in browser `localStorage` and reused across pages.
+
+The language toggle does not change the URL. English pages therefore do not currently have separate indexable `/en/` addresses.
+
+## 4. Editor publishing flow
+
+1. An authorized editor opens `/admin/` and signs in with GitHub.
+2. They choose **CRM: Projects** or **CRM: Partners**.
+3. They edit an existing record or add a new one.
+4. Project editors complete Ukrainian and English content, cover alt text, and any gallery-image alt text.
+5. Selecting **Publish** creates a commit directly on `main`.
+6. GitHub Actions installs dependencies, builds the site, and deploys `dist/` to Cityhost.
+7. The editor waits approximately 60–90 seconds and checks the public page.
+
+Unpublished projects remain editable in the CMS but do not appear in public galleries or generated project pages.
+
+## 5. Primary interactive states
+
+- Sticky responsive header and slide-out navigation menu.
+- Ukrainian/English language selection with a persistent preference.
+- Project cards with keyboard-focus and hover states.
+- Project thumbnail selection and optional gallery autoplay.
+- Contact-form validation, sending, success, and error states.
+- Back-to-top control.
+- Bilingual Internal interface and local `?backend=test` CMS sandbox.

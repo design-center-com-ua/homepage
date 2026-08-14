@@ -290,16 +290,19 @@
           button: "Довідка",
           close: "Закрити",
           title: "Як редагувати сайт",
-          intro: "Вам не потрібні знання коду — увесь вміст сайту редагується тут, у панелі «Internal».",
+          intro: "Вам не потрібні знання коду — проєкти та логотипи партнерів редагуються тут, у панелі «Internal».",
           steps: [
             "Ліворуч оберіть «CRM: Проєкти» (роботи в галереї) або «CRM: Партнери» (логотипи партнерів).",
             "Натисніть на «Список …», щоб відкрити наявні записи.",
-            "Редагуйте тексти або завантажуйте нові зображення. Заповнюйте поля і українською, і англійською — сайт двомовний.",
             "Щоб додати новий елемент, натисніть кнопку «Add …» внизу списку.",
+            "Для нового проєкту задайте унікальний ID малими латинськими літерами, цифрами й дефісами. Після публікації не змінюйте ID без потреби — він є частиною адреси сторінки.",
+            "Увімкніть «Опублікований», заповніть українські й англійські поля, додайте обкладинку та alt-тексти. Зображення галереї можна перетягувати; обкладинка завжди показується першою.",
             "Коли завершите — натисніть зелену кнопку «Publish» (Опублікувати) угорі."
           ],
           waitTitle: "Скільки чекати оновлення?",
-          wait: "Після натискання «Publish» зміни зберігаються у GitHub, і сайт автоматично пересобирається. Зачекайте 60–90 секунд, потім оновіть сторінку сайту — і ви побачите зміни.",
+          wait: "Після натискання «Publish» панель створює commit у гілці main на GitHub. GitHub Actions автоматично збирає сайт і завантажує його на Cityhost. Зазвичай це займає 60–90 секунд; після цього оновіть сторінку сайту.",
+          troubleshootTitle: "Якщо зміни не з’явилися",
+          troubleshoot: "Зачекайте дві хвилини й оновіть сторінку ще раз. Потім перевірте GitHub Actions у репозиторії. Для проєкту також відкрийте /projects/ID.html, підставивши його ID. Не натискайте Publish багато разів поспіль — кожне натискання створює новий commit.",
           accessTitle: "Доступ і паролі",
           access: "Увійдіть через особистий обліковий запис GitHub, якому надано право запису до репозиторію design-center-com-ua/homepage. Доступ редакторів керується через Collaborators у GitHub; для кожного редактора використовуйте окремий обліковий запис із двофакторною автентифікацією.",
           langNote: "Мову цієї панелі можна змінити кнопкою УКР | EN у лівому нижньому кутку."
@@ -308,16 +311,19 @@
           button: "Guide",
           close: "Close",
           title: "How to edit the website",
-          intro: "You do not need to know any code — all site content is edited here, in the Internal panel.",
+          intro: "You do not need to know any code — projects and partner logos are edited here, in the Internal panel.",
           steps: [
             "On the left, choose “CRM: Projects” (work gallery items) or “CRM: Partners” (partner logos).",
             "Click the “… List” to open the existing entries.",
-            "Edit text or upload new images. Fill in both the Ukrainian and English fields — the site is bilingual.",
             "To add a new item, click the “Add …” button at the bottom of the list.",
+            "For a new project, enter a unique ID using lowercase Latin letters, numbers, and hyphens. Do not change the ID after publishing unless the page address should change.",
+            "Enable “Published”, complete the Ukrainian and English fields, and add a cover image and alt text. Gallery images can be dragged into order; the cover always appears first.",
             "When you are done, click the green “Publish” button at the top."
           ],
           waitTitle: "How long until it updates?",
-          wait: "After you click “Publish”, the changes are saved to GitHub and the site rebuilds automatically. Wait about 60–90 seconds, then refresh your live website to see the changes.",
+          wait: "After you click “Publish”, the panel creates a commit on GitHub's main branch. GitHub Actions automatically builds the site and uploads it to Cityhost. This normally takes 60–90 seconds; then refresh the live page.",
+          troubleshootTitle: "If the change does not appear",
+          troubleshoot: "Wait two minutes and refresh again, then check GitHub Actions in the repository. For a project, also open /projects/ID.html using its ID. Do not click Publish repeatedly—each click creates another commit.",
           accessTitle: "Access & passwords",
           access: "Sign in with an individual GitHub account that has write access to design-center-com-ua/homepage. Manage editors through GitHub repository collaborators; every editor should use a separate account with two-factor authentication.",
           langNote: "You can change this panel's language with the УКР | EN button in the bottom-left corner."
@@ -341,6 +347,7 @@
         + '<p class="cms-help-intro">' + h.intro + '</p>'
         + '<ol>' + stepsHtml + '</ol>'
         + '<h3>' + h.waitTitle + '</h3><p>' + h.wait + '</p>'
+        + '<h3>' + h.troubleshootTitle + '</h3><p>' + h.troubleshoot + '</p>'
         + '<h3>' + h.accessTitle + '</h3><p>' + h.access + '</p>'
         + '<p class="cms-help-note">' + h.langNote + '</p>'
         + '</div>';

@@ -4,7 +4,7 @@
 **Admin:** https://design-center.com.ua/admin/  
 **Repository:** https://github.com/design-center-com-ua/homepage  
 **Client contact:** design_office@ukr.net\
-**Handover date:** 13 July 2026
+**Handover date:** 14 August 2026
 
 ## Projects
 
@@ -19,8 +19,11 @@ This document summarizes ownership, access, operation, deployment, security, and
 - The public website is a static Vite site built from HTML, CSS, and TypeScript.
 - Projects and partner logos are stored as JSON and image files in GitHub.
 - Editors manage this content through Decap CMS at `/admin/`.
+- Decap CMS writes JSON and uploaded images directly to the `main` branch through the GitHub API; each publication is a normal Git commit.
 - Admin authentication uses the client-owned GitHub account and a GitHub OAuth App.
 - The OAuth code exchange is handled by a small PHP bridge on Cityhost.
+- The production build validates every published project and generates `dist/projects/{id}.html`.
+- Public galleries load the project JSON with `cache: "no-store"` so a fresh page load sees the latest deployed records.
 - GitHub Actions builds the site and deploys `dist/` to Cityhost over FTP.
 - Netlify is no longer used by the website or admin panel.
 - Google Analytics measurement ID: `G-Y4FJ8HHW7L`.
@@ -136,7 +139,7 @@ Do not place secret values in the workflow file. The workflow builds with Node.j
 7. Select **Publish**.
 8. Wait approximately 60–90 seconds, then refresh the public website.
 
-Publishing creates a GitHub commit and triggers the Cityhost deployment automatically. The GitHub Actions result is visible at:
+Publishing creates a GitHub commit directly on `main` and triggers the Cityhost deployment automatically. The GitHub Actions result is visible at:
 
 https://github.com/design-center-com-ua/homepage/actions
 
@@ -190,10 +193,12 @@ Expected response:
 
 Normal deployment:
 
-1. A commit reaches `main`.
-2. GitHub Actions runs `npm ci` and `npm run build`.
-3. The generated `dist/` directory is synchronized to Cityhost by FTP.
-4. Verify the public site and `/admin/` after deployment.
+1. Decap CMS updates `public/data/projects.json` or `public/data/clients.json` and commits uploaded images with the record.
+2. The commit reaches `main` and triggers `.github/workflows/deploy.yml`.
+3. GitHub Actions runs `npm ci` and `npm run build`.
+4. The project generator validates published records and creates `dist/projects/{id}.html`.
+5. The generated `dist/` directory is synchronized to Cityhost by FTP.
+6. Verify the public site and `/admin/` after deployment.
 
 If deployment fails:
 
@@ -202,6 +207,16 @@ If deployment fails:
 3. A Cityhost `control socket` or `ETIMEDOUT` error normally indicates temporary FTP connectivity; retry the workflow after confirming FTP access.
 4. Check that `FTP_SERVER`, `FTP_USERNAME`, and `FTP_PASSWORD` remain valid.
 5. Never print secrets into workflow logs.
+
+If a published project does not appear:
+
+1. Confirm the CMS commit exists on `main`.
+2. Confirm the latest GitHub Actions deployment succeeded.
+3. Check the live `/data/projects.json` for the record.
+4. Check `/projects/{id}.html` directly.
+5. If the JSON is current and the page exists but the gallery card is missing, inspect browser errors and confirm the project feed still uses `cache: "no-store"`.
+
+A missing GitHub record indicates a CMS, permission, or OAuth problem. A failed workflow indicates a build or FTP problem. Current JSON with a 404 project page indicates a generated-output problem.
 
 For a code rollback, revert the relevant commit through Git and push the new revert commit to `main`. Do not use destructive history rewrites on the deployed branch.
 
@@ -252,12 +267,10 @@ Review provider pricing and terms periodically because third-party services can 
 
 ## 12. Optional future improvements
 
-The core website and administration workflow are operational. Optional SEO work not required for normal operation includes:
+The core website and administration workflow are operational. Generated project pages already include canonical URLs, Open Graph metadata, and `CreativeWork` structured data. Remaining optional SEO work includes:
 
 - `robots.txt`
 - `sitemap.xml`
-- canonical URLs
-- Open Graph/social-sharing metadata
 - `LocalBusiness` structured data
 - Search Console registration
 - separate indexable URLs for the English-language version
@@ -266,12 +279,12 @@ The core website and administration workflow are operational. Optional SEO work 
 
 | Check | Status/date |
 |---|---|
-| Public pages reviewed | `[CONFIRMED / YYYY-MM-DD]` |
-| Mobile layout reviewed | `[CONFIRMED / YYYY-MM-DD]` |
-| GitHub admin login tested | `[CONFIRMED / YYYY-MM-DD]` |
-| Project publish tested | `[CONFIRMED / YYYY-MM-DD]` |
-| Partner upload tested | `[CONFIRMED / YYYY-MM-DD]` |
-| Cityhost deployment tested | `[CONFIRMED / YYYY-MM-DD]` |
-| Analytics receiving data | `[CONFIRMED / YYYY-MM-DD]` |
-| Credential inventory transferred | `[CONFIRMED / YYYY-MM-DD]` |
-| Client acceptance | `[CLIENT NAME / SIGNATURE / DATE]` |
+| Public pages reviewed | Local release candidate reviewed — 14 August 2026 |
+| Mobile layout reviewed | Pending final live check |
+| GitHub admin login tested | Pending production check |
+| Project publish tested | Pending production check |
+| Partner upload tested | Pending production check |
+| Cityhost deployment tested | Pending after merge to `main` |
+| Analytics receiving data | Pending live validation |
+| Credential inventory transferred | Pending client confirmation |
+| Client acceptance | Pending |
