@@ -4,7 +4,7 @@
 **Адмінпанель:** https://design-center.com.ua/admin/  
 **Репозиторій:** https://github.com/design-center-com-ua/homepage  
 **Контакт клієнта:** design_office@ukr.net\
-**Дата передачі:** 13 липня 2026 року
+**Дата передачі:** 14 серпня 2026 року
 
 ## Проєкти
 
@@ -19,8 +19,11 @@
 - Публічний вебсайт — статичний сайт на Vite, створений за допомогою HTML, CSS і TypeScript.
 - Проєкти та логотипи партнерів зберігаються у GitHub як JSON-файли та зображення.
 - Редактори керують вмістом через Decap CMS за адресою `/admin/`.
+- Decap CMS через GitHub API записує JSON і завантажені зображення безпосередньо до гілки `main`; кожна публікація є звичайним Git commit.
 - Для входу використовується клієнтський GitHub-акаунт і GitHub OAuth App.
 - Обмін OAuth-коду виконує PHP-модуль на Cityhost.
+- Production-збірка перевіряє кожен опублікований проєкт і створює `dist/projects/{id}.html`.
+- Публічні галереї завантажують JSON проєктів із `cache: "no-store"`, тому після оновлення сторінки показують найновіші розгорнуті записи.
 - GitHub Actions збирає сайт і завантажує `dist/` на Cityhost через FTP.
 - Netlify більше не використовується вебсайтом або адмінпанеллю.
 - Google Analytics Measurement ID: `G-Y4FJ8HHW7L`.
@@ -136,7 +139,7 @@ Workflow розгортання: `.github/workflows/deploy.yml`. У **Settings �
 7. Натисніть **Publish**.
 8. Зачекайте приблизно 60–90 секунд і оновіть сайт.
 
-Публікація створює commit у GitHub і запускає розгортання на Cityhost. Стан розгортання:
+Публікація створює commit безпосередньо в `main` і запускає розгортання на Cityhost. Стан розгортання:
 
 https://github.com/design-center-com-ua/homepage/actions
 
@@ -190,10 +193,12 @@ https://design-center.com.ua/admin/oauth/status.php
 
 Нормальне розгортання:
 
-1. Commit потрапляє до `main`.
-2. GitHub Actions виконує `npm ci` і `npm run build`.
-3. `dist/` синхронізується з Cityhost через FTP.
-4. Після розгортання перевіряються сайт і `/admin/`.
+1. Decap CMS оновлює `public/data/projects.json` або `public/data/clients.json` і додає завантажені зображення до того самого commit.
+2. Commit потрапляє до `main` і запускає `.github/workflows/deploy.yml`.
+3. GitHub Actions виконує `npm ci` і `npm run build`.
+4. Генератор перевіряє опубліковані записи і створює `dist/projects/{id}.html`.
+5. `dist/` синхронізується з Cityhost через FTP.
+6. Після розгортання перевіряються сайт і `/admin/`.
 
 Якщо розгортання не вдалося:
 
@@ -202,6 +207,16 @@ https://design-center.com.ua/admin/oauth/status.php
 3. `control socket` або `ETIMEDOUT` зазвичай означає тимчасову проблему FTP; повторіть workflow після перевірки доступу.
 4. Перевірте `FTP_SERVER`, `FTP_USERNAME` і `FTP_PASSWORD`.
 5. Не виводьте секрети в журнали workflow.
+
+Якщо опублікований проєкт не з’явився:
+
+1. Переконайтеся, що CMS commit існує в `main`.
+2. Переконайтеся, що останнє розгортання GitHub Actions успішне.
+3. Знайдіть запис у публічному `/data/projects.json`.
+4. Відкрийте `/projects/{id}.html` безпосередньо.
+5. Якщо JSON актуальний і сторінка існує, але картки в галереї немає, перевірте помилки браузера та наявність `cache: "no-store"` для завантаження списку проєктів.
+
+Відсутність запису в GitHub означає проблему CMS, прав доступу або OAuth. Невдалий workflow означає проблему збірки чи FTP. Актуальний JSON разом із 404 сторінки проєкту означає проблему згенерованого output.
 
 Для повернення попередньої версії створіть revert потрібного commit і надішліть новий commit до `main`. Не переписуйте історію гілки деструктивними командами.
 
@@ -252,12 +267,10 @@ http://localhost:5173/admin/index.html?backend=test
 
 ## 12. Необов’язкові покращення
 
-Основний сайт і адмінпанель працюють. До необов’язкових SEO-покращень належать:
+Основний сайт і адмінпанель працюють. Згенеровані сторінки проєктів уже мають canonical URL, Open Graph metadata і структуровані дані `CreativeWork`. До решти необов’язкових SEO-покращень належать:
 
 - `robots.txt`
 - `sitemap.xml`
-- canonical URL
-- Open Graph і метадані соціальних мереж
 - структуровані дані `LocalBusiness`
 - Google Search Console
 - окремі індексовані URL англійської версії
@@ -266,12 +279,12 @@ http://localhost:5173/admin/index.html?backend=test
 
 | Перевірка | Статус/дата |
 |---|---|
-| Перевірено публічні сторінки | `[CONFIRMED / YYYY-MM-DD]` |
-| Перевірено мобільну версію | `[CONFIRMED / YYYY-MM-DD]` |
-| Перевірено вхід через GitHub | `[CONFIRMED / YYYY-MM-DD]` |
-| Перевірено публікацію проєкту | `[CONFIRMED / YYYY-MM-DD]` |
-| Перевірено завантаження партнера | `[CONFIRMED / YYYY-MM-DD]` |
-| Перевірено розгортання на Cityhost | `[CONFIRMED / YYYY-MM-DD]` |
-| Google Analytics отримує дані | `[CONFIRMED / YYYY-MM-DD]` |
-| Передано облікові дані | `[CONFIRMED / YYYY-MM-DD]` |
-| Приймання клієнтом | `[CLIENT NAME / SIGNATURE / DATE]` |
+| Перевірено публічні сторінки | Локальну release candidate перевірено — 14 серпня 2026 року |
+| Перевірено мобільну версію | Очікує фінальної перевірки на live-сайті |
+| Перевірено вхід через GitHub | Очікує production-перевірки |
+| Перевірено публікацію проєкту | Очікує production-перевірки |
+| Перевірено завантаження партнера | Очікує production-перевірки |
+| Перевірено розгортання на Cityhost | Очікує merge до `main` |
+| Google Analytics отримує дані | Очікує live-перевірки |
+| Передано облікові дані | Очікує підтвердження клієнта |
+| Приймання клієнтом | Очікує підтвердження |

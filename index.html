@@ -251,7 +251,7 @@
 
     <script type="module" src="/src/main.ts"></script>
 
-    <!-- Side Menu Drawer (matches original: black 550px panel with logo, menu, contact form) -->
+    <!-- Side Menu Drawer -->
     <div id="mobile-menu" aria-hidden="true" inert class="fixed inset-y-0 right-0 w-full max-w-[550px] bg-black text-white z-[100] transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col">
       <div class="px-10 md:px-[84px] pt-8 flex justify-end">
         <button id="mobile-menu-close" aria-label="Close menu" class="p-2 -mr-4 text-zinc-400 hover:text-white transition-colors">
@@ -266,45 +266,8 @@
           <a href="/about.html" class="nav-link !text-white hover:!text-brand" data-i18n="nav.about">Про нас</a>
           <a href="/services.html" class="nav-link !text-white hover:!text-brand" data-i18n="nav.services">Наші послуги</a>
           <a href="/products.html" class="nav-link !text-white hover:!text-brand" data-i18n="nav.products">Галерея робіт</a>
+          <a href="/contact.html" class="nav-link !text-white hover:!text-brand" data-i18n="nav.contact">Контакти</a>
         </nav>
-
-        <!-- Contact form (posts to /sendmail.php) -->
-        <form id="contact-form" name="contact" method="POST" action="/sendmail.php" class="flex flex-col gap-5" novalidate>
-          <p class="hidden">
-            <label>Do not fill this out: <input name="website" tabindex="-1" autocomplete="off" /></label>
-          </p>
-          <div>
-            <label for="form-name" class="block text-body text-sm mb-1" data-i18n="modal.name">Ваше ім'я</label>
-            <input type="text" id="form-name" name="name" required class="w-full bg-transparent border border-zinc-800 focus:border-brand p-2.5 text-sm text-white focus:outline-none transition-colors" />
-          </div>
-          <div>
-            <label for="form-email" class="block text-body text-sm mb-1" data-i18n="modal.email">Електронна адреса</label>
-            <input type="email" id="form-email" name="email" required class="w-full bg-transparent border border-zinc-800 focus:border-brand p-2.5 text-sm text-white focus:outline-none transition-colors" />
-          </div>
-          <div>
-            <label for="form-subject" class="block text-body text-sm mb-1" data-i18n="modal.subject">Тема звернення</label>
-            <input type="text" id="form-subject" name="subject" required class="w-full bg-transparent border border-zinc-800 focus:border-brand p-2.5 text-sm text-white focus:outline-none transition-colors" />
-          </div>
-          <div>
-            <label for="form-message" class="block text-body text-sm mb-1" data-i18n="modal.message">Повідомлення (необов'язково)</label>
-            <textarea id="form-message" name="message" rows="4" class="w-full bg-transparent border border-zinc-800 focus:border-brand p-2.5 text-sm text-white focus:outline-none transition-colors resize-none"></textarea>
-          </div>
-          <p id="form-status" class="text-xs"></p>
-          <div>
-            <button type="submit" class="dc-btn" data-i18n="modal.submit">Надіслати</button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <!-- Success Toast -->
-    <div id="contact-success-toast" class="fixed bottom-8 right-8 z-[110] bg-zinc-900 border-l-4 border-brand text-white p-4 shadow-xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-500">
-      <div class="w-8 h-8 rounded-full bg-brand/10 text-brand flex items-center justify-center shrink-0">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-      </div>
-      <div>
-        <h4 class="font-bold text-sm text-white" data-i18n="modal.success_title">Успішно надіслано!</h4>
-        <p class="text-xs text-zinc-400 mt-0.5" data-i18n="modal.success_desc">Дякуємо! Ми зв'яжемося з вами найближчим часом.</p>
       </div>
     </div>
 
