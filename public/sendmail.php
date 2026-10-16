@@ -1,14 +1,18 @@
 <?php
 // sendmail.php
 
+header('Cache-Control: no-store');
+
 function contact_response($code, $status, $message) {
     $content_type = strtolower(trim(explode(';', $_SERVER['CONTENT_TYPE'] ?? '')[0]));
-    $native_form = in_array($content_type, ['application/x-www-form-urlencoded', 'multipart/form-data'], true);
-    $accepts_html = strpos($_SERVER['HTTP_ACCEPT'] ?? '', 'text/html') !== false;
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && $native_form && $accepts_html) {
-        // Older cached pages and browsers without JS must not land on raw JSON.
+    $wants_json = $content_type === 'application/json' || strpos(strtolower($_SERVER['HTTP_ACCEPT'] ?? ''), 'application/json') !== false;
+    $navigation = ($_SERVER['HTTP_SEC_FETCH_MODE'] ?? '') === 'navigate' || ($_SERVER['HTTP_SEC_FETCH_DEST'] ?? '') === 'document';
+    if ($navigation || !$wants_json) {
+        // JSON is opt-in: native forms must work even without an HTML Accept header.
         $result = $status === 'success' ? 'success' : ($code === 400 ? 'invalid' : 'error');
-        header('Location: /contact.html?contact=' . $result, true, 303);
+        $location = '/contact.html';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') $location .= '?contact=' . $result;
+        header('Location: ' . $location, true, 303);
     } else {
         header("Content-Type: application/json; charset=UTF-8");
         http_response_code($code);

@@ -233,7 +233,10 @@ function initContactForm() {
   // Delegation also covers older drawer markup and forms added after initialization.
   document.addEventListener('submit', async (e) => {
     const form = e.target;
-    if (!(form instanceof HTMLFormElement) || !form.matches('[data-contact-form], form[action="/sendmail.php"]')) return;
+    if (!(form instanceof HTMLFormElement)) return;
+    const action = new URL(form.action, window.location.href);
+    const isContactEndpoint = action.origin === window.location.origin && action.pathname === '/sendmail.php';
+    if (!form.matches('[data-contact-form]') && !isContactEndpoint) return;
     e.preventDefault();
     if (pending.has(form)) return;
 
