@@ -8,6 +8,8 @@ This document defines the structured data formats used client-side for portfolio
 
 This schema validates the data entered by the user in the contact form before submission.
 
+The endpoint `POST /sendmail.php` accepts JSON, URL-encoded form submissions, and multipart form submissions. All supplied fields must be strings. Length limits use UTF-16 code units, matching JavaScript and HTML `maxlength`, rather than UTF-8 bytes. Email content is plain text and is not HTML-escaped before validation.
+
 ### Data Interface (TypeScript)
 ```typescript
 interface ContactInquiry {
@@ -15,13 +17,14 @@ interface ContactInquiry {
   email: string;     // Required, must match valid email regex pattern
   subject: string;   // Required, length 3-200 characters
   message?: string;  // Optional, max length 2000 characters
+  website?: string;  // Honeypot; real visitors must leave this empty
 }
 ```
 
 ### Validation Rules
-- **name**: `trim().length >= 2`
+- **name**: trimmed length 2–100
 - **email**: `/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)`
-- **subject**: `trim().length >= 3`
+- **subject**: trimmed length 3–200
 - **message**: `length <= 2000`
 
 ---

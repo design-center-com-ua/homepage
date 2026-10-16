@@ -189,14 +189,15 @@ function initMenuDrawer() {
 // 3. Reusable contact form
 // ==========================================
 function initContactForm() {
-  document.querySelectorAll<HTMLFormElement>('[data-contact-form]').forEach(form => form.addEventListener('submit', async (e) => {
+  // Older deployed pages also contain a drawer form without data-contact attributes.
+  document.querySelectorAll<HTMLFormElement>('[data-contact-form], form[action="/sendmail.php"]').forEach(form => form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const nameInput = form.querySelector<HTMLInputElement>('[data-contact-name]');
-    const emailInput = form.querySelector<HTMLInputElement>('[data-contact-email]');
-    const subjectInput = form.querySelector<HTMLInputElement>('[data-contact-subject]');
-    const messageInput = form.querySelector<HTMLTextAreaElement>('[data-contact-message]');
-    const status = form.querySelector<HTMLElement>('[data-contact-status]');
+    const nameInput = form.querySelector<HTMLInputElement>('[name="name"]');
+    const emailInput = form.querySelector<HTMLInputElement>('[name="email"]');
+    const subjectInput = form.querySelector<HTMLInputElement>('[name="subject"]');
+    const messageInput = form.querySelector<HTMLTextAreaElement>('[name="message"]');
+    const status = form.querySelector<HTMLElement>('[data-contact-status], #form-status');
     const honeypot = form.querySelector<HTMLInputElement>('[name="website"]');
 
     let hasError = false;
@@ -230,7 +231,7 @@ function initContactForm() {
     if (hasError) { if (status) status.textContent = translate('contact.validation') || 'Please correct the highlighted fields.'; form.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus(); return; }
     if (honeypot?.value) return;
 
-    const submitBtn = form.querySelector<HTMLButtonElement>('[data-contact-submit]');
+    const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.style.opacity = '0.5';
@@ -256,7 +257,8 @@ function initContactForm() {
         body: JSON.stringify(payload)
       });
 
-      if (!response.ok) throw new Error('Server error');
+      const result = await response.json();
+      if (!response.ok || result.status !== 'success') throw new Error('Server error');
 
       form.reset();
       if (status) {

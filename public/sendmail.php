@@ -3,15 +3,41 @@
 
 header("Content-Type: application/json; charset=UTF-8");
 
+function invalid_input() {
+    http_response_code(400);
+    echo json_encode(["status" => "error", "message" => "Invalid input data."]);
+    exit;
+}
+
+// Match JavaScript String.length and HTML maxlength without requiring mbstring.
+function input_length($value) {
+    $characters = preg_match_all('/./us', $value);
+    if ($characters === false) invalid_input();
+    return $characters + preg_match_all('/[\x{10000}-\x{10FFFF}]/u', $value);
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Parse JSON payload
-    $data = json_decode(file_get_contents("php://input"), true);
-    
-    // Sanitize input
-    $name = htmlspecialchars(strip_tags(trim($data["name"] ?? '')));
-    $email = filter_var(trim($data["email"] ?? ''), FILTER_SANITIZE_EMAIL);
-    $subject = str_replace(["\r", "\n"], ' ', htmlspecialchars(strip_tags(trim($data["subject"] ?? ''))));
-    $message = htmlspecialchars(strip_tags(trim($data["message"] ?? '')));
+    // Support both fetch JSON and native browser form submissions.
+    $content_type = strtolower(trim(explode(';', $_SERVER['CONTENT_TYPE'] ?? '')[0]));
+    if ($content_type === 'application/json') {
+        $payload = json_decode(file_get_contents("php://input"));
+        if (!is_object($payload) || json_last_error() !== JSON_ERROR_NONE) invalid_input();
+        $data = (array) $payload;
+    } elseif ($content_type === 'application/x-www-form-urlencoded' || $content_type === 'multipart/form-data') {
+        $data = $_POST;
+    } else {
+        invalid_input();
+    }
+
+    foreach (['name', 'email', 'subject', 'message', 'website'] as $field) {
+        if (array_key_exists($field, $data) && !is_string($data[$field])) invalid_input();
+    }
+
+    // The email is plain text: HTML escaping changes both content and length.
+    $name = trim($data["name"] ?? '');
+    $email = trim($data["email"] ?? '');
+    $subject = str_replace(["\r", "\n"], ' ', trim($data["subject"] ?? ''));
+    $message = trim($data["message"] ?? '');
     $website = trim($data["website"] ?? '');
 
     if (!empty($website)) {
@@ -21,10 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     // Basic validation
-    if (strlen($name) < 2 || strlen($name) > 100 || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($subject) < 3 || strlen($subject) > 200 || strlen($message) > 2000) {
-        http_response_code(400);
-        echo json_encode(["status" => "error", "message" => "Invalid input data."]);
-        exit;
+    if (input_length($name) < 2 || input_length($name) > 100 || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) || input_length($subject) < 3 || input_length($subject) > 200 || input_length($message) > 2000) {
+        invalid_input();
     }
     
     // Email Config
