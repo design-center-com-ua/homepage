@@ -1,7 +1,8 @@
 import './style.css';
 import { translations } from './locales';
 
-const storedLang = localStorage.getItem('lang');
+let storedLang: string | null = null;
+try { storedLang = localStorage.getItem('lang'); } catch { /* Storage may be disabled. */ }
 let currentLang: 'uk' | 'en' = storedLang === 'en' ? 'en' : 'uk';
 
 type ContentRecord = Record<string, unknown>;
@@ -27,6 +28,8 @@ function initGoogleAnalytics() {
   gtag('config', measurementId);
 }
 
+// Capture submissions immediately, independently of menu and gallery setup.
+initContactForm();
 initGoogleAnalytics();
 
 function getLocalizedValue(item: ContentRecord, key: string) {
@@ -43,7 +46,7 @@ function normalizeMediaUrl(value: unknown) {
 
 export function setLanguage(lang: 'uk' | 'en') {
   currentLang = lang;
-  localStorage.setItem('lang', lang);
+  try { localStorage.setItem('lang', lang); } catch { /* Keep the language for this visit. */ }
   document.documentElement.lang = lang;
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -188,10 +191,51 @@ function initMenuDrawer() {
 // ==========================================
 // 3. Reusable contact form
 // ==========================================
+let snackbarTimer: number | undefined;
+function showContactSnackbar(message: string, state: 'success' | 'error' | 'sending') {
+  let snackbar = document.querySelector<HTMLElement>('#contact-snackbar');
+  if (!snackbar) {
+    snackbar = document.createElement('div');
+    snackbar.id = 'contact-snackbar';
+    snackbar.className = 'contact-snackbar';
+    const text = document.createElement('span');
+    text.setAttribute('role', 'status');
+    text.setAttribute('aria-live', 'polite');
+    text.setAttribute('aria-atomic', 'true');
+    snackbar.appendChild(text);
+    const dismiss = document.createElement('button');
+    dismiss.type = 'button';
+    dismiss.textContent = '×';
+    dismiss.addEventListener('click', () => { snackbar!.hidden = true; });
+    snackbar.appendChild(dismiss);
+    document.body.appendChild(snackbar);
+  }
+  window.clearTimeout(snackbarTimer);
+  snackbar.hidden = false;
+  snackbar.dataset.state = state;
+  snackbar.querySelector('span')!.textContent = message;
+  snackbar.querySelector('button')!.setAttribute('aria-label', translate('contact.dismiss') || 'Dismiss notification');
+  if (state === 'success') snackbarTimer = window.setTimeout(() => { snackbar!.hidden = true; }, 8000);
+}
+
+function showContactReturnStatus() {
+  const url = new URL(window.location.href);
+  const result = url.searchParams.get('contact');
+  if (!['success', 'invalid', 'error'].includes(result || '')) return;
+  const key = result === 'success' ? 'modal.success_desc' : result === 'invalid' ? 'contact.validation' : 'modal.error';
+  showContactSnackbar(translate(key) || 'Please try again.', result === 'success' ? 'success' : 'error');
+  url.searchParams.delete('contact');
+  window.history.replaceState(window.history.state, '', url);
+}
+
 function initContactForm() {
-  // Older deployed pages also contain a drawer form without data-contact attributes.
-  document.querySelectorAll<HTMLFormElement>('[data-contact-form], form[action="/sendmail.php"]').forEach(form => form.addEventListener('submit', async (e) => {
+  const pending = new WeakSet<HTMLFormElement>();
+  // Delegation also covers older drawer markup and forms added after initialization.
+  document.addEventListener('submit', async (e) => {
+    const form = e.target;
+    if (!(form instanceof HTMLFormElement) || !form.matches('[data-contact-form], form[action="/sendmail.php"]')) return;
     e.preventDefault();
+    if (pending.has(form)) return;
 
     const nameInput = form.querySelector<HTMLInputElement>('[name="name"]');
     const emailInput = form.querySelector<HTMLInputElement>('[name="email"]');
@@ -228,9 +272,16 @@ function initContactForm() {
     }
 
     if (invalid(messageInput, !messageInput || messageInput.value.trim().length <= 2000)) hasError = true;
-    if (hasError) { if (status) status.textContent = translate('contact.validation') || 'Please correct the highlighted fields.'; form.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus(); return; }
+    if (hasError) {
+      const message = translate('contact.validation') || 'Please correct the highlighted fields.';
+      if (status) status.textContent = message;
+      showContactSnackbar(message, 'error');
+      form.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus();
+      return;
+    }
     if (honeypot?.value) return;
 
+    pending.add(form);
     const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
     if (submitBtn) {
       submitBtn.disabled = true;
@@ -249,11 +300,12 @@ function initContactForm() {
       status.textContent = translate('modal.sending') || 'Sending…';
       status.classList.remove('text-red-500', 'text-brand');
     }
+    showContactSnackbar(translate('modal.sending') || 'Sending…', 'sending');
 
     try {
       const response = await fetch(form.getAttribute('action') || '/sendmail.php', {
         method: form.getAttribute('method') || 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload)
       });
 
@@ -261,6 +313,7 @@ function initContactForm() {
       if (!response.ok || result.status !== 'success') throw new Error('Server error');
 
       form.reset();
+      showContactSnackbar(translate('modal.success_desc') || 'Thank you! We will contact you shortly.', 'success');
       if (status) {
         status.textContent = translate('modal.success_desc') || 'Thank you! We will contact you shortly.';
         status.classList.add('text-brand');
@@ -271,16 +324,16 @@ function initContactForm() {
       if (status) {
         status.textContent = message;
         status.classList.add('text-red-500');
-      } else {
-        alert(message);
       }
+      showContactSnackbar(message, 'error');
     } finally {
+      pending.delete(form);
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.style.opacity = '1';
       }
     }
-  }));
+  }, true);
 }
 
 // ==========================================
@@ -484,11 +537,13 @@ function initServiceCategories() {
 // ==========================================
 // Initialize on DOM Content Loaded
 // ==========================================
-document.addEventListener('DOMContentLoaded', () => {
+function initPage() {
   initMenuDrawer();
-  initContactForm();
   highlightActiveNav();
   initBackToTop();
   initProjectGalleries();
   initLanguageToggle(); // also triggers initDynamicProjects / initDynamicClients
-});
+  showContactReturnStatus();
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initPage, { once: true });
+else initPage();

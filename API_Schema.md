@@ -10,6 +10,8 @@ This schema validates the data entered by the user in the contact form before su
 
 The endpoint `POST /sendmail.php` accepts JSON, URL-encoded form submissions, and multipart form submissions. All supplied fields must be strings. Length limits use UTF-16 code units, matching JavaScript and HTML `maxlength`, rather than UTF-8 bytes. Email content is plain text and is not HTML-escaped before validation.
 
+JavaScript submits JSON asynchronously and displays sending, success, or error feedback in a dismissible snackbar without navigating. Native form POSTs accepting `text/html` receive a `303` redirect to `/contact.html?contact=success`, `invalid`, or `error`; the contact page displays the corresponding snackbar and removes the query parameter. API clients continue to receive JSON with the appropriate HTTP status.
+
 ### Data Interface (TypeScript)
 ```typescript
 interface ContactInquiry {

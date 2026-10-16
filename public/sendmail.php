@@ -1,12 +1,24 @@
 <?php
 // sendmail.php
 
-header("Content-Type: application/json; charset=UTF-8");
+function contact_response($code, $status, $message) {
+    $content_type = strtolower(trim(explode(';', $_SERVER['CONTENT_TYPE'] ?? '')[0]));
+    $native_form = in_array($content_type, ['application/x-www-form-urlencoded', 'multipart/form-data'], true);
+    $accepts_html = strpos($_SERVER['HTTP_ACCEPT'] ?? '', 'text/html') !== false;
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && $native_form && $accepts_html) {
+        // Older cached pages and browsers without JS must not land on raw JSON.
+        $result = $status === 'success' ? 'success' : ($code === 400 ? 'invalid' : 'error');
+        header('Location: /contact.html?contact=' . $result, true, 303);
+    } else {
+        header("Content-Type: application/json; charset=UTF-8");
+        http_response_code($code);
+        echo json_encode(["status" => $status, "message" => $message]);
+    }
+    exit;
+}
 
 function invalid_input() {
-    http_response_code(400);
-    echo json_encode(["status" => "error", "message" => "Invalid input data."]);
-    exit;
+    contact_response(400, 'error', 'Invalid input data.');
 }
 
 // Match JavaScript String.length and HTML maxlength without requiring mbstring.
@@ -41,9 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $website = trim($data["website"] ?? '');
 
     if (!empty($website)) {
-        http_response_code(200);
-        echo json_encode(["status" => "success", "message" => "Message sent."]);
-        exit;
+        contact_response(200, 'success', 'Message sent.');
     }
     
     // Basic validation
@@ -68,14 +78,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Send email
     if (mail($to, $email_subject, $email_body, $headers)) {
-        http_response_code(200);
-        echo json_encode(["status" => "success", "message" => "Message sent."]);
+        contact_response(200, 'success', 'Message sent.');
     } else {
-        http_response_code(500);
-        echo json_encode(["status" => "error", "message" => "Failed to send email."]);
+        contact_response(500, 'error', 'Failed to send email.');
     }
 } else {
-    http_response_code(405);
-    echo json_encode(["status" => "error", "message" => "Method not allowed."]);
+    contact_response(405, 'error', 'Method not allowed.');
 }
 ?>

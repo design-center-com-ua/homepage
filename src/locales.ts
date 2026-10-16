@@ -121,7 +121,8 @@ export const translations = {
     contact: {
       title: "ПОЧНІМО ВАШ ПРОЄКТ",
       description: "Розкажіть про задачу — ми зв’яжемося найближчим часом.",
-      validation: "Перевірте, будь ласка, позначені поля."
+      validation: "Перевірте, будь ласка, позначені поля.",
+      dismiss: "Закрити сповіщення"
     },
     project: {
       back: "← Галерея робіт",
@@ -250,7 +251,8 @@ export const translations = {
     contact: {
       title: "START YOUR PROJECT",
       description: "Tell us about your task and we will be in touch shortly.",
-      validation: "Please correct the highlighted fields."
+      validation: "Please correct the highlighted fields.",
+      dismiss: "Dismiss notification"
     },
     project: {
       back: "← Work gallery",
